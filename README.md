@@ -1,5 +1,5 @@
 ### Client sources
- Here, you can find the client sources in Wonderland Library.
+ You can find the client sources from Wonderland Library here.
 
 #### Sources
 - 3arthh4ck 1.0.0
