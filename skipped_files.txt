@@ -1,0 +1,15 @@
+C:\Users\User\Documents\GitHub\client-sources\sources\Atani 0.0.3\de\florianmichael\vialoadingbase\netty
+C:\Users\User\Documents\GitHub\client-sources\sources\Atani 0.0.3\tech\atani\client\utility\render\lwjgl
+C:\Users\User\Documents\GitHub\client-sources\sources\Augustus b2.6\me\gong\mcleaks\util\google
+C:\Users\User\Documents\GitHub\client-sources\sources\Corrosion 2.0.0\cafe\corrosion\util\json
+C:\Users\User\Documents\GitHub\client-sources\sources\Cupid 0.1\de\gerrygames\viarewind\netty
+C:\Users\User\Documents\GitHub\client-sources\sources\DietrichPaul's ClientBase\src\main\java\de\dietrichpaul\clientbase\config\ext\json
+C:\Users\User\Documents\GitHub\client-sources\sources\Dirket\shadersmod
+C:\Users\User\Documents\GitHub\client-sources\sources\Echo 1.0\Full\dev\echo\other\de\florianmichael\vialoadingbase\netty
+C:\Users\User\Documents\GitHub\client-sources\sources\Gothaj 3.01b Alpha\de\florianmichael\viamcp
+C:\Users\User\Documents\GitHub\client-sources\sources\Pandaware 0.4.3\dev\africa\pandaware\utils\math\apache
+C:\Users\User\Documents\GitHub\client-sources\sources\Pulsive 5.0\club\pulsive\impl\util\math\apache
+C:\Users\User\Documents\GitHub\client-sources\sources\VeteranHack 3.7\org\spongepowered\tools\obfuscation\mapping\mcp
+C:\Users\User\Documents\GitHub\client-sources\sources\WWE (old Intertia)\org\spongepowered\asm\obfuscation\mapping\mcp
+C:\Users\User\Documents\GitHub\client-sources\sources\WWE (old Intertia)\org\spongepowered\tools\obfuscation\mcp
+C:\Users\User\Documents\GitHub\client-sources\sources\WWE (old Intertia)\org\spongepowered\tools\obfuscation\mapping\mcp

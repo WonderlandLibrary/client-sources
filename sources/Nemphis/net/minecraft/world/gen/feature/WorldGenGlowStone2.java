@@ -1,0 +1,54 @@
+/*
+ * Decompiled with CFR 0_118.
+ */
+package net.minecraft.world.gen.feature;
+
+import java.util.Random;
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.WorldGenerator;
+
+public class WorldGenGlowStone2
+extends WorldGenerator {
+    private static final String __OBFID = "CL_00000413";
+
+    @Override
+    public boolean generate(World worldIn, Random p_180709_2_, BlockPos p_180709_3_) {
+        if (!worldIn.isAirBlock(p_180709_3_)) {
+            return false;
+        }
+        if (worldIn.getBlockState(p_180709_3_.offsetUp()).getBlock() != Blocks.netherrack) {
+            return false;
+        }
+        worldIn.setBlockState(p_180709_3_, Blocks.glowstone.getDefaultState(), 2);
+        int var4 = 0;
+        while (var4 < 1500) {
+            BlockPos var5 = p_180709_3_.add(p_180709_2_.nextInt(8) - p_180709_2_.nextInt(8), p_180709_2_.nextInt(12), p_180709_2_.nextInt(8) - p_180709_2_.nextInt(8));
+            if (worldIn.getBlockState(var5).getBlock().getMaterial() == Material.air) {
+                int var6 = 0;
+                EnumFacing[] var7 = EnumFacing.values();
+                int var8 = var7.length;
+                int var9 = 0;
+                while (var9 < var8) {
+                    EnumFacing var10 = var7[var9];
+                    if (worldIn.getBlockState(var5.offset(var10)).getBlock() == Blocks.glowstone) {
+                        ++var6;
+                    }
+                    if (var6 > 1) break;
+                    ++var9;
+                }
+                if (var6 == 1) {
+                    worldIn.setBlockState(var5, Blocks.glowstone.getDefaultState(), 2);
+                }
+            }
+            ++var4;
+        }
+        return true;
+    }
+}
+

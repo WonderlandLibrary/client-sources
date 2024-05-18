@@ -1,0 +1,17 @@
+***************
+*** 108,114 ****
+  
+           j = Math.min(j, Math.min(textureatlassprite.func_94211_a(), textureatlassprite.func_94216_b()));
+           int lvt_11_2_ = Math.min(Integer.lowestOneBit(textureatlassprite.func_94211_a()), Integer.lowestOneBit(textureatlassprite.func_94216_b()));
+-          if(lvt_11_4_ < k) {
+              field_147635_d.warn("Texture {} with size {}x{} limits mip level from {} to {}", new Object[]{resourcelocation, Integer.valueOf(textureatlassprite.func_94211_a()), Integer.valueOf(textureatlassprite.func_94216_b()), Integer.valueOf(MathHelper.func_151239_c(k)), Integer.valueOf(MathHelper.func_151239_c(lvt_11_2_))});
+              k = lvt_11_2_;
+           }
+--- 108,114 ----
+  
+           j = Math.min(j, Math.min(textureatlassprite.func_94211_a(), textureatlassprite.func_94216_b()));
+           int lvt_11_2_ = Math.min(Integer.lowestOneBit(textureatlassprite.func_94211_a()), Integer.lowestOneBit(textureatlassprite.func_94216_b()));
++          if(lvt_11_2_ < k) {
+              field_147635_d.warn("Texture {} with size {}x{} limits mip level from {} to {}", new Object[]{resourcelocation, Integer.valueOf(textureatlassprite.func_94211_a()), Integer.valueOf(textureatlassprite.func_94216_b()), Integer.valueOf(MathHelper.func_151239_c(k)), Integer.valueOf(MathHelper.func_151239_c(lvt_11_2_))});
+              k = lvt_11_2_;
+           }

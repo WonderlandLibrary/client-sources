@@ -1,0 +1,33 @@
+***************
+*** 1,5 ****
+  package net.minecraft.src;
+  
+  import java.io.InputStream;
+  import net.minecraft.src.MusInputStream;
+  import paulscode.sound.codecs.CodecJOrbis;
+--- 1,6 ----
+  package net.minecraft.src;
+  
++ import java.io.IOException;
+  import java.io.InputStream;
+  import net.minecraft.src.MusInputStream;
+  import paulscode.sound.codecs.CodecJOrbis;
+***************
+*** 7,12 ****
+  public class CodecMus extends CodecJOrbis {
+  
+     protected InputStream openInputStream() {
+-       return new MusInputStream(this, this.url, this.urlConnection.getInputStream());
+     }
+  }
+--- 8,17 ----
+  public class CodecMus extends CodecJOrbis {
+  
+     protected InputStream openInputStream() {
++       try {
++          return new MusInputStream(this, this.url, this.urlConnection.getInputStream());
++       } catch (IOException e) {
++          return null;
++       }
+     }
+  }

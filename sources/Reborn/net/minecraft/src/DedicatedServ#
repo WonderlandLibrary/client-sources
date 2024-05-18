@@ -1,0 +1,17 @@
+***************
+*** 207,213 ****
+        System.exit(0);
+     }
+  
+-    protected void func_71190_q() {
+        super.func_71190_q();
+        this.func_71333_ah();
+     }
+--- 207,213 ----
+        System.exit(0);
+     }
+  
++    public void func_71190_q() {
+        super.func_71190_q();
+        this.func_71333_ah();
+     }

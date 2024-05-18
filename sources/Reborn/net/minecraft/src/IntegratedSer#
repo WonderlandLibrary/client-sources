@@ -1,0 +1,17 @@
+***************
+*** 142,148 ****
+        return true;
+     }
+  
+-    protected void func_71217_p() {
+        boolean var1 = this.field_71348_o;
+        this.field_71348_o = this.field_71347_n.func_71752_f();
+        if(!var1 && this.field_71348_o) {
+--- 142,148 ----
+        return true;
+     }
+  
++    public void func_71217_p() {
+        boolean var1 = this.field_71348_o;
+        this.field_71348_o = this.field_71347_n.func_71752_f();
+        if(!var1 && this.field_71348_o) {

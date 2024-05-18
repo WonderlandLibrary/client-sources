@@ -1,0 +1,33 @@
+{
+  "required": true,
+  "compatibilityLevel": "JAVA_8",
+  "package": "com.veteran.hack.mixin.client",
+  "refmap": "mixins.kami.refmap.json",
+  "client": [
+    "MixinAbstractClientPlayer",
+    "MixinBlockLiquid",
+    "MixinBlockSoulSand",
+    "MixinBlockWeb",
+    "MixinC00Handshake",
+    "MixinChunkCache",
+    "MixinEntity",
+    "MixinEntityLlama",
+    "MixinEntityPig",
+    "MixinEntityPlayerSP",
+    "MixinGuiChat",
+    "MixinGuiNewChat",
+    "MixinGuiPlayerTabOverlay",
+    "MixinGuiScreen",
+    "MixinLayerArmorBase",
+    "MixinMinecraft",
+    "MixinModelBoat",
+    "MixinNetHandlerPlayClient",
+    "MixinNetworkManager",
+    "MixinPlayerControllerMP",
+    "MixinRenderLiving",
+    "MixinRenderPlayer",
+    "MixinStateImplementation",
+    "MixinFrustum",
+    "MixinVisGraph"
+  ]
+}

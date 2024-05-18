@@ -1,0 +1,44 @@
+package net.minecraft.block.material;
+
+public class MaterialLiquid extends Material
+{
+    public MaterialLiquid(final MapColor mapColor) {
+        super(mapColor);
+        this.setReplaceable();
+        this.setNoPushMobility();
+    }
+    
+    @Override
+    public boolean isLiquid() {
+        return " ".length() != 0;
+    }
+    
+    @Override
+    public boolean blocksMovement() {
+        return "".length() != 0;
+    }
+    
+    private static String I(final String s, final String s2) {
+        final StringBuilder sb = new StringBuilder();
+        final char[] charArray = s2.toCharArray();
+        int length = "".length();
+        final char[] charArray2 = s.toCharArray();
+        final int length2 = charArray2.length;
+        int i = "".length();
+        while (i < length2) {
+            sb.append((char)(charArray2[i] ^ charArray[length % charArray.length]));
+            ++length;
+            ++i;
+            "".length();
+            if (3 != 3) {
+                throw null;
+            }
+        }
+        return sb.toString();
+    }
+    
+    @Override
+    public boolean isSolid() {
+        return "".length() != 0;
+    }
+}
