@@ -1,0 +1,17 @@
+{
+  "command.bind.add": "Bound %s to %s.",
+  "command.bind.remove": "Unbound everything from %s.",
+  "command.bind.list": "Bound to %s:",
+  "command.friend.add": "You have made a friendship with %s.",
+  "command.friend.remove": "You have ended the friendship with %s.",
+  "command.friend.list": "Friends:",
+  "command.help.page": "Page %s/%s.",
+  "command.help.page.missing": "Page %s does not exist.",
+  "command.help.usages": "Usages:",
+  "command.property.set": "%s was set to %s.",
+  "command.property.equals": "%s equals %s.",
+  "command.property.add": "Added %s to %s.",
+  "command.property.remove": "Removed %s from %s.",
+  "command.property.contains": "%s contains:",
+  "bullet_point": "• %s"
+}

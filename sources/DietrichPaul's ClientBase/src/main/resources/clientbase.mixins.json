@@ -1,0 +1,38 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "de.dietrichpaul.clientbase.injection.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "client": [
+    "base.MinecraftClientMixin",
+    "base.render.MinecraftClientMixin",
+    "click.MinecraftClientMixin",
+    "command.ChatInputSuggestorMixin",
+    "command.ChatScreenMixin",
+    "event.ClientPlayerEntityMixin",
+    "event.ClientPlayNetworkHandlerMixin",
+    "event.EntityMixin",
+    "event.GameRendererMixin",
+    "event.InGameHudMixin",
+    "event.KeyBindingMixin",
+    "event.KeyboardInputMixin",
+    "event.KeyboardMixin",
+    "event.LivingEntityMixin",
+    "event.MinecraftClientMixin",
+    "hack.AbstractBlockMixin",
+    "hack.BlockModelRendererMixin",
+    "hack.PlayerMoveC2SPacketMixin",
+    "hack.PlayerMoveC2SPacketMixin$IAccessor",
+    "inventory.MinecraftClientMixin",
+    "rotation.GameRendererMixin",
+    "rotation.LivingEntityRendererMixin",
+    "rotation.PlayerEntityMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "mixins": [
+    "event.ClientConnectionMixin",
+    "inventory.ClientPlayerInteractionManagerMixin"
+  ]
+}

@@ -35,6 +35,7 @@
 - Debug 1.2.6
 - Deluge 0.23
 - Diablo 2.1
+- DietrichPaul's ClientBase
 - DineTire 2
 - Dortware 1.0
 - Dortware 1.5.0
