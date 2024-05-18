@@ -3,6 +3,7 @@
 
 #### Sources
 - 3arthh4ck 1.0.0
+- Alpha Centauri B6
 - Apple 2.67
 - Aqua Beta
 - Aquatic 1.0
@@ -14,21 +15,25 @@
 - Atani 0.0.3
 - AtField 1.3
 - Augustus b2.6
+- Aurora
 - Autumn 1.0.0
 - Azura X 06042022
 - Blizzard b1
 - Bloomware
+- Bope 3.2
 - Cake 1.8
 - Capybara Premium 1.0
+- Catalyst
 - Celestial Premium 6.0
-- Centauri B6
 - Cheatware 1
+- Cherry 0.3
 - Claudius 1.0
 - CloverHook 829
 - Clowdy Lite
 - Cookie 1.01
 - Cookie 1.04
 - Corrosion 2.0.0
+- Crest 1.7
 - CrossSine B34
 - Cupid 0.1
 - Dawn 0.0.1
@@ -37,11 +42,14 @@
 - Diablo 2.1
 - DietrichPaul's ClientBase
 - DineTire 2
+- Dirket
 - Dortware 1.0
 - Dortware 1.5.0
 - DrainWalk 1.0
 - DreamCore b161021
 - Echo 1.0
+- Edictum
+- Eject v3
 - Envy 0.3
 - ETB 0.6
 - ETB Reload 0.1
@@ -57,6 +65,7 @@
 - Fan v4
 - Fanta v13
 - Faurax
+- Faygo
 - Felix 030121
 - Fluid
 - Flush 0.9
@@ -71,6 +80,8 @@
 - Graphite 042823
 - Hanabi 3.1
 - Helium 11121
+- Hera
+- Horizon
 - Hush B4
 - Ice B10
 - Invasion 0.3 Beta
@@ -81,12 +92,18 @@
 - Jigsaw OLD 0.26
 - Juul 1.0
 - Kami Blue 2.04.01
+- Karaguc
 - Ket 1.0
 - Ketamine v5.7
 - Kevin Reborn
+- Kilo
+- Kirka
 - Koks v3
 - Koks v4
 - KyinoSense 17.1
+- Laby v6
+- LabyMod 2.7.78
+- LabyMod 2.8.05
 - Lambda 3.4.0
 - Lavish 1
 - Legacy 1.1.2
@@ -105,11 +122,13 @@
 - Lucid 0.89
 - Luna 13.0.7
 - Massacre 210819
+- Meme 8
 - Memeware 7.3
 - Method 1.0.2
 - Minced
 - Minced Free 1.0
 - Mint B1
+- Monix
 - Monsoon 1.2
 - Monsoon 1.3
 - Moonsense v1.00
@@ -117,20 +136,25 @@
 - MoonX
 - Mystra 1.0.1
 - MythicX 1.1
+- Nemphis
 - NeverHook 1.4
 - Nightmare b1
 - Nivia B3
 - North
 - November
+- Numb b1
 - Ohareware 6.9
 - Old-Novoline
 - Old-Raze
+- One2
 - Pandaware 0.4.3
 - Phobos 1.9.0
 - Polaris B14
 - Postman 3.001
 - PowerClient 0.2
 - Prestige
+- Prion
+- Protocol
 - Pulsive 5.0
 - Radium v1.4.0
 - Rainbow 2.0
@@ -140,8 +164,10 @@
 - RavenWeave
 - Raze 2.0
 - Reality b2
+- Reborn
 - RedStar 2.0
 - RektSky B5
+- Resilience
 - Resolute 211026
 - Rise 5.89
 - Rise 5.90
@@ -159,10 +185,12 @@
 - Sigma Nextgen
 - Skullhack
 - SkyLine B28
+- Slice v15
 - Slowly b12.3
 - Spectrum 0.0.1
 - Spicy
 - Splash 028620
+- Squad
 - Straightware
 - Strife
 - Sudo b0.5
@@ -170,6 +198,7 @@
 - Summer Reborn 3.0
 - Swift Developer Alpha
 - Tank V4
+- Tea
 - Tenacity 5.1
 - Tenacity 6.0
 - Thea b1
@@ -177,12 +206,15 @@
 - ThunderHack Recode
 - Tired NextGen
 - Tomato 0.2
+- Triton
 - Trivia B1
 - Umbrella 1.3
+- Uzi
 - Vanity
 - Venus Recode 0.2.0
 - Vestige 2.0
 - Vestige 3.0
+- VeteranHack 3.7
 - vika
 - Violence b1.26
 - Virgin b0.9.5
@@ -191,9 +223,14 @@
 - WeepCraft 0.2
 - WintWare
 - Wurst Plus 2
+- WWE (old Intertia)
 - Xatz 0.9b1
+- Xdolf 1.2.2
 - Xenza B9
+- XIV
 - Xulu 1.5.2
+- Xulu 2.1
+- YSK
 
 #### Contributing
 - Put your name (preferably your github username) in the ``contributors.list`` file if you haven't already done so in a previous commit.
