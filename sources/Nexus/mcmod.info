@@ -1,0 +1,18 @@
+[
+    {
+        "modid": "nexus",
+        "name": "Nexus Client",
+        "description": "cheaters get banned. im not banned so im not cheater..",
+        "version": "v69420",
+        "url": "",
+        "updateUrl": "",
+        "authorList": [
+            "sigmaclientwastaken",
+            "Kv"
+        ],
+        "credits": "forge devs, for suicidal thoughts\nthe shared braincell of the arsenic dev discord",
+        "logoFile": "",
+        "screenshots": [],
+        "dependencies": []
+    }
+]

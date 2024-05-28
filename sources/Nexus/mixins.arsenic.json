@@ -1,0 +1,42 @@
+{
+  "required": true,
+  "package": "arsenic.injection",
+  "refmap": "mixins.arsenic.refmap.json",
+  "compatibilityLevel": "JAVA_8",
+  "client": [
+    "accessor.IMixinEntityPlayerSP",
+    "accessor.IMixinKeyBinding",
+    "accessor.IMixinMinecraft",
+    "accessor.IMixinPlayerControllerMp",
+    "accessor.IMixinRenderManager",
+    "mixin.MixinGuiMainMenuGuiMultiplayerGuiServerList",
+    "accessor.IMixinTimer",
+    "mixin.MixinEntity",
+    "mixin.MixinEntityLivingBase",
+    "mixin.MixinEntityPlayerSP",
+    "mixin.MixinEntityRenderer",
+    "mixin.MixinFontRenderer",
+    "mixin.MixinGui",
+    "mixin.MixinGuiChat",
+    "mixin.MixinGuiContainer",
+    "mixin.MixinGuiIngame",
+    "mixin.MixinGuiScreen",
+    "mixin.MixinGuiSpectator",
+    "mixin.MixinItemRenderer",
+    "mixin.MixinMinecraft",
+    "mixin.MixinMovementInputFromOptions",
+    "mixin.MixinNetworkManager",
+    "mixin.MixinRendererLivingEntity",
+    "mixin.MixinSessionTemp"
+  ],
+  "mixins": [
+    "GuiAccessor",
+    "mixin.MixinNetworkManager_5",
+    "accessor.IMixinC02PacketUseEntity",
+    "accessor.IMixinItemSword",
+    "accessor.IMixinS12PacketEntityVelocity",
+    "mixin.MixinEntityPlayer",
+    "mixin.MixinItemTool",
+    "mixin.MixinWorld"
+  ]
+}

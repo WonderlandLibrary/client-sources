@@ -138,6 +138,7 @@
 - MythicX 1.1
 - Nemphis
 - NeverHook 1.4
+- Nexus
 - Nightmare b1
 - Nivia B3
 - North
@@ -212,6 +213,7 @@
 - Uzi
 - Vanity
 - Venus Recode 0.2.0
+- Vertic
 - Vestige 2.0
 - Vestige 3.0
 - VeteranHack 3.7
