@@ -170,6 +170,7 @@
 - RektSky B5
 - Resilience
 - Resolute 211026
+- Rise 5.100r3
 - Rise 5.89
 - Rise 5.90
 - Rise 5.98
