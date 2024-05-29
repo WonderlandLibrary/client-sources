@@ -201,6 +201,7 @@
 - Swift Developer Alpha
 - Tank V4
 - Tea
+- Tenacity 4.0
 - Tenacity 5.1
 - Tenacity 6.0
 - Thea b1
