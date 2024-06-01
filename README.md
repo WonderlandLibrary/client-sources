@@ -153,6 +153,7 @@
 - Pandaware 0.4.3
 - Phobos 1.9.0
 - Polaris B14
+- Polarware
 - Postman 3.001
 - PowerClient 0.2
 - Prestige
@@ -198,6 +199,7 @@
 - Straightware
 - Strife
 - Sudo b0.5
+- Suku
 - Summer 5.0
 - Summer Reborn 3.0
 - Swift Developer Alpha
