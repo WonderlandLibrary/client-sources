@@ -3,6 +3,7 @@
 
 #### Sources
 - 3arthh4ck 1.0.0
+- Actinium
 - Alpha Centauri B6
 - Apple 2.67
 - Aqua Beta
@@ -50,6 +51,7 @@
 - Echo 1.0
 - Edictum
 - Eject v3
+- Electron
 - Envy 0.3
 - ETB 0.6
 - ETB Reload 0.1
