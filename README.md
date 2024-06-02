@@ -1,7 +1,7 @@
-### Client sources
+# Client sources
  You can find the client sources from Wonderland Library here.
 
-#### Sources
+### Sources
 - 3arthh4ck 1.0.0
 - Actinium
 - Alpha Centauri B6
@@ -241,7 +241,7 @@
 - Xulu 2.1
 - YSK
 
-#### Contributing
+### Contributing
 - Put your name (preferably your github username) in the ``contributors.list`` file if you haven't already done so in a previous commit.
 - Run the ``generate-readme.py`` script.
 - Create a pull request and wait for approval.
