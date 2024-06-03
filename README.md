@@ -191,6 +191,7 @@
 - Sigma Nextgen
 - Skullhack
 - SkyLine B28
+- Sleek
 - Slice v15
 - Slowly b12.3
 - Spectrum 0.0.1
