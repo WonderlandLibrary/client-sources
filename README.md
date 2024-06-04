@@ -53,6 +53,7 @@
 - Eject v3
 - Electron
 - Envy 0.3
+- ETB 0.1
 - ETB 0.6
 - ETB Reload 0.1
 - Eternal 3.0

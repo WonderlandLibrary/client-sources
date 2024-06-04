@@ -13,3 +13,11 @@ C:\Users\User\Documents\GitHub\client-sources\sources\VeteranHack 3.7\org\sponge
 C:\Users\User\Documents\GitHub\client-sources\sources\WWE (old Intertia)\org\spongepowered\asm\obfuscation\mapping\mcp
 C:\Users\User\Documents\GitHub\client-sources\sources\WWE (old Intertia)\org\spongepowered\tools\obfuscation\mcp
 C:\Users\User\Documents\GitHub\client-sources\sources\WWE (old Intertia)\org\spongepowered\tools\obfuscation\mapping\mcp
+C:\Users\markuss\Documents\GitHub\client-sources\sources\Atani 0.0.3\tech\atani\client\utility\render\lwjgl
+C:\Users\markuss\Documents\GitHub\client-sources\sources\Augustus b2.6\me\gong\mcleaks\util\google
+C:\Users\markuss\Documents\GitHub\client-sources\sources\Pandaware 0.4.3\dev\africa\pandaware\utils\math\apache
+C:\Users\markuss\Documents\GitHub\client-sources\sources\Pulsive 5.0\club\pulsive\impl\util\math\apache
+C:\Users\markuss\Documents\GitHub\client-sources\sources\VeteranHack 3.7\org\spongepowered\tools\obfuscation\mapping\mcp
+C:\Users\markuss\Documents\GitHub\client-sources\sources\WWE (old Intertia)\org\spongepowered\asm\obfuscation\mapping\mcp
+C:\Users\markuss\Documents\GitHub\client-sources\sources\WWE (old Intertia)\org\spongepowered\tools\obfuscation\mcp
+C:\Users\markuss\Documents\GitHub\client-sources\sources\WWE (old Intertia)\org\spongepowered\tools\obfuscation\mapping\mcp
