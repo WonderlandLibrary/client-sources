@@ -139,6 +139,7 @@
 - Lune v0.39
 - Lycoris 1.0
 - Lycoris 2.0
+- Mark's ClientBase
 - Massacre 210819
 - Mega 1.2.0
 - Meme 8
