@@ -102,6 +102,7 @@
 - Kevin Reborn
 - Kilo
 - Kirka
+- Koks v1
 - Koks v3
 - Koks v4
 - KyinoSense 17.1
