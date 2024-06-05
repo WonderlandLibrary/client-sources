@@ -1,0 +1,8 @@
+package net;
+
+import net.a2t;
+import net.bD;
+
+public final class adO {
+   public static final a2t a = bD.a.a(28);
+}

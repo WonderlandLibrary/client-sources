@@ -5,6 +5,7 @@
 - 3arthh4ck 1.0.0
 - Actinium
 - Alpha Centauri B6
+- Alphentus 1D
 - Apple 2.67
 - Aqua Beta
 - Aquatic 1.0
@@ -21,6 +22,7 @@
 - Azura X 06042022
 - Blizzard b1
 - Bloomware
+- Boomerware 6.9
 - Bope 3.2
 - Cake 1.8
 - Capybara Premium 1.0
@@ -35,12 +37,15 @@
 - Cookie 1.04
 - Corrosion 2.0.0
 - Crest 1.7
+- Crispy B3.67, V2.0
 - CrossSine B34
 - Cupid 0.1
+- CZF B13
 - Dawn 0.0.1
 - Debug 1.2.6
 - Deluge 0.23
 - Diablo 2.1
+- Diablo Vince is Depressed Edition
 - DietrichPaul's ClientBase
 - DineTire 2
 - Dirket
@@ -48,6 +53,7 @@
 - Dortware 1.5.0
 - DrainWalk 1.0
 - DreamCore b161021
+- Drunk V0.39
 - Echo 1.0
 - Edictum
 - Eject v3
@@ -74,6 +80,7 @@
 - Flush 0.9
 - Flux B39.11
 - Flux B5
+- Focus 023457 Christmas Special Edition
 - ForgeHax 1.16
 - FusionX 2.0
 - GameSense v2.3.0
@@ -81,8 +88,11 @@
 - Glass v0.1
 - Gothaj 3.01b Alpha
 - Graphite 042823
+- Hanabi 1.5.1
 - Hanabi 3.1
+- Hawk V1.5
 - Helium 11121
+- Helium B41420
 - Hera
 - Horizon
 - Hush B4
@@ -126,9 +136,15 @@
 - LRQ 1.0
 - Lucid 0.89
 - Luna 13.0.7
+- Lune v0.39
+- Lycoris
+- Lycoris 1.0
+- Lycoris 2.0
 - Massacre 210819
+- Mega 1.2.0
 - Meme 8
 - Memeware 7.3
+- Metaware Developer
 - Method 1.0.2
 - Minced
 - Minced Free 1.0
@@ -139,6 +155,7 @@
 - Moonsense v1.00
 - Moonsense v1.01
 - MoonX
+- Morbid
 - Mystra 1.0.1
 - MythicX 1.1
 - Nemphis
@@ -148,6 +165,7 @@
 - Nivia B3
 - North
 - November
+- Novoline b112321
 - Numb b1
 - Ohareware 6.9
 - Old-Novoline
@@ -163,6 +181,7 @@
 - Prion
 - Protocol
 - Pulsive 5.0
+- Radium v0.4
 - Radium v1.4.0
 - Rainbow 2.0
 - Raven B4 Remake
@@ -171,11 +190,14 @@
 - RavenWeave
 - Raze 2.0
 - Reality b2
-- Reborn
 - RedStar 2.0
+- RektSky B2
 - RektSky B5
+- Remix v1.0
 - Resilience
 - Resolute 211026
+- Rich Free 0002
+- Rich Premium 0.1
 - Rise 5.100r3
 - Rise 5.89
 - Rise 5.90
@@ -185,7 +207,9 @@
 - RoseGold 1.1.0
 - Saint 2.3
 - Scov 030121
+- Sensation 2.0.1
 - Seppuku
+- Sight 2.3
 - Sigma 1.6
 - Sigma 2.08
 - Sigma 3.9
@@ -196,12 +220,14 @@
 - Sleek
 - Slice v15
 - Slowly b12.3
+- SmokeX
 - Spectrum 0.0.1
 - Spicy
 - Splash 028620
 - Squad
 - Straightware
 - Strife
+- Strife 210822
 - Sudo b0.5
 - Suku
 - Summer 5.0
@@ -215,19 +241,23 @@
 - Thea b1
 - ThunderHack Plus
 - ThunderHack Recode
+- Thunderware B1.0
+- Tired B70
 - Tired NextGen
 - Tomato 0.2
 - Triton
 - Trivia B1
 - Umbrella 1.3
+- UwUWare 1.0.2
 - Uzi
 - Vanity
 - Venus Recode 0.2.0
+- Vergo B1.02
 - Vertic
 - Vestige 2.0
 - Vestige 3.0
 - VeteranHack 3.7
-- vika
+- Vika
 - Violence b1.26
 - Virgin b0.9.5
 - Virtue 5.5
@@ -243,6 +273,7 @@
 - Xulu 1.5.2
 - Xulu 2.1
 - YSK
+- Zamorozka 5.0.3
 
 ### Contributing
 - Put your name (preferably your github username) in the ``contributors.list`` file if you haven't already done so in a previous commit.

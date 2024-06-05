@@ -1,0 +1,15 @@
+package net.minecraft.client.particle;
+
+import net.minecraft.client.particle.EntityFX;
+import net.minecraft.client.particle.EntitySpellParticleFX;
+import net.minecraft.client.particle.IParticleFactory;
+import net.minecraft.world.World;
+
+public class EntitySpellParticleFX$AmbientMobFactory implements IParticleFactory {
+   public EntityFX getEntityFX(int var1, World var2, double var3, double var5, double var7, double var9, double var11, double var13, int... var15) {
+      EntitySpellParticleFX var16 = new EntitySpellParticleFX(var2, var3, var5, var7, var9, var11, var13);
+      var16.setAlphaF(0.15F);
+      var16.setRBGColorF((float)var9, (float)var11, (float)var13);
+      return var16;
+   }
+}

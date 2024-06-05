@@ -1,0 +1,114 @@
+package net.minecraft.block;
+
+import net.minecraft.util.*;
+import net.minecraft.block.state.*;
+import net.minecraft.init.*;
+import net.minecraft.block.properties.*;
+
+public enum EnumType implements IStringSerializable
+{
+    STONE("STONE", 0, 0, "stone", (SwitchEnumType)null) {
+        @Override
+        public IBlockState func_176883_d() {
+            return Blocks.stone.getDefaultState().withProperty(BlockStone.VARIANT_PROP, BlockStone.EnumType.STONE);
+        }
+    }, 
+    COBBLESTONE("COBBLESTONE", 1, 1, "cobblestone", "cobble", (SwitchEnumType)null) {
+        @Override
+        public IBlockState func_176883_d() {
+            return Blocks.cobblestone.getDefaultState();
+        }
+    }, 
+    STONEBRICK("STONEBRICK", 2, 2, "stone_brick", "brick", (SwitchEnumType)null) {
+        @Override
+        public IBlockState func_176883_d() {
+            return Blocks.stonebrick.getDefaultState().withProperty(BlockStoneBrick.VARIANT_PROP, BlockStoneBrick.EnumType.DEFAULT);
+        }
+    }, 
+    MOSSY_STONEBRICK("MOSSY_STONEBRICK", 3, 3, "mossy_brick", "mossybrick", (SwitchEnumType)null) {
+        @Override
+        public IBlockState func_176883_d() {
+            return Blocks.stonebrick.getDefaultState().withProperty(BlockStoneBrick.VARIANT_PROP, BlockStoneBrick.EnumType.MOSSY);
+        }
+    }, 
+    CRACKED_STONEBRICK("CRACKED_STONEBRICK", 4, 4, "cracked_brick", "crackedbrick", (SwitchEnumType)null) {
+        @Override
+        public IBlockState func_176883_d() {
+            return Blocks.stonebrick.getDefaultState().withProperty(BlockStoneBrick.VARIANT_PROP, BlockStoneBrick.EnumType.CRACKED);
+        }
+    }, 
+    CHISELED_STONEBRICK("CHISELED_STONEBRICK", 5, 5, "chiseled_brick", "chiseledbrick", (SwitchEnumType)null) {
+        @Override
+        public IBlockState func_176883_d() {
+            return Blocks.stonebrick.getDefaultState().withProperty(BlockStoneBrick.VARIANT_PROP, BlockStoneBrick.EnumType.CHISELED);
+        }
+    };
+    
+    private static final EnumType[] field_176885_g;
+    private static final EnumType[] $VALUES;
+    private final int field_176893_h;
+    private final String field_176894_i;
+    private final String field_176891_j;
+    
+    private EnumType(final String p_i45704_1_, final int p_i45704_2_, final int p_i45704_3_, final String p_i45704_4_) {
+        this(p_i45704_1_, p_i45704_2_, p_i45704_3_, p_i45704_4_, p_i45704_4_);
+    }
+    
+    private EnumType(final String p_i45705_1_, final int p_i45705_2_, final int p_i45705_3_, final String p_i45705_4_, final String p_i45705_5_) {
+        this.field_176893_h = p_i45705_3_;
+        this.field_176894_i = p_i45705_4_;
+        this.field_176891_j = p_i45705_5_;
+    }
+    
+    private EnumType(final String p_i45706_1_, final int p_i45706_2_, final int p_i45706_3_, final String p_i45706_4_, final SwitchEnumType p_i45706_5_) {
+        this(p_i45706_1_, p_i45706_2_, p_i45706_3_, p_i45706_4_);
+    }
+    
+    private EnumType(final String p_i45707_1_, final int p_i45707_2_, final int p_i45707_3_, final String p_i45707_4_, final String p_i45707_5_, final SwitchEnumType p_i45707_6_) {
+        this(p_i45707_1_, p_i45707_2_, p_i45707_3_, p_i45707_4_, p_i45707_5_);
+    }
+    
+    public static EnumType func_176879_a(int p_176879_0_) {
+        if (p_176879_0_ < 0 || p_176879_0_ >= EnumType.field_176885_g.length) {
+            p_176879_0_ = 0;
+        }
+        return EnumType.field_176885_g[p_176879_0_];
+    }
+    
+    public static EnumType func_176878_a(final IBlockState p_176878_0_) {
+        for (final EnumType var4 : values()) {
+            if (p_176878_0_ == var4.func_176883_d()) {
+                return var4;
+            }
+        }
+        return EnumType.STONE;
+    }
+    
+    public int func_176881_a() {
+        return this.field_176893_h;
+    }
+    
+    @Override
+    public String toString() {
+        return this.field_176894_i;
+    }
+    
+    @Override
+    public String getName() {
+        return this.field_176894_i;
+    }
+    
+    public String func_176882_c() {
+        return this.field_176891_j;
+    }
+    
+    public abstract IBlockState func_176883_d();
+    
+    static {
+        field_176885_g = new EnumType[values().length];
+        $VALUES = new EnumType[] { EnumType.STONE, EnumType.COBBLESTONE, EnumType.STONEBRICK, EnumType.MOSSY_STONEBRICK, EnumType.CRACKED_STONEBRICK, EnumType.CHISELED_STONEBRICK };
+        for (final EnumType var4 : values()) {
+            EnumType.field_176885_g[var4.func_176881_a()] = var4;
+        }
+    }
+}

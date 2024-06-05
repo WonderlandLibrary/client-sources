@@ -1,0 +1,57 @@
+package net.minecraft.network.play.server;
+
+import net.minecraft.util.*;
+import java.io.*;
+import net.minecraft.network.play.*;
+import net.minecraft.network.*;
+
+public class S02PacketChat implements Packet
+{
+    private IChatComponent chatComponent;
+    private byte field_179842_b;
+    
+    public S02PacketChat() {
+    }
+    
+    public S02PacketChat(final IChatComponent component) {
+        this(component, (byte)1);
+    }
+    
+    public S02PacketChat(final IChatComponent p_i45986_1_, final byte p_i45986_2_) {
+        this.chatComponent = p_i45986_1_;
+        this.field_179842_b = p_i45986_2_;
+    }
+    
+    @Override
+    public void readPacketData(final PacketBuffer data) throws IOException {
+        this.chatComponent = data.readChatComponent();
+        this.field_179842_b = data.readByte();
+    }
+    
+    @Override
+    public void writePacketData(final PacketBuffer data) throws IOException {
+        data.writeChatComponent(this.chatComponent);
+        data.writeByte(this.field_179842_b);
+    }
+    
+    public void processPacket(final INetHandlerPlayClient handler) {
+        handler.handleChat(this);
+    }
+    
+    public IChatComponent func_148915_c() {
+        return this.chatComponent;
+    }
+    
+    public boolean isChat() {
+        return this.field_179842_b == 1 || this.field_179842_b == 2;
+    }
+    
+    public byte func_179841_c() {
+        return this.field_179842_b;
+    }
+    
+    @Override
+    public void processPacket(final INetHandler handler) {
+        this.processPacket((INetHandlerPlayClient)handler);
+    }
+}
