@@ -1,0 +1,293 @@
+text.fira_client.autopilot.disable_msg=AutoPilot was disabled to avoid a collision
+text.fira_client.chat_filter.warning1=To talk in the global chat use: !<message>
+text.fira_client.chat_filter.warning2=To talk to another user: @<user> <message>, all future messages will go to that user
+text.fira_client.elytra_fly.warning1=Disabling ElytraFly, not enough durability
+
+text.fira_client.boolean_options.on=ON
+text.fira_client.boolean_options.off=OFF
+
+text.key_none.name=NONE
+
+key.config=Open config screen
+key.auto_pilot=Toggle AutoPilot
+key.elytra_fly=Toggle ElytraFly
+key.elytra_tweaks=Toggle ElytraTweaks
+key.packet_fly=Toggle PacketFly
+key.packetfly_ascending=[PacketFly] Ascend
+key.elytrafly_control=[ElytraFly] Vanilla fly
+key.elytrafly_stop=[ElytraFly] Stop moving
+key.enable_surround=[CrystalPvP] Enable surround
+key.place_obsidian=[CrystalPvP] Place obsidian
+key.take_items=[InventoryUtils] Fill inventory from chest
+key.drop_items=[InventoryUtils] Drop inventory to chest
+key.auto_fly_enable=Enable Auto fly
+key.yawlock_enable=Toggle YawLock
+key.yawlock_ignore=Ignore YawLock
+
+
+config.enable.name=Enable
+config.enable.tooltip=Enable module
+
+# HUD
+
+config.hud_colors.name=HudColors
+
+config.hud.enable.name=Enable
+config.enable.tooltip=Enable module
+
+config.hud.brightness.name=Brightness
+config.hud.brightness.tooltip=Modulates the brightness of the HUD text
+
+config.hud.saturation.name=Saturation
+config.hud.saturation.tooltip=Modulates the saturation of the HUD text
+
+config.hud.color_displacement.name=Color Displacement
+config.hud.color_displacement.tooltip=Modulates the color displacement of the HUD text
+
+config.hud.color_displacement_amount.name=Color Displacement Amount
+config.hud.color_displacement_amount.tooltip=Modulates the color displacement amount of the HUD text
+
+config.hud.vertical_separation.name=Vertical Separation
+config.hud.vertical_separation.tooltip=Vertical separation from the window top border
+
+config.hud.horizontal_separation.name=Horizontal Separation
+config.hud.horizontal_separation.tooltip=Horizontal separation from the window left border
+
+config.hud.show_x.name=Show X
+config.hud.show_x.tooltip=Show the current player X position
+
+config.hud.show_y.name=Show Y
+config.hud.show_y.tooltip=Show the current player Y position
+
+config.hud.show_z.name=Show Z
+config.hud.show_z.tooltip=Show the current player Z position
+
+config.hud.show_speed.name=Show Speed
+config.hud.show_speed.tooltip=Show the current player speed
+
+config.hud.show_logo.name=Show Logo
+config.hud.show_logo.tooltip=Show the client logo all the time
+
+config.hud.restore.name=Restore Menu
+config.hud.restore.tooltip=Restore default menu layout
+
+config.hud.open_click_gui.name=Open Click Gui
+config.hud.open_click_gui.tooltip=Opens the click GUI menu
+
+# ScreenInventory
+
+config.screen_inventory.name=ScreenInventory
+
+config.screen_inventory.offset_x.name=Offset X
+config.screen_inventory.offset_x.tooltip=Percent of screen in the X axis
+
+config.screen_inventory.offset_y.name=Offset Y
+config.screen_inventory.offset_y.tooltip=Percent of screen in the Y axis
+
+config.screen_inventory.background.name=Background
+config.screen_inventory.background.tooltip=Show a semi-transparent background square
+
+# ChatFilter
+
+config.chat.name=Chat
+
+config.chat.notification_sound.name=Notification Sound
+config.chat.notification_sound.tooltip=Sends notification sound you get a mention
+
+config.chat.direct_chat.name=Direct Chat
+config.chat.direct_chat.tooltip=Send messages directly to someone, use !<msg> to talk in global
+
+config.chat.show_spam.name=Show Spam
+config.chat.show_spam.tooltip=Show messages marked as spam
+
+config.chat.show_deaths.name=Show Deaths
+config.chat.show_deaths.tooltip=Show deaths messages
+
+config.chat.user_blacklist.name=User Blacklist
+config.chat.user_blacklist.tooltip=List of blocked users
+
+config.chat.user_whitelist.name=Bot whitelist
+config.chat.user_whitelist.tooltip=List of bots to allow to post spam
+
+config.chat.censored_words.name=Censored Words
+config.chat.censored_words.tooltip=List of words to replace with *****
+
+config.chat.regular_format.name=Message Format
+config.chat.regular_format.tooltip=Private Message Format
+
+config.chat.private_format.name=Private Message Format
+config.chat.private_format.tooltip=Private Message Format
+
+config.chat.private_only.name=Private Chat Only
+config.chat.private_only.tooltip=Only show direct messages in chat
+
+config.chat.target.name=Target
+config.chat.target.tooltip=Users that will receive all direct messages
+
+# ElytraTweaks
+
+config.elytra_tweaks.name=ElytraTweaks
+
+config.elytra_tweaks.open_elytras.name=Open Elytra
+config.elytra_tweaks.open_elytras.tooltip=Opens the elytra when airborne
+
+config.elytra_tweaks.cooldown.name=Cooldown
+config.elytra_tweaks.cooldown.tooltip=Cooldown of packets to open elytra
+
+config.elytra_tweaks.easy_takeoff.name=Easy TakeOff
+config.elytra_tweaks.easy_takeoff.tooltip=Start flying by right clicking a rocket
+
+config.elytra_tweaks.disable_vanilla_behaviour.name=Disable space
+config.elytra_tweaks.disable_vanilla_behaviour.tooltip=Disable vanilla behaviour of open elytras with space
+
+config.elytra_tweaks.swap_elytras.name=AutoSwap Elytras
+config.elytra_tweaks.swap_elytras.tooltip=Swap elytras the durability drops below the limit
+
+config.elytra_tweaks.swap_elytra_by_time.name=AutoSwap Interval
+config.elytra_tweaks.swap_elytras.tooltip=Swap elytras every X ticks, if zero does nothing
+
+config.elytra_tweaks.min_durability.name=Min Durability
+config.elytra_tweaks.min_durability.tooltip=Minimum durability to fly with elytras
+
+config.elytra_tweaks.enable_key.name=Enable Key
+config.elytra_tweaks.enable_key.tooltip=Enable/disable this module
+
+# ElytraFly
+
+config.elytra_fly.name=ElytraFly
+
+config.elytra_fly.fall_speed.name=Fall Speed
+config.elytra_fly.fall_speed.tooltip=Fall Speed per tick
+
+config.elytra_fly.speed.name=Speed
+config.elytra_fly.speed.tooltip=Max Fly Speed
+
+config.elytra_fly.acceleration.name=Acceleration
+config.elytra_fly.acceleration.tooltip=Fly Acceleration
+
+config.elytra_fly.keep_inertia.name=Keep Inertia
+config.elytra_fly.keep_inertia.tooltip=Keep Inertia or when not pressing any key
+
+config.elytra_fly.air_drag.name=Air Drag
+config.elytra_fly.air_drag.tooltip=Air coefficient of friction, how fast you slowdown after you stop moving
+
+config.elytra_fly.move_facing.name=Move to facing
+config.elytra_fly.move_facing.tooltip=Move to towards the facing direction
+
+config.elytra_fly.lock_controls.name=Lock controls
+config.elytra_fly.lock_controls.tooltip=Lock shift and space keys
+
+config.elytra_fly.auto_fly.name=Auto fly
+config.elytra_fly.auto_fly.tooltip=Keep flying forwards
+
+config.elytra_fly.enable_key.name=Enable Key
+config.elytra_fly.enable_key.tooltip=Enables/Disables this module
+
+config.elytra_fly.free_fly_key.name=Free Fly Key
+config.elytra_fly.free_fly_key.tooltip=When pressed, the elytra will behave like vanilla
+
+config.elytra_fly.stop_key.name=Stop Key
+config.elytra_fly.stop_key.tooltip=When pressed, stops the player completely
+
+# AutoFly
+
+config.auto_fly.name=AutoFly
+
+config.auto_fly.enable.name=AutoFly Enable
+config.auto_fly.enable.tooltip=Flies forward automatically
+
+config.auto_fly.enable_key.name=AutoFly Key
+config.auto_fly.enable_key.tooltip=Enables/Disables Autofly
+
+# AutoPilot
+
+config.auto_pilot.name=AutoPilot
+
+config.auto_pilot.height.name=Fly Height
+config.auto_pilot.height.tooltip=The module will try to fly at this height
+
+config.auto_pilot.collision_detection.name=Collision Detection
+config.auto_pilot.collision_detection.tooltip=Stops when an imminent collision is detected
+
+config.auto_pilot.use_rockets.name=Use Rockets
+config.auto_pilot.use_rockets.tooltip=Uses rockets to keep inertia
+
+config.auto_pilot.rocket_cooldown.name=Rocket Cooldown
+config.auto_pilot.rocket_cooldown.tooltip=Rocket firing cooldown
+
+config.auto_pilot.min_speed.name=Min Speed
+config.auto_pilot.min_speed.tooltip=Fires a rocket when the speed drops down this value
+
+config.auto_pilot.enable_key.name=Enable Key
+config.auto_pilot.enable_key.tooltip=Enable this module
+
+# PacketFly
+
+config.packet_fly.name=PacketFly
+
+config.packet_fly.cooldown.name=Cooldown
+config.packet_fly.cooldown.tooltip=Cooldown between packets
+
+config.packet_fly.fall_speed.name=Fall Speed
+config.packet_fly.fall_speed.tooltip=Fall Speed per tick
+
+config.packet_fly.upwards_speed.name=Upwards Speed
+config.packet_fly.upwards_speed.tooltip=Upwards speed when ascending
+
+config.packet_fly.ascend_key.name=Ascend Key
+config.packet_fly.ascend_key.tooltip=When pressed, you fly upwards
+
+config.packet_fly.enable_key.name=Enable Key
+config.packet_fly.enable_key.tooltip=Enable Module Key
+
+# CrystalPvP
+
+config.crystal_pvp.name=CrystalPvP
+
+config.crystal_pvp.enable_color.name=Enable Crystal Coloring
+config.crystal_pvp.enable_color.tooltip=Changes the color of the end crystal based on damage caused if explodes
+
+config.crystal_pvp.surround.name=Surround
+config.crystal_pvp.surround.tooltip=Places 4 obsidian block around you all the time
+
+config.crystal_pvp.suppress_explosions.name=Suppress Explosion
+config.crystal_pvp.suppress_explosions.tooltip=Disables explosion effects
+
+config.crystal_pvp.enable_surround.name=Enable Surround Key
+config.crystal_pvp.enable_surround.tooltip=Enable surround
+
+config.crystal_pvp.place_key.name=Place Obsidian Key
+config.crystal_pvp.place_key.tooltip=Places 4 obsidian blocks around you
+
+# InventoryUtilities
+config.inventory_utilities.name=InventoryUtilities
+
+config.inventory_utilities.only_shulkers.name=Only Shulkers
+config.inventory_utilities.only_shulkers.tooltip=Only move shulkers
+
+config.inventory_utilities.take_items.name=Take Items Key
+config.inventory_utilities.take_items.tooltip=Takes all items from the current inventory
+
+config.inventory_utilities.drop_items.name=Drop Items Key
+config.inventory_utilities.drop_items.tooltip=Drop all items to the current inventory
+
+# YawLock
+
+config.yawlock.name=YawLock
+config.yawlock.tooltip=Locks the player yaw rotation
+
+config.yawlock.enable.name=Enable YawLock
+config.yawlock.enable.tooltip=Enables/Disables YawLock
+
+config.yawlock.only_flying.name=Only On Fly
+config.yawlock.only_flying.tooltip=Only locks that yaw when flying with elytra
+
+config.yawlock.ignore_key.name=Ignore Key
+config.yawlock.ignore_key.tooltip=When pressed the lock will be temporarily disable
+
+config.yawlock.enable_key.name=Enable Key
+config.yawlock.enable_key.tooltip=When pressed enables/disables YawLock
+
+# Debug
+
+config.debug.name=Debug

@@ -19,6 +19,7 @@
 - Augustus b2.6
 - Aurora
 - Autumn 1.0.0
+- Ave 0.2
 - Azura X 06042022
 - Blizzard b1
 - Bloomware
@@ -33,6 +34,7 @@
 - Claudius 1.0
 - CloverHook 829
 - Clowdy Lite
+- CommencalWare v0.1
 - Cookie 1.01
 - Cookie 1.04
 - Corrosion 2.0.0
@@ -41,6 +43,7 @@
 - CrossSine B34
 - Cupid 0.1
 - CZF B13
+- DarkStorm GUI API
 - Dawn 0.0.1
 - Debug 1.2.6
 - Deluge 0.23
@@ -55,7 +58,7 @@
 - DreamCore b161021
 - Drunk V0.39
 - Echo 1.0
-- Edictum
+- Edictum 1.0
 - Eject v3
 - Electron
 - Envy 0.3
@@ -66,6 +69,7 @@
 - Euphoria B7
 - Evolution
 - Execution 2.0 Recode
+- Exhibition 081618
 - Exhibition 5.0
 - Exist 0.71
 - Exodus 5.4
@@ -74,8 +78,9 @@
 - Fan v4
 - Fanta v13
 - Faurax
-- Faygo
+- Faygo b20
 - Felix 030121
+- Fira 1.9.3
 - Fluid
 - Flush 0.9
 - Flux B39.11
@@ -87,14 +92,15 @@
 - GetBypass a1.0
 - Glass v0.1
 - Gothaj 3.01b Alpha
+- Grape Clicker
 - Graphite 042823
 - Hanabi 1.5.1
 - Hanabi 3.1
 - Hawk V1.5
 - Helium 11121
 - Helium B41420
-- Hera
-- Horizon
+- Hera 2.0
+- Horizon 6.0
 - Hush B4
 - Ice B10
 - Invasion 0.3 Beta
@@ -111,7 +117,7 @@
 - Ketamine v5.7
 - Kevin Reborn
 - Kilo
-- Kirka
+- Kirka 2.4
 - Koks v1
 - Koks v3
 - Koks v4
@@ -142,14 +148,14 @@
 - Mark's ClientBase
 - Massacre 210819
 - Mega 1.2.0
-- Meme 8
+- Meme stable-build8
 - Memeware 7.3
 - Metaware Developer
 - Method 1.0.2
 - Minced
 - Minced Free 1.0
 - Mint B1
-- Monix
+- Monix 3.1
 - Monsoon 1.2
 - Monsoon 1.3
 - Moonsense v1.00
@@ -158,7 +164,7 @@
 - Morbid
 - Mystra 1.0.1
 - MythicX 1.1
-- Nemphis
+- Nemphis 0.3
 - NeverHook 1.4
 - Nexus
 - Nightmare b1
@@ -170,7 +176,7 @@
 - Ohareware 6.9
 - Old-Novoline
 - Old-Raze
-- One2
+- ONE2
 - Pandaware 0.4.3
 - Phobos 1.9.0
 - Polaris B14
@@ -178,8 +184,8 @@
 - Postman 3.001
 - PowerClient 0.2
 - Prestige
-- Prion
-- Protocol
+- Prion X
+- Protocol v28
 - Pulsive 5.0
 - Radium v0.4
 - Radium v1.4.0
@@ -218,7 +224,7 @@
 - Sigma 4.11
 - Sigma Nextgen
 - Skullhack
-- SkyLine B28
+- Skyline B28
 - Sleek
 - Slice v15
 - Slowly b12.3
@@ -231,12 +237,12 @@
 - Strife
 - Strife 210822
 - Sudo b0.5
-- Suku
+- Suku 0.1
 - Summer 5.0
 - Summer Reborn 3.0
 - Swift Developer Alpha
 - Tank V4
-- Tea
+- Tea 11.6
 - Tenacity 4.0
 - Tenacity 5.1
 - Tenacity 6.0
@@ -247,15 +253,15 @@
 - Tired B70
 - Tired NextGen
 - Tomato 0.2
-- Triton
+- Triton 7
 - Trivia B1
 - Umbrella 1.3
 - UwUWare 1.0.2
-- Uzi
-- Vanity
+- Uzi b11
+- Vanity 1.2
 - Venus Recode 0.2.0
 - Vergo B1.02
-- Vertic
+- Vertic 1.0
 - Vestige 2.0
 - Vestige 3.0
 - VeteranHack 3.7
@@ -265,7 +271,9 @@
 - Virtue 5.5
 - Vulture 1.8
 - WeepCraft 0.2
+- Winter 7.2
 - WintWare
+- Wurst Plus 1
 - Wurst Plus 2
 - WWE (old Intertia)
 - Xatz 0.9b1
