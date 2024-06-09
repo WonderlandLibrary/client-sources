@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1E2FACE4-F5CA-4323-9641-740C6A551770}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MinecraftClient</RootNamespace>
+    <AssemblyName>MinecraftClient</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\AppIcon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>MinecraftClient.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AutoTimeout.cs" />
+    <Compile Include="ChatBots\Alerts.cs" />
+    <Compile Include="ChatBots\AntiAFK.cs" />
+    <Compile Include="ChatBots\AutoRespond.cs" />
+    <Compile Include="ChatBots\AutoRelog.cs" />
+    <Compile Include="ChatBots\ChatLog.cs" />
+    <Compile Include="ChatBots\HangmanGame.cs" />
+    <Compile Include="ChatBots\PlayerListLogger.cs" />
+    <Compile Include="ChatBots\RemoteControl.cs" />
+    <Compile Include="ChatBots\Script.cs" />
+    <Compile Include="ChatBots\ScriptScheduler.cs" />
+    <Compile Include="ChatBots\TestBot.cs" />
+    <Compile Include="ChatBot.cs" />
+    <Compile Include="Command.cs" />
+    <Compile Include="Commands\Connect.cs" />
+    <Compile Include="Commands\Move.cs" />
+    <Compile Include="Commands\Exit.cs" />
+    <Compile Include="Commands\Log.cs" />
+    <Compile Include="Commands\Reco.cs" />
+    <Compile Include="Commands\Respawn.cs" />
+    <Compile Include="Commands\Script.cs" />
+    <Compile Include="Commands\Send.cs" />
+    <Compile Include="Commands\Set.cs" />
+    <Compile Include="ConsoleIcon.cs" />
+    <Compile Include="ConsoleIO.cs" />
+    <Compile Include="Crypto\Streams\BouncyAes\AesFastEngine.cs" />
+    <Compile Include="Crypto\Streams\BouncyAes\BufferedBlockCipher.cs" />
+    <Compile Include="Crypto\Streams\BouncyAes\BufferedCipherBase.cs" />
+    <Compile Include="Crypto\Streams\BouncyAes\CfbBlockCipher.cs" />
+    <Compile Include="Crypto\Streams\BouncyAes\Check.cs" />
+    <Compile Include="Crypto\Streams\BouncyAes\CipherStream.cs" />
+    <Compile Include="Crypto\Streams\BouncyAes\CryptoException.cs" />
+    <Compile Include="Crypto\Streams\BouncyAes\DataLengthException.cs" />
+    <Compile Include="Crypto\Streams\BouncyAes\IBlockCipher.cs" />
+    <Compile Include="Crypto\Streams\BouncyAes\IBufferedCipher.cs" />
+    <Compile Include="Crypto\Streams\BouncyAes\ICipherParameters.cs" />
+    <Compile Include="Crypto\Streams\BouncyAes\KeyParameter.cs" />
+    <Compile Include="Crypto\Streams\BouncyAes\OutputLengthException.cs" />
+    <Compile Include="Crypto\Streams\BouncyAes\Pack.cs" />
+    <Compile Include="Crypto\Streams\BouncyAes\ParametersWithIV.cs" />
+    <Compile Include="Crypto\Streams\MonoAesStream.cs" />
+    <Compile Include="Crypto\Streams\RegularAesStream.cs" />
+    <Compile Include="Crypto\CryptoHandler.cs" />
+    <Compile Include="CSharpRunner.cs" />
+    <Compile Include="Mapping\Block.cs" />
+    <Compile Include="Mapping\Chunk.cs" />
+    <Compile Include="Mapping\ChunkColumn.cs" />
+    <Compile Include="Mapping\Direction.cs" />
+    <Compile Include="Mapping\Material.cs" />
+    <Compile Include="Mapping\Movement.cs" />
+    <Compile Include="Mapping\World.cs" />
+    <Compile Include="Protocol\Handlers\Forge\FMLHandshakeClientState.cs" />
+    <Compile Include="Protocol\Handlers\Forge\FMLHandshakeDiscriminator.cs" />
+    <Compile Include="Protocol\Handlers\Forge\ForgeInfo.cs" />
+    <Compile Include="Protocol\Handlers\Compression\CRC32.cs" />
+    <Compile Include="Protocol\Handlers\Compression\Deflate.cs" />
+    <Compile Include="Protocol\Handlers\Compression\GZipStream.cs" />
+    <Compile Include="Protocol\Handlers\Compression\Inflate.cs" />
+    <Compile Include="Protocol\Handlers\Compression\InfTree.cs" />
+    <Compile Include="Protocol\Handlers\Compression\Tree.cs" />
+    <Compile Include="Protocol\Handlers\Compression\Zlib.cs" />
+    <Compile Include="Protocol\Handlers\Compression\ZlibBaseStream.cs" />
+    <Compile Include="Protocol\Handlers\Compression\ZlibCodec.cs" />
+    <Compile Include="Protocol\Handlers\Compression\ZlibConstants.cs" />
+    <Compile Include="Protocol\Handlers\Json.cs" />
+    <Compile Include="Protocol\Handlers\ZlibUtils.cs" />
+    <Compile Include="Protocol\Handlers\ChatParser.cs" />
+    <Compile Include="Crypto\IAesStream.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="McTcpClient.cs" />
+    <Compile Include="Protocol\Handlers\Compression\ZlibStream.cs" />
+    <Compile Include="Protocol\Handlers\Protocol18.cs" />
+    <Compile Include="Protocol\Handlers\Protocol16.cs" />
+    <Compile Include="Protocol\IMinecraftCom.cs" />
+    <Compile Include="Protocol\IMinecraftComHandler.cs" />
+    <Compile Include="Protocol\ProtocolHandler.cs" />
+    <Compile Include="Protocol\SessionCache\CacheType.cs" />
+    <Compile Include="Protocol\SessionCache\SessionCache.cs" />
+    <Compile Include="Protocol\SessionToken.cs" />
+    <Compile Include="Proxy\ProxyHandler.cs" />
+    <Compile Include="Proxy\Handlers\EventArgs\CreateConnectionAsyncCompletedEventArgs.cs" />
+    <Compile Include="Proxy\Handlers\Exceptions\ProxyException.cs" />
+    <Compile Include="Proxy\Handlers\HttpProxyClient.cs" />
+    <Compile Include="Proxy\Handlers\IProxyClient.cs" />
+    <Compile Include="Proxy\Handlers\ProxyClientFactory.cs" />
+    <Compile Include="Proxy\Handlers\Socks4aProxyClient.cs" />
+    <Compile Include="Proxy\Handlers\Socks4ProxyClient.cs" />
+    <Compile Include="Proxy\Handlers\Socks5ProxyClient.cs" />
+    <Compile Include="Proxy\Handlers\Utils.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="Commands\List.cs" />
+    <Compile Include="Mapping\Location.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\AppIcon.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
