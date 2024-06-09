@@ -4,24 +4,35 @@
 ### Sources
 - 3arthh4ck 1.0.0
 - Actinium
+- Aether 5.5
 - Alpha Centauri B6
 - Alphentus 1D
 - Apple 2.67
+- Aqua 12
+- Aqua 13
 - Aqua Beta
 - Aquatic 1.0
 - Artemis 1.0
 - Asteria
+- Astolfy B1.0
 - Astomero 210823
+- Astra 0.2
 - Astro 2.2.1
+- Astroline BETA 0.1
 - Async 1.0.0
 - Atani 0.0.3
+- Atero 7
 - AtField 1.3
+- Athena 0.0.3 062623
 - Augustus b2.6
 - Aurora 0.4
+- Automn Beta 0.1
 - Autumn 1.0.0
 - Ave 0.2
+- Axolotl 1.4.1
 - Azura X 06042022
 - Blizzard b1
+- Bloom v1.23
 - Bloomware
 - Boomerware 6.9
 - Bope 3.2
@@ -40,8 +51,9 @@
 - Console 1.9.0
 - Cookie 1.01
 - Cookie 1.04
-- Corrosion 2.0.0
+- Corrosion 2.0.0 Developer
 - Crest 1.7
+- Crispy 2.0
 - Crispy B3.67, V2.0
 - CrossSine B34
 - Cupid 0.1
@@ -55,20 +67,23 @@
 - DietrichPaul's ClientBase
 - DineTire 2
 - Direkt v1.2
+- Dort's ClientBase
 - Dortware 1.0
 - Dortware 1.5.0
 - DrainWalk 1.0
 - DreamCore b161021
 - Drunk V0.39
 - Echo 1.0
+- Eclipse 0.1
 - Edictum 1.0
 - Eject v3
 - Electron
+- Elysium b1
 - Envy 0.3
 - ETB 0.1
 - ETB 0.6
 - ETB Reload 0.1
-- Eternal 3.0
+- Eternal 3.0.0
 - Euphoria B7
 - Evolution
 - Execution 2.0 Recode
@@ -94,6 +109,7 @@
 - GameSense v2.1.0
 - GameSense v2.3.0
 - GetBypass a1.0
+- GetBypass b1.0
 - Glass v0.1
 - Glow 1.0.4
 - Gothaj 3.01b Alpha
@@ -105,6 +121,7 @@
 - Helium 11121
 - Helium B41420
 - Hera 2.0
+- Hera b1
 - Horizon 6.0
 - Hush B4
 - Icarus B15
@@ -135,6 +152,7 @@
 - Lavish 1
 - Leaf devEnv
 - Legacy 1.1.2
+- Lemon Developer
 - LiKingSense
 - LiquidBase
 - LiquidBounce++ 0.3
@@ -153,10 +171,12 @@
 - Lune v0.39
 - Lycoris 1.0
 - Lycoris 2.0
+- Lyrium 1.0
 - Mark's ClientBase
 - Massacre 210819
 - Mega 1.2.0
 - Meme stable-build8
+- Memeware 1.5.2 Funny Packet Edition
 - Memeware 7.3
 - Mercury 0.1
 - Metaware Developer
@@ -165,29 +185,35 @@
 - Minced Free 1.0
 - Mint B1
 - Monix 3.1
+- Mono b4
 - Monsoon 1.2
 - Monsoon 1.3
+- Monsoon 3.0-A6
 - Moonsense v1.00
 - Moonsense v1.01
 - MoonX
 - Morbid
+- Mush 1.4.0 Nigga Edition
 - Mystra 1.0.1
 - MythicX 1.1
+- MythX 220822
+- Nekoware v1 private
 - Nemphis 0.3
 - NeverHook 1.4
 - Nexus
 - Nightmare b1
 - Nivia B3
 - North
-- November
+- November 0.2 Developer 251022
+- November Recode 2.0
 - Novoline b112321
 - NUMB b1.0
 - NUMB b2.0
 - Ohareware 6.9
 - Old-Novoline
-- Old-Raze
 - ONE2
 - Pandaware 0.4.3
+- Pear 1.0.0
 - Phobos 1.9.0
 - Polaris B14
 - Polarware
@@ -204,7 +230,10 @@
 - Raven BPlus
 - Raven BX
 - RavenWeave
-- Raze 2.0
+- Raze Dev
+- Raze Recode 1.1
+- Raze Recode 2.0
+- Raze v1.5b
 - Reality b2
 - RedStar 2.0
 - RektSky B2
@@ -222,6 +251,7 @@
 - Rise 5.99
 - Rise 6.0
 - RoseGold 1.1.0
+- Safeguard b3.3.4
 - Saint 2.3
 - Scov 030121
 - Sensation 2.0.1
@@ -240,11 +270,15 @@
 - Slice v15
 - Slowly b12.3
 - SmokeX
+- Soar 4.0
 - Spectrum 0.0.1
 - Spicy
 - Splash 028620
 - Squad 0.5.2
-- Straightware
+- SRT 1.1.0
+- SRT Developer
+- Stella 0.1
+- Straightware Developer
 - Strife
 - Strife 210822
 - Sudo b0.5
@@ -258,17 +292,20 @@
 - Tenacity 5.1
 - Tenacity 6.0
 - Thea b1
+- Thread Developer
 - ThunderHack Plus
 - ThunderHack Recode
 - Thunderware B1.0
 - Tired B70
 - Tired NextGen
 - Tomato 0.2
+- touchgrass 1.12.5
 - Triton 7
 - Trivia B1
 - Umbrella 1.3
 - UwUWare 1.0.2
 - Uzi b11
+- V4n1ty b1.0.1
 - Vanity 1.2
 - Vape 1.7
 - Vape 1.8
@@ -298,6 +335,7 @@
 - Xulu 2.1
 - YSK
 - Zamorozka 5.0.3
+- Zyth B1.1
 
 ### Contributing
 - Put your name (preferably your github username) in the ``contributors.list`` file if you haven't already done so in a previous commit.
