@@ -65,6 +65,7 @@
 - Cloud 1.1
 - CloverHook 829 DEV
 - Clowdy Lite
+- Clown
 - CommencalWare v0.1
 - Console 1.9.0
 - Cookie 1.01
@@ -99,6 +100,7 @@
 - Dortware 1.5.0
 - DrainWalk 1.0
 - DreamCore b161021
+- Dropsy v1
 - Drunk V0.39
 - Echo 1.0
 - Eclipse 0.1
@@ -108,10 +110,12 @@
 - Elysium b1
 - Empty Clicker
 - Envy 0.3
+- Erudite
 - ETB 0.1
 - ETB 0.6
 - ETB Reload 0.1
 - Eternal 3.0.0
+- Eternium
 - Ettelen
 - Euphoria B7
 - Evolution
@@ -120,11 +124,13 @@
 - Exhibition 5.0
 - Exist 0.71
 - Exodus 5.4
+- Expection
 - Expensive 2.0
 - Fan v3
 - Fan v4
 - Fanta Clicker
 - Fanta v13
+- FastPot
 - Faurax
 - Faygo b20
 - Felix 030121
@@ -135,12 +141,14 @@
 - Flux B5
 - Focus 023457 Christmas Special Edition
 - ForgeHax 1.16
+- frm Clicker
 - FusionX 2.0
 - GameSense v2.1.0
 - GameSense v2.3.0
 - Gasper
 - GetBypass a1.0
 - GetBypass b1.0
+- GHOSTBYTES
 - Glass v0.1
 - Glassware Clicker
 - Glow 1.0.4
@@ -159,6 +167,7 @@
 - Hush B4
 - Icarus B15
 - Ice B10
+- Indigo
 - Invasion 0.3 Beta
 - Jello 0.1
 - Jigsaw 0.24
@@ -166,6 +175,7 @@
 - Jigsaw 0.26
 - Jigsaw 1.01
 - Jigsaw OLD 0.26
+- Josh's Clicker
 - Juul 1.0
 - Kagu 0.0.2
 - Kami Blue 2.04.01
@@ -185,12 +195,15 @@
 - Koks v4
 - KyinoSense 17.1
 - Laby v6
+- Laby X v3
 - LabyMod 2.7.78
 - LabyMod 2.8.05
 - Lambda 3.4.0
 - Latemod
 - Lavish 1
+- Lavy Clicker 2.1.0.0
 - Leaf devEnv
+- Lean
 - Legacy 1.1.2
 - Lemon Developer
 - LiKingSense
@@ -206,6 +219,7 @@
 - Lithium
 - Lithium 0.1
 - Lizzard
+- Lobo Clicker
 - LoseBypass b0.2
 - LRQ 1.0
 - Lucid 0.89
@@ -223,13 +237,16 @@
 - Massacre 210819
 - Master
 - Mega 1.2.0
+- Mel vB-0.1
 - Melon
 - Meme stable-build8
 - Memeware 1.5.2 Funny Packet Edition
 - Memeware 7.3
 - Mercury 0.1
 - Metaware Developer
+- Meth Clicker
 - Method 1.0.2
+- Midnight
 - Minced
 - Minced Free 1.0
 - Mint B1
@@ -244,7 +261,10 @@
 - Moonsense v1.01
 - MoonX
 - Morbid
+- Muphy
 - Mush 1.4.0 Nigga Edition
+- Mye
+- Mye Clicker
 - Mystra 1.0.1
 - MythicX 1.1
 - MythX 220822
@@ -260,8 +280,10 @@
 - November 0.2 Developer 251022
 - November Recode 2.0
 - Novoline b112321
+- Null
 - NUMB b1.0
 - NUMB b2.0
+- Octo
 - Ohareware 6.9
 - Old-Novoline
 - ONE2
@@ -270,6 +292,7 @@
 - Pear 1.0.0
 - Pepsi Clicker
 - Phobos 1.9.0
+- Plowac Clicker
 - Polaris B14
 - Polarware
 - Postman 3.001
@@ -289,6 +312,7 @@
 - Raze Recode 1.1
 - Raze Recode 2.0
 - Raze v1.5b
+- Reach-Velocity
 - Reak Clicker
 - Reak Recorder
 - Reality b2
@@ -321,6 +345,7 @@
 - Seppuku
 - Shoreline 1.0 b2
 - Shoreline 1.0 b6
+- Shrek Yeet
 - Sight 2.3
 - Sigma 1.6
 - Sigma 2.08
@@ -355,6 +380,8 @@
 - Suku 0.1
 - Summer 5.0
 - Summer Reborn 3.0
+- SunCheats
+- Swampie's Tools
 - Swift Developer Alpha
 - Tank V4
 - Tea 11.6
@@ -389,6 +416,7 @@
 - Vepe Clicker v1.0
 - Vergo B1.02
 - Vertic 1.0
+- Vesper B1
 - Vestige 2.0
 - Vestige 3.0
 - VeteranHack 3.7
@@ -400,11 +428,14 @@
 - Vroom AimAssist
 - Vulture 1.8
 - Wave
+- Wave 10th June
+- Wave 12th November
 - WeepCraft 0.2
 - West Clicker
 - WikiHacks 0.1
 - Winter 7.2
 - WintWare
+- WSX
 - Wurst Plus 1
 - Wurst Plus 2
 - WWE (old Intertia)
