@@ -287,7 +287,7 @@
 - Ohareware 6.9
 - Old-Novoline
 - ONE2
-- Opal
+- Opal 080624
 - Paladin 0.8
 - Pandaware 0.4.3
 - Pear 1.0.0
