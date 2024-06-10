@@ -1,0 +1,36 @@
+#pragma once
+
+#include "VMProtectSDK.h"
+#include "util/xor.h"
+
+#include <iostream>
+#include <vector>
+#include <string>
+#include <wincrypt.h>
+#include <wintrust.h>
+#include <Softpub.h>
+#include <d3d9.h>
+#include <thread>
+#include <dinput.h>
+#include <tchar.h>
+#include <shellscalingapi.h>
+#include <stdio.h>
+#include <exception>
+#include <Psapi.h>
+#include <filesystem>
+#include <shellapi.h>
+#include <codecvt>
+#include <VersionHelpers.h>
+#include <fstream>
+#include <sddl.h>
+#include <lmcons.h>
+#include <sstream>
+#include <windows.h>
+#include "util/util.h"
+#include <locale>
+#include <WinBase.h>
+#include <chrono>
+#include <WbemCli.h>
+#include <comdef.h>
+#include <regex>
+#include <mutex>
