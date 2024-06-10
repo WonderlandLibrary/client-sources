@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\imgui.cpp">
+      <Filter>ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\imgui_draw.cpp">
+      <Filter>ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\imgui_impl_dx9.cpp">
+      <Filter>ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\imgui_impl_win32.cpp">
+      <Filter>ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\imgui_widgets.cpp">
+      <Filter>ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\main.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\imconfig.h">
+      <Filter>ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\imgui.h">
+      <Filter>ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\imgui_impl_dx9.h">
+      <Filter>ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\imgui_impl_win32.h">
+      <Filter>ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\imgui_internal.h">
+      <Filter>ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\xor.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SelfDestruct\Delete.h">
+      <Filter>Source\SelfDestruct</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Autoclicker\Autoclicker.h">
+      <Filter>Source\Autoclicker</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Graphics\Font.h">
+      <Filter>Source\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Graphics\Graphics.h">
+      <Filter>Source\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FastScan\koid.h">
+      <Filter>Source\FastScan</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="ImGui">
+      <UniqueIdentifier>{6dc22099-2089-4b25-846f-bbce0a4cac01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source">
+      <UniqueIdentifier>{93843a34-f651-46b1-93b2-e3d05ec48035}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\SelfDestruct">
+      <UniqueIdentifier>{437b7165-b814-4448-ae56-6d19a63e6c28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Autoclicker">
+      <UniqueIdentifier>{3eacf599-b75c-4c2c-a220-5164f70fab28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Graphics">
+      <UniqueIdentifier>{bafb863f-d395-4a49-926a-1557aa09234a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\FastScan">
+      <UniqueIdentifier>{fac921ff-f3e0-4ec1-9b48-d795bb05a90a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

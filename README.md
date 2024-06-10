@@ -39,6 +39,7 @@
 - Axis
 - Axolotl 1.4.1
 - Azura X 06042022
+- b1scoito Clicker
 - Badlion 2.0.0-v-beta
 - balanosmelerca
 - BHop Clicker
@@ -70,6 +71,7 @@
 - Cookie 1.04
 - Cooper Beta b1.3
 - Corrosion 2.0.0 Developer
+- CPP AimAssist
 - CPP Clicker
 - Creeper Clicker
 - Crest 1.7
@@ -78,6 +80,7 @@
 - CrossSine B34
 - Cupid 0.1
 - CZF B13
+- Darkin
 - DarkStorm GUI API
 - Dawn 0.0.1
 - Debug 1.2.6
@@ -89,6 +92,8 @@
 - Direkt v1.2
 - Discord Clicker
 - Dope Clicker
+- Dope v1.0
+- Dope v2.0
 - Dort's ClientBase
 - Dortware 1.0
 - Dortware 1.5.0
@@ -107,6 +112,7 @@
 - ETB 0.6
 - ETB Reload 0.1
 - Eternal 3.0.0
+- Ettelen
 - Euphoria B7
 - Evolution
 - Execution 2.0 Recode
@@ -132,6 +138,7 @@
 - FusionX 2.0
 - GameSense v2.1.0
 - GameSense v2.3.0
+- Gasper
 - GetBypass a1.0
 - GetBypass b1.0
 - Glass v0.1
@@ -155,6 +162,7 @@
 - Invasion 0.3 Beta
 - Jello 0.1
 - Jigsaw 0.24
+- Jigsaw 0.24b
 - Jigsaw 0.26
 - Jigsaw 1.01
 - Jigsaw OLD 0.26
@@ -165,11 +173,13 @@
 - Karambit
 - Karambit Clicker v1
 - Karambit Clicker v2
+- Karambit Reach
 - Ket 1.0
 - Ketamine v5.7
 - Kevin Reborn
 - Kilo v1.2
 - Kirka 2.4
+- Koid
 - Koks v1
 - Koks v3
 - Koks v4
@@ -178,6 +188,7 @@
 - LabyMod 2.7.78
 - LabyMod 2.8.05
 - Lambda 3.4.0
+- Latemod
 - Lavish 1
 - Leaf devEnv
 - Legacy 1.1.2
@@ -194,13 +205,16 @@
 - Lite Clicker
 - Lithium
 - Lithium 0.1
+- Lizzard
 - LoseBypass b0.2
 - LRQ 1.0
 - Lucid 0.89
 - Lucid Clicker
 - Luna 13.0.7
 - Luna b8
+- Lunar AimAssist
 - Lunar Clicker
+- Lunar Reach
 - Lune v0.39
 - Lycoris 1.0
 - Lycoris 2.0
@@ -209,6 +223,7 @@
 - Massacre 210819
 - Master
 - Mega 1.2.0
+- Melon
 - Meme stable-build8
 - Memeware 1.5.2 Funny Packet Edition
 - Memeware 7.3
@@ -219,6 +234,7 @@
 - Minced Free 1.0
 - Mint B1
 - Monix 3.1
+- Monkey
 - Monkey Clicker v2
 - Mono b4
 - Monsoon 1.2
@@ -239,6 +255,7 @@
 - Nexus
 - Nightmare b1
 - Nivia B3
+- Nodus 2.0 b11
 - North
 - November 0.2 Developer 251022
 - November Recode 2.0
@@ -248,7 +265,7 @@
 - Ohareware 6.9
 - Old-Novoline
 - ONE2
-- Paladin
+- Paladin 0.8
 - Pandaware 0.4.3
 - Pear 1.0.0
 - Pepsi Clicker
@@ -264,8 +281,8 @@
 - Radium v0.4
 - Radium v1.4.0
 - Rainbow 2.0
+- Raven B+ 1.0.16
 - Raven B4 Remake
-- Raven BPlus
 - Raven BX
 - RavenWeave
 - Raze Dev
@@ -285,8 +302,8 @@
 - Resolver Clicker
 - Rich Free 0002
 - Rich Premium 0.1
-- Rise 5.100r3
-- Rise 5.89
+- Ripterms
+- Rise 5.100 r3
 - Rise 5.90
 - Rise 5.98
 - Rise 5.99
@@ -295,9 +312,12 @@
 - RoseGold 1.1.0
 - Safeguard b3.3.4
 - Saint 2.3
+- Sapphire 1
+- Sapphire Lite Clicker
 - Scov 030121
 - SendInput Clicker
 - Sensation 2.0.1
+- Senura 2.0
 - Seppuku
 - Shoreline 1.0 b2
 - Shoreline 1.0 b6
@@ -309,11 +329,13 @@
 - Sigma Nextgen
 - SkeetTest Clicker
 - Skid Clicker
+- Skilled v2
 - Skullhack
 - Skyline B28
 - Sleek v0.1
 - Slice v15
 - Slowly b12.3
+- Smok 2.2
 - SmokeX
 - Soar 4.0
 - Spectrum 0.0.1
@@ -361,6 +383,8 @@
 - Vanity 1.2
 - Vape 1.7
 - Vape 1.8
+- Vape Assets
+- Vector 1.0
 - Venus Recode 0.2.0
 - Vepe Clicker v1.0
 - Vergo B1.02
@@ -392,6 +416,7 @@
 - Xulu 2.1
 - YSK
 - Zamorozka 5.0.3
+- Zoom Clicker
 - Zyth B1.1
 
 ### Contributing

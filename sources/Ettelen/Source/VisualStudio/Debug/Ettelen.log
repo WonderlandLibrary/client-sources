@@ -1,0 +1,35 @@
+﻿  main.cpp
+c:\users\michele\desktop\ettelen 3\source\graphics\graphics.h(57): warning C4244: 'inizializzazione': conversione da 'double' a 'float'. Possibile perdita di dati.
+c:\users\michele\desktop\ettelen 3\source\graphics\graphics.h(58): warning C4244: 'inizializzazione': conversione da 'double' a 'float'. Possibile perdita di dati.
+c:\users\michele\desktop\ettelen 3\source\graphics\graphics.h(122): warning C4244: 'argomento': conversione da 'double' a 'float'. Possibile perdita di dati.
+c:\users\michele\desktop\ettelen 3\source\graphics\graphics.h(3): warning C4100: 'label': parametro formale senza riferimenti
+c:\users\michele\desktop\ettelen 3\source\main.cpp(126): warning C4459: se si dichiara 'g', la dichiarazione globale verrà nascosta
+  c:\users\michele\desktop\ettelen 3\source\main.cpp(113): note: vedere la dichiarazione di 'g'
+c:\users\michele\desktop\ettelen 3\source\main.cpp(124): warning C4189: 'random': variabile locale inizializzata ma senza riferimenti
+c:\users\michele\desktop\ettelen 3\source\main.cpp(191): warning C4244: 'argomento': conversione da 'time_t' a 'unsigned int'. Possibile perdita di dati.
+c:\users\michele\desktop\ettelen 3\source\main.cpp(224): warning C4305: 'argomento': troncamento da 'double' a 'float'
+c:\users\michele\desktop\ettelen 3\source\main.cpp(236): warning C4244: 'argomento': conversione da 'double' a 'float'. Possibile perdita di dati.
+c:\users\michele\desktop\ettelen 3\source\main.cpp(271): warning C4244: 'argomento': conversione da 'double' a 'float'. Possibile perdita di dati.
+c:\users\michele\desktop\ettelen 3\source\main.cpp(278): warning C4244: 'argomento': conversione da 'double' a 'float'. Possibile perdita di dati.
+c:\users\michele\desktop\ettelen 3\source\main.cpp(291): warning C4244: 'argomento': conversione da 'double' a 'float'. Possibile perdita di dati.
+c:\users\michele\desktop\ettelen 3\source\main.cpp(305): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
+c:\users\michele\desktop\ettelen 3\source\main.cpp(307): warning C4459: se si dichiara 'reach', la dichiarazione globale verrà nascosta
+  c:\users\michele\desktop\ettelen 3\source\main.cpp(121): note: vedere la dichiarazione di 'reach'
+c:\users\michele\desktop\ettelen 3\source\main.cpp(330): warning C4244: 'argomento': conversione da 'double' a 'float'. Possibile perdita di dati.
+c:\users\michele\desktop\ettelen 3\source\main.cpp(340): warning C4459: se si dichiara 'longjump', la dichiarazione globale verrà nascosta
+  c:\users\michele\desktop\ettelen 3\source\main.cpp(91): note: vedere la dichiarazione di 'longjump'
+c:\users\michele\desktop\ettelen 3\source\main.cpp(497): warning C4459: se si dichiara 'hWnd', la dichiarazione globale verrà nascosta
+  c:\users\michele\desktop\ettelen 3\source\main.cpp(118): note: vedere la dichiarazione di 'hWnd'
+c:\users\michele\desktop\ettelen 3\source\main.cpp(138): warning C4100: 'argv': parametro formale senza riferimenti
+c:\users\michele\desktop\ettelen 3\source\main.cpp(576): warning C4459: se si dichiara 'hWnd', la dichiarazione globale verrà nascosta
+  c:\users\michele\desktop\ettelen 3\source\main.cpp(118): note: vedere la dichiarazione di 'hWnd'
+c:\users\michele\desktop\ettelen 3\source\main.cpp(613): warning C4459: se si dichiara 'hWnd', la dichiarazione globale verrà nascosta
+  c:\users\michele\desktop\ettelen 3\source\main.cpp(118): note: vedere la dichiarazione di 'hWnd'
+c:\users\michele\desktop\ettelen 3\source\main.cpp(665): warning C4100: 'lParam': parametro formale senza riferimenti
+c:\users\michele\desktop\ettelen 3\source\main.cpp(728): warning C4244: 'argomento': conversione da 'time_t' a 'unsigned int'. Possibile perdita di dati.
+c:\users\michele\desktop\ettelen 3\source\main.cpp(730): warning C4459: se si dichiara 'r', la dichiarazione globale verrà nascosta
+  c:\users\michele\desktop\ettelen 3\source\main.cpp(112): note: vedere la dichiarazione di 'r'
+c:\users\michele\desktop\ettelen 3\source\main.cpp(755): warning C4459: se si dichiara 'cps', la dichiarazione globale verrà nascosta
+  c:\users\michele\desktop\ettelen 3\source\main.cpp(48): note: vedere la dichiarazione di 'cps'
+c:\users\michele\desktop\ettelen 3\source\main.cpp(757): warning C4706: assegnazione all'interno di un'espressione condizionale
+  Ettelen.vcxproj -> C:\Users\Michele\Desktop\Ettelen 3\Source\VisualStudio\Debug\Ettelen.exe
