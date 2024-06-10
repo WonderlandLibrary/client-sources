@@ -178,6 +178,7 @@
 - Josh's Clicker
 - Juul 1.0
 - Kagu 0.0.2
+- KaktusWasser's ClientBase
 - Kami Blue 2.04.01
 - Karaguc 0.10
 - Karambit
@@ -363,6 +364,7 @@
 - Slowly b12.3
 - Smok 2.2
 - SmokeX
+- Snipeware 1.03
 - Soar 4.0
 - Spectrum 0.0.1
 - Spicy
