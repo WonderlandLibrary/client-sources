@@ -319,6 +319,9 @@
 - Spectrum 0.0.1
 - Spicy
 - Splash 028620
+- Spooky Clicker v1
+- Spooky Clicker v2
+- Spotify Clicker
 - Squad 0.5.2
 - SRT 1.1.0
 - SRT Developer
