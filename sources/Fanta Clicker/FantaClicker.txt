@@ -1,0 +1,32 @@
+#NoEnv
+Gui, Font, S10.1 CDefault, Verdana
+Gui, Color, 0f0f0f
+Gui, Font, S13.2 cDEFUALT, Verdana
+Gui, Add, Button, x150 y95 w100 h25 gDestruct, Destruct
+Gui, Add, Text, cfc8102 x155 y10, Fanta v2.0
+Gui, Add, Text, cfc8102 x18 y40, Toggle = R
+Gui, Add, Text, cfc8102 x310 y40, CPS: 13
+Gui, +AlwaysOnTop
+Gui, Show, w400 h130, Fanta Clicker
+Suspend, on
+~$*r::
+Suspend
+return
+loop
+*$LButton::
+While getkeystate("LButton", "P") {
+click
+sleep 28.5
+sleep 1.0
+sleep 0.1
+}
+return
+GuiClose:
+exitapp
+Destruct:
+{
+ExitApp
+}
+return
+
+; iHayOng

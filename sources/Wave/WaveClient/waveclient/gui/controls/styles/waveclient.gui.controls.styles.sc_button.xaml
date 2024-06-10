@@ -1,0 +1,74 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<Style
+		TargetType="{x:Type Button}"
+		x:Key="SC_Button">
+		<Setter
+			Property="Background"
+			Value="#ffe3e9ff" />
+		<Setter
+			Property="Foreground"
+			Value="#FF000000" />
+		<Setter
+			Property="FontFamily"
+			Value="Cascadia Code" />
+		<Setter
+			Property="FontSize"
+			Value="18" />
+		<Setter
+			Property="FontWeight"
+			Value="Bold" />
+		<Setter
+			Property="MinHeight"
+			Value="30" />
+		<Setter
+			Property="MinWidth"
+			Value="30" />
+		<Setter
+			Property="Template">
+			<Setter.Value>
+				<ControlTemplate
+					TargetType="{x:Type Button}">
+					<Border
+						CornerRadius="0"
+						Background="{TemplateBinding Background}">
+						<ContentPresenter
+							HorizontalAlignment="Center"
+							VerticalAlignment="Center" />
+					</Border>
+					<ControlTemplate.Triggers>
+						<EventTrigger
+							RoutedEvent="MouseEnter">
+							<BeginStoryboard>
+								<Storyboard>
+									<ColorAnimation
+										To="#FF1700FF"
+										Duration="0:0:0.5"
+										Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" />
+									<ColorAnimation
+										To="White"
+										Duration="0:0:0.5"
+										Storyboard.TargetProperty="(Button.Foreground).(SolidColorBrush.Color)" />
+								</Storyboard>
+							</BeginStoryboard>
+						</EventTrigger>
+						<EventTrigger
+							RoutedEvent="MouseLeave">
+							<BeginStoryboard>
+								<Storyboard>
+									<ColorAnimation
+										To="#ffe3e9ff"
+										Duration="0:0:0.5"
+										Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" />
+									<ColorAnimation
+										To="Black"
+										Duration="0:0:0.5"
+										Storyboard.TargetProperty="(Button.Foreground).(SolidColorBrush.Color)" />
+								</Storyboard>
+							</BeginStoryboard>
+						</EventTrigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+</ResourceDictionary>

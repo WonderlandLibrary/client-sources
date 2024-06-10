@@ -1,0 +1,225 @@
+<Page
+	x:Class="WaveClient.GUI.MainWindow_ModulePage" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:WaveClient.GUI"
+	Title="WaveClient">
+	<Grid>
+		<Grid
+			Margin="10">
+			<ScrollViewer
+				HorizontalAlignment="Left">
+				<StackPanel
+					VerticalAlignment="Top"
+					Width="780">
+					<Grid
+						Name="SGrid_Airjump"
+						Height="60">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition />
+							<ColumnDefinition
+								Width="300" />
+						</Grid.ColumnDefinitions>
+						<Button
+							Name="SModule_Airjump"
+							Grid.Column="1"
+							Style="{StaticResource SC_Button}"
+							Content="On"
+							Margin="5"
+							Foreground="#FF000000"
+							Click="SModule_Airjump_Click" />
+						<TextBlock
+							Name="STextBlock_Airjump"
+							HorizontalAlignment="Left"
+							TextWrapping="Wrap"
+							Text="Airjump"
+							VerticalAlignment="Center"
+							Margin="10,0,0,0"
+							Foreground="#FF000000"
+							FontSize="20"
+							FontFamily="Consolas" />
+					</Grid>
+					<Grid
+						Name="SGrid_NoFall"
+						Height="60">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition />
+							<ColumnDefinition
+								Width="300" />
+						</Grid.ColumnDefinitions>
+						<Button
+							Name="SModule_NoFall"
+							Grid.Column="1"
+							Style="{StaticResource SC_Button}"
+							Content="On"
+							Margin="5"
+							Click="SModule_NoFall_Click" />
+						<TextBlock
+							Name="STextBlock_NoFall"
+							HorizontalAlignment="Left"
+							TextWrapping="Wrap"
+							Text="NoFall"
+							VerticalAlignment="Center"
+							Margin="10,0,0,0"
+							Foreground="#FF000000"
+							FontSize="20"
+							FontFamily="Consolas" />
+					</Grid>
+					<Grid
+						Name="SGrid_Instabreak"
+						Height="60">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition />
+							<ColumnDefinition
+								Width="300" />
+						</Grid.ColumnDefinitions>
+						<Button
+							Name="SModule_Instabreak"
+							Grid.Column="1"
+							Style="{StaticResource SC_Button}"
+							Content="On"
+							Margin="5"
+							Click="SModule_Instabreak_Click" />
+						<TextBlock
+							Name="STextBlock_Instabreak"
+							HorizontalAlignment="Left"
+							TextWrapping="Wrap"
+							Text="Instabreak"
+							VerticalAlignment="Center"
+							Margin="10,0,0,0"
+							Foreground="#FF000000"
+							FontSize="20"
+							FontFamily="Consolas" />
+					</Grid>
+					<Grid
+						Name="SGrid_Reach"
+						Height="60">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition />
+							<ColumnDefinition
+								Width="300" />
+						</Grid.ColumnDefinitions>
+						<Button
+							Name="SModule_Reach"
+							Grid.Column="1"
+							Style="{StaticResource SC_Button}"
+							Content="On"
+							Margin="5"
+							Click="SModule_Reach_Click" />
+						<TextBlock
+							Name="STextBlock_Reach"
+							HorizontalAlignment="Left"
+							TextWrapping="Wrap"
+							Text="Reach"
+							VerticalAlignment="Center"
+							Margin="10,0,0,0"
+							Foreground="#FF000000"
+							FontSize="20"
+							FontFamily="Consolas" />
+					</Grid>
+					<Grid
+						Name="SGrid_NoSwing"
+						Height="60">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition />
+							<ColumnDefinition
+								Width="300" />
+						</Grid.ColumnDefinitions>
+						<Button
+							Name="SModule_NoSwing"
+							Grid.Column="1"
+							Style="{StaticResource SC_Button}"
+							Content="On"
+							Margin="5"
+							Click="SModule_NoSwing_Click" />
+						<TextBlock
+							Name="STextBlock_NoSwing"
+							HorizontalAlignment="Left"
+							TextWrapping="Wrap"
+							Text="NoSwing"
+							VerticalAlignment="Center"
+							Margin="10,0,0,0"
+							Foreground="#FF000000"
+							FontSize="20"
+							FontFamily="Consolas" />
+					</Grid>
+					<Grid
+						Name="SGrid_Coords"
+						Height="60">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition />
+							<ColumnDefinition
+								Width="300" />
+						</Grid.ColumnDefinitions>
+						<Button
+							Name="SModule_Coords"
+							Grid.Column="1"
+							Style="{StaticResource SC_Button}"
+							Content="On"
+							Margin="5"
+							Click="SModule_Coords_Click" />
+						<TextBlock
+							Name="STextBlock_Coords"
+							HorizontalAlignment="Left"
+							TextWrapping="Wrap"
+							Text="Coords"
+							VerticalAlignment="Center"
+							Margin="10,0,0,0"
+							Foreground="#FF000000"
+							FontSize="20"
+							FontFamily="Consolas" />
+					</Grid>
+					<Grid
+						Name="SGrid_Speed"
+						Height="60">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition />
+							<ColumnDefinition
+								Width="300" />
+						</Grid.ColumnDefinitions>
+						<Button
+							Name="SModule_Speed"
+							Grid.Column="1"
+							Style="{StaticResource SC_Button}"
+							Content="On"
+							Margin="5"
+							Click="SModule_Speed_Click" />
+						<TextBlock
+							Name="STextBlock_Speed"
+							HorizontalAlignment="Left"
+							TextWrapping="Wrap"
+							Text="Speed"
+							VerticalAlignment="Center"
+							Margin="10,0,0,0"
+							Foreground="#FF000000"
+							FontSize="20"
+							FontFamily="Consolas" />
+					</Grid>
+					<Grid
+						Name="SGrid_AutoSprint"
+						Height="60">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition />
+							<ColumnDefinition
+								Width="300" />
+						</Grid.ColumnDefinitions>
+						<Button
+							Name="SModule_AutoSprint"
+							Grid.Column="1"
+							Style="{StaticResource SC_Button}"
+							Content="On"
+							Margin="5"
+							Click="SModule_AutoSprint_Click" />
+						<TextBlock
+							Name="STextBlock_AutoSprint"
+							HorizontalAlignment="Left"
+							TextWrapping="Wrap"
+							Text="AutoSprint"
+							VerticalAlignment="Center"
+							Margin="10,0,0,0"
+							Foreground="#FF000000"
+							FontSize="20"
+							FontFamily="Consolas" />
+					</Grid>
+				</StackPanel>
+			</ScrollViewer>
+		</Grid>
+	</Grid>
+</Page>

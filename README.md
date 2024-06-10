@@ -3,6 +3,7 @@
 
 ### Sources
 - 3arthh4ck 1.0.0
+- 60Ping Clicker
 - Actinium
 - Aether 5.5
 - Alpha Centauri B6
@@ -29,6 +30,7 @@
 - Automn Beta 0.1
 - Autumn 1.0.0
 - Ave 0.2
+- Avenge Clicker
 - Axolotl 1.4.1
 - Azura X 06042022
 - Blizzard b1
@@ -36,6 +38,8 @@
 - Bloomware
 - Boomerware 6.9
 - Bope 3.2
+- Bottle Clicker v1.0
+- Bypass Clicker
 - Cake 1.8
 - Capybara Premium 1.0
 - Catalyst 0.1.0
@@ -52,6 +56,7 @@
 - Cookie 1.01
 - Cookie 1.04
 - Corrosion 2.0.0 Developer
+- Creeper Clicker
 - Crest 1.7
 - Crispy 2.0
 - Crispy B3.67, V2.0
@@ -67,6 +72,7 @@
 - DietrichPaul's ClientBase
 - DineTire 2
 - Direkt v1.2
+- Discord Clicker
 - Dort's ClientBase
 - Dortware 1.0
 - Dortware 1.5.0
@@ -136,6 +142,8 @@
 - Kagu 0.0.2
 - Kami Blue 2.04.01
 - Karaguc 0.10
+- Karambit
+- Karambit Clicker
 - Ket 1.0
 - Ketamine v5.7
 - Kevin Reborn
@@ -168,6 +176,7 @@
 - Lucid 0.89
 - Luna 13.0.7
 - Luna b8
+- Lunar Clicker
 - Lune v0.39
 - Lycoris 1.0
 - Lycoris 2.0
@@ -214,6 +223,7 @@
 - ONE2
 - Pandaware 0.4.3
 - Pear 1.0.0
+- Pepsi Clicker
 - Phobos 1.9.0
 - Polaris B14
 - Polarware
@@ -250,6 +260,7 @@
 - Rise 5.98
 - Rise 5.99
 - Rise 6.0
+- Rivals Clicker
 - RoseGold 1.1.0
 - Safeguard b3.3.4
 - Saint 2.3
@@ -280,7 +291,7 @@
 - Stella 0.1
 - Straightware Developer
 - Strife
-- Strife 210822
+- Strife 210822 Developer
 - Sudo b0.5
 - Suku 0.1
 - Summer 5.0
@@ -291,6 +302,7 @@
 - Tenacity 4.0
 - Tenacity 5.1
 - Tenacity 6.0
+- Test Clicker
 - Thea b1
 - Thread Developer
 - ThunderHack Plus
@@ -298,6 +310,7 @@
 - Thunderware B1.0
 - Tired B70
 - Tired NextGen
+- Toad Clicker
 - Tomato 0.2
 - touchgrass 1.12.5
 - Triton 7
@@ -319,8 +332,11 @@
 - Violence b1.26
 - Virgin b0.9.5
 - Virtue 5.5
+- Void Clicker 1.3
 - Vulture 1.8
+- Wave
 - WeepCraft 0.2
+- West Clicker
 - WikiHacks 0.1
 - Winter 7.2
 - WintWare
