@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5DE9997B-4FB1-4C32-9067-135960CD3FAA}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>svchost</RootNamespace>
+    <AssemblyName>svchost</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>svchost.ico</ApplicationIcon>
+    <StartupObject>svchost.My.MyApplication</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="clsComputerInfo.cs" />
+    <Compile Include="cpshandler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cpshandler.Designer.cs">
+      <DependentUpon>cpshandler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DrawHelpers.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogInButton.cs" />
+    <Compile Include="LogInButtonWithProgress.cs" />
+    <Compile Include="LogInCheckBox.cs" />
+    <Compile Include="LogInColourTable.cs" />
+    <Compile Include="LogInComboBox.cs" />
+    <Compile Include="LogInContextMenu.cs" />
+    <Compile Include="LogInGroupBox.cs" />
+    <Compile Include="LogInHorizontalScrollBar.cs" />
+    <Compile Include="LogInLabel.cs" />
+    <Compile Include="LogInListBox.cs" />
+    <Compile Include="LogInListBoxWBuiltInScrollBar.cs" />
+    <Compile Include="LogInLogButton.cs" />
+    <Compile Include="LogInNormalTextBox.cs" />
+    <Compile Include="LogInNumeric.cs" />
+    <Compile Include="LogInOnOffSwitch.cs" />
+    <Compile Include="LogInPaginator.cs" />
+    <Compile Include="LogInPassTextBox.cs" />
+    <Compile Include="LogInProgressBar.cs" />
+    <Compile Include="LogInRadialProgressBar.cs" />
+    <Compile Include="LogInRadioButton.cs" />
+    <Compile Include="LogInRichTextBox.cs" />
+    <Compile Include="LogInSeperator.cs" />
+    <Compile Include="LogInStatusBar.cs" />
+    <Compile Include="LogInTabControl.cs" />
+    <Compile Include="LogInThemeContainer.cs" />
+    <Compile Include="LogInTitledListBox.cs" />
+    <Compile Include="LogInTitledListBoxWBuiltInScrollBar.cs" />
+    <Compile Include="LogInTrackBar.cs" />
+    <Compile Include="LogInUserTextBox.cs" />
+    <Compile Include="LogInVerticalScrollBar.cs" />
+    <Compile Include="My\MyApplication.cs" />
+    <Compile Include="My\MyComputer.cs" />
+    <Compile Include="My\MyProject.cs" />
+    <Compile Include="My\MySettings.cs" />
+    <Compile Include="My\MySettings.Designer.cs">
+      <DependentUpon>MySettings.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="My\MySettingsProperty.cs" />
+    <Compile Include="My\Resources\Resources.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SaluzModule.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="cpshandler.resources" />
+    <EmbeddedResource Include="Form1.resources" />
+    <EmbeddedResource Include="Resources.resources" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.manifest" />
+    <None Include="My\MySettings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>MySettings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
