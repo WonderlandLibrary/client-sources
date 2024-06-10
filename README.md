@@ -5,14 +5,18 @@
 - 3arthh4ck 1.0.0
 - 60Ping Clicker
 - Actinium
+- AeroMC10
 - Aether 5.5
+- Air Clicker
 - Alpha Centauri B6
 - Alphentus 1D
+- Apollo Lite Clicker
 - Apple 2.67
 - Aqua 12
 - Aqua 13
 - Aqua Beta
 - Aquatic 1.0
+- Armax clicker
 - Artemis 1.0
 - Asteria
 - Astolfy B1.0
@@ -26,27 +30,36 @@
 - AtField 1.3
 - Athena 0.0.3 062623
 - Augustus b2.6
+- Aura Clicker
 - Aurora 0.4
 - Automn Beta 0.1
 - Autumn 1.0.0
 - Ave 0.2
 - Avenge Clicker
+- Axis
 - Axolotl 1.4.1
 - Azura X 06042022
+- Badlion 2.0.0-v-beta
+- balanosmelerca
+- BHop Clicker
 - Blizzard b1
 - Bloom v1.23
 - Bloomware
 - Boomerware 6.9
 - Bope 3.2
 - Bottle Clicker v1.0
+- Brodm's Clicker Base
 - Bypass Clicker
 - Cake 1.8
+- Candy
 - Capybara Premium 1.0
 - Catalyst 0.1.0
 - Celestial Premium 6.0
 - Chaos b1.0
 - Cheatware 1
 - Cherry 0.3
+- Choppa Clicker
+- Chromatic
 - Claudius 1.0
 - Cloud 1.1
 - CloverHook 829 DEV
@@ -55,7 +68,9 @@
 - Console 1.9.0
 - Cookie 1.01
 - Cookie 1.04
+- Cooper Beta b1.3
 - Corrosion 2.0.0 Developer
+- CPP Clicker
 - Creeper Clicker
 - Crest 1.7
 - Crispy 2.0
@@ -73,6 +88,7 @@
 - DineTire 2
 - Direkt v1.2
 - Discord Clicker
+- Dope Clicker
 - Dort's ClientBase
 - Dortware 1.0
 - Dortware 1.5.0
@@ -85,6 +101,7 @@
 - Eject v3
 - Electron
 - Elysium b1
+- Empty Clicker
 - Envy 0.3
 - ETB 0.1
 - ETB 0.6
@@ -100,6 +117,7 @@
 - Expensive 2.0
 - Fan v3
 - Fan v4
+- Fanta Clicker
 - Fanta v13
 - Faurax
 - Faygo b20
@@ -117,10 +135,12 @@
 - GetBypass a1.0
 - GetBypass b1.0
 - Glass v0.1
+- Glassware Clicker
 - Glow 1.0.4
 - Gothaj 3.01b Alpha
 - Grape Clicker
 - Graphite 042823
+- Gucci 2.0
 - Hanabi 1.5.1
 - Hanabi 3.1
 - Hawk V1.5
@@ -143,7 +163,8 @@
 - Kami Blue 2.04.01
 - Karaguc 0.10
 - Karambit
-- Karambit Clicker
+- Karambit Clicker v1
+- Karambit Clicker v2
 - Ket 1.0
 - Ketamine v5.7
 - Kevin Reborn
@@ -170,10 +191,13 @@
 - LiquidSense Release
 - LiquidShadow 1.0.0
 - Lirium 1.9
+- Lite Clicker
+- Lithium
 - Lithium 0.1
 - LoseBypass b0.2
 - LRQ 1.0
 - Lucid 0.89
+- Lucid Clicker
 - Luna 13.0.7
 - Luna b8
 - Lunar Clicker
@@ -183,6 +207,7 @@
 - Lyrium 1.0
 - Mark's ClientBase
 - Massacre 210819
+- Master
 - Mega 1.2.0
 - Meme stable-build8
 - Memeware 1.5.2 Funny Packet Edition
@@ -194,6 +219,7 @@
 - Minced Free 1.0
 - Mint B1
 - Monix 3.1
+- Monkey Clicker v2
 - Mono b4
 - Monsoon 1.2
 - Monsoon 1.3
@@ -206,6 +232,7 @@
 - Mystra 1.0.1
 - MythicX 1.1
 - MythX 220822
+- N0LE'S Clicker
 - Nekoware v1 private
 - Nemphis 0.3
 - NeverHook 1.4
@@ -221,6 +248,7 @@
 - Ohareware 6.9
 - Old-Novoline
 - ONE2
+- Paladin
 - Pandaware 0.4.3
 - Pear 1.0.0
 - Pepsi Clicker
@@ -244,6 +272,8 @@
 - Raze Recode 1.1
 - Raze Recode 2.0
 - Raze v1.5b
+- Reak Clicker
+- Reak Recorder
 - Reality b2
 - RedStar 2.0
 - RektSky B2
@@ -252,6 +282,7 @@
 - Remix v1.0
 - Resilience 1.6.1
 - Resolute 211026
+- Resolver Clicker
 - Rich Free 0002
 - Rich Premium 0.1
 - Rise 5.100r3
@@ -265,6 +296,7 @@
 - Safeguard b3.3.4
 - Saint 2.3
 - Scov 030121
+- SendInput Clicker
 - Sensation 2.0.1
 - Seppuku
 - Shoreline 1.0 b2
@@ -275,6 +307,8 @@
 - Sigma 3.9
 - Sigma 4.11
 - Sigma Nextgen
+- SkeetTest Clicker
+- Skid Clicker
 - Skullhack
 - Skyline B28
 - Sleek v0.1
@@ -313,8 +347,10 @@
 - Toad Clicker
 - Tomato 0.2
 - touchgrass 1.12.5
+- Toxic Clicker
 - Triton 7
 - Trivia B1
+- Tutorial Clicker
 - Umbrella 1.3
 - UwUWare 1.0.2
 - Uzi b11
@@ -323,6 +359,7 @@
 - Vape 1.7
 - Vape 1.8
 - Venus Recode 0.2.0
+- Vepe Clicker v1.0
 - Vergo B1.02
 - Vertic 1.0
 - Vestige 2.0
@@ -333,6 +370,7 @@
 - Virgin b0.9.5
 - Virtue 5.5
 - Void Clicker 1.3
+- Vroom AimAssist
 - Vulture 1.8
 - Wave
 - WeepCraft 0.2
