@@ -165,6 +165,7 @@
 - Hera b1
 - Horizon 6.0
 - Hush B4
+- Hydro B2
 - Icarus B15
 - Ice B10
 - Indigo
