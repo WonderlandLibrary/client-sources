@@ -30,24 +30,6 @@ public class RealmsBridge extends RealmsScreen
         }
     }
 
-    public GuiScreenRealmsProxy getNotificationScreen(GuiScreen p_getNotificationScreen_1_)
-    {
-        try
-        {
-            this.previousScreen = p_getNotificationScreen_1_;
-            Class<?> oclass = Class.forName("com.mojang.realmsclient.gui.screens.RealmsNotificationsScreen");
-            Constructor<?> constructor = oclass.getDeclaredConstructor(new Class[] {RealmsScreen.class});
-            constructor.setAccessible(true);
-            Object object = constructor.newInstance(new Object[] {this});
-            return ((RealmsScreen)object).getProxy();
-        }
-        catch (Exception exception)
-        {
-            LOGGER.error((String)"Realms module missing", (Throwable)exception);
-            return null;
-        }
-    }
-
     public void init()
     {
         Minecraft.getMinecraft().displayGuiScreen(this.previousScreen);

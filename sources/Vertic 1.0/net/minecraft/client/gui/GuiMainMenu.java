@@ -249,13 +249,6 @@ public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback
 
         this.mc.func_181537_a(false);
 
-        if (Minecraft.getMinecraft().gameSettings.getOptionOrdinalValue(GameSettings.Options.REALMS_NOTIFICATIONS) && !this.field_183502_L)
-        {
-            RealmsBridge realmsbridge = new RealmsBridge();
-            this.field_183503_M = realmsbridge.getNotificationScreen(this);
-            this.field_183502_L = true;
-        }
-
         if (this.func_183501_a())
         {
             this.field_183503_M.func_183500_a(this.width, this.height);
