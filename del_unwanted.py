@@ -26,8 +26,8 @@ def delete_unwanted_files(folder_path):
     deleted_count = 0
 
     # Undesired directory names and files
-    undesired_dirs = ["javax", "META-INF", "google", "joptsimple", "tv", "oshi", "ibm", "sun", "jcraft", "jhlabs", "apache", "lwjgl", "yaml", "mcp", "ibxm", "javafx", "netscape", "mcupdater", "i"]
-    undesired_files = ["Start.java", "pack.png", ".DS_Store", "log4j2.xml", "InjectionAPI.java", "desktop.ini", "ShaderBackgroundApi3.java", "TestShader.ls", "pack.mcmeta", "version.json", ".mcassetsroot"]
+    undesired_dirs = ["META-INF"]
+    undesired_files = ["Start.java", ".DS_Store", "InjectionAPI.java", "desktop.ini", "pack.mcmeta", "version.json", ".mcassetsroot"]
 
     # Load skipped items from the text file
     skipped_items = load_skipped_items()
@@ -43,14 +43,9 @@ def delete_unwanted_files(folder_path):
                 found_count += 1
 
                 # Ask for user confirmation before deletion
-                user_input = input(f"{Fore.LIGHTGREEN_EX}Do you want to delete this file? (y/n): {Style.RESET_ALL}").lower()
-                if user_input == "y":
-                    os.remove(file_path)
-                    deleted_count += 1
-                    print(f"{Fore.GREEN}Deleted file: {file_path}{Style.RESET_ALL}")
-                elif user_input == "n":
-                    save_skipped_item(file_path)
-                    print(f"{Fore.BLUE}Skipped file: {file_path}{Style.RESET_ALL}")
+                os.remove(file_path)
+                deleted_count += 1
+                print(f"{Fore.GREEN}Deleted file: {file_path}{Style.RESET_ALL}")
 
         for dir_name in dirs:
             dir_path = os.path.join(root, dir_name)
