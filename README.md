@@ -361,7 +361,7 @@
 - Skullhack
 - SkyLine B28
 - Slack v0.1
-- Sleek v0.1
+- Sleek v0.01
 - Slice v15
 - Slowly b12.3
 - Smok 2.2
