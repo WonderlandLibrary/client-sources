@@ -335,6 +335,7 @@
 - Rise 5.98
 - Rise 5.99
 - Rise 6.0
+- Rise 6.1.30
 - Rivals Clicker
 - RoseGold 1.1.0
 - Safeguard b3.3.4
@@ -348,6 +349,7 @@
 - Seppuku
 - Shoreline 1.0 b2
 - Shoreline 1.0 b6
+- Shoreline latest public
 - Shrek Yeet
 - Sight 2.3
 - Sigma 1.6
