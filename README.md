@@ -419,6 +419,7 @@
 - Vape 1.8
 - Vape Assets
 - Vector 1.0
+- VegaLine
 - Venus Recode 0.2.0
 - Vepe Clicker v1.0
 - Vergo B1.02

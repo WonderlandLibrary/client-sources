@@ -1,0 +1,31 @@
+/*
+ * Decompiled with CFR 0.153-SNAPSHOT (d6f6758-dirty).
+ */
+package com.sun.jna.ptr;
+
+import com.sun.jna.NativeLong;
+import com.sun.jna.ptr.ByReference;
+
+/*
+ * Multiple versions of this class in jar - see https://www.benf.org/other/cfr/multi-version-jar.html
+ */
+public class NativeLongByReference
+extends ByReference {
+    public NativeLongByReference() {
+        this(new NativeLong(0L));
+    }
+
+    public NativeLongByReference(NativeLong value) {
+        super(NativeLong.SIZE);
+        this.setValue(value);
+    }
+
+    public void setValue(NativeLong value) {
+        this.getPointer().setNativeLong(0L, value);
+    }
+
+    public NativeLong getValue() {
+        return this.getPointer().getNativeLong(0L);
+    }
+}
+

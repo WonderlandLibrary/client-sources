@@ -1,0 +1,14 @@
+/*
+ * Decompiled with CFR 0.153-SNAPSHOT (d6f6758-dirty).
+ */
+package org.lwjgl.util.glu.tessellation;
+
+class DictNode {
+    Object key;
+    DictNode next;
+    DictNode prev;
+
+    DictNode() {
+    }
+}
+
