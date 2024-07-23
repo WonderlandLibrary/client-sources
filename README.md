@@ -256,6 +256,7 @@
 - Monkey
 - Monkey Clicker v2
 - Mono b4
+- Monoxide
 - Monsoon 1.2
 - Monsoon 1.3
 - Monsoon 3.0-A6
