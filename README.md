@@ -46,7 +46,7 @@
 - Blizzard b1
 - Bloom v1.23
 - Bloomware
-- Blue Zentih 728
+- Blue Zenith 728
 - Boomerware 6.9
 - Bope 3.2
 - Bottle Clicker v1.0
