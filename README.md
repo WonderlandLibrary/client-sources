@@ -277,6 +277,7 @@
 - Nemphis 0.3
 - NeverHook 1.4
 - Nexus
+- Nexus Base
 - Nightmare b1
 - Nivia B3
 - Nodus 2.0 b11
