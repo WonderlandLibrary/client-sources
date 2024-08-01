@@ -89,6 +89,7 @@
 - Deluge 0.23
 - Diablo 2.1
 - Diablo Vince is Depressed Edition
+- Diablo X
 - DietrichPaul's ClientBase
 - DineTire 2
 - Direkt v1.2
