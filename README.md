@@ -197,6 +197,7 @@
 - Koks v1
 - Koks v3
 - Koks v4
+- Konas
 - KyinoSense 17.1
 - Laby v6
 - Laby X v3
@@ -274,6 +275,7 @@
 - MythicX 1.1
 - MythX 220822
 - N0LE'S Clicker
+- Near
 - Nekoware v1 private
 - Nemphis 0.3
 - NeverHook 1.4
