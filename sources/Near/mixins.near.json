@@ -1,0 +1,26 @@
+{
+  "required": true,
+  "package": "studio.dreamys.mixin",
+  "refmap": "mixins.near.refmap.json",
+  "compatibilityLevel": "JAVA_8",
+  "client": [
+    "client.MixinMinecraft",
+    "entity.CullableMixin",
+    "gui.MixinGuiButton",
+    "gui.MixinGuiChat",
+    "gui.MixinGuiConnecting",
+    "gui.MixinGuiIngame",
+    "gui.MixinGuiIngameForge",
+    "gui.MixinGuiIngameMenu",
+    "gui.MixinGuiMainMenu",
+    "gui.MixinGuiNewChat",
+    "gui.MixinGuiOverlayDebug",
+    "gui.MixinGuiScreen",
+    "gui.MixinGuiSlot",
+    "network.MixinNetHandlerPlayClient",
+    "packets.MixinC00Handshake",
+    "render.MixinRender",
+    "render.MixinRenderManager",
+    "render.MixinTileEntityRendererDispatcher"
+  ]
+}

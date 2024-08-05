@@ -1,0 +1,16 @@
+[
+{
+  "modid": "near",
+  "name": "near",
+  "description": "near",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["dxxxxy"],
+  "credits": "near.",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
