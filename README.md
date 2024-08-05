@@ -94,6 +94,7 @@
 - DineTire 2
 - Direkt v1.2
 - Discord Clicker
+- Dog
 - Dope Clicker
 - Dope v1.0
 - Dope v2.0
