@@ -1,0 +1,35 @@
+{
+    "targets": ["swap", "final"],
+    "passes": [
+        {
+            "name": "entityglow",
+            "intarget": "final",
+            "outtarget": "swap",
+            "uniforms": [
+                {
+                    "name": "BlurDir",
+                    "values": [1.0, 0.0]
+                },
+                {
+                    "name": "Radius",
+                    "values": [3.0]
+                }
+            ]
+        },
+        {
+            "name": "entityglow",
+            "intarget": "swap",
+            "outtarget": "final",
+            "uniforms": [
+                {
+                    "name": "BlurDir",
+                    "values": [0.0, 1.0]
+                },
+                {
+                    "name": "Radius",
+                    "values": [3.0]
+                }
+            ]
+        }
+    ]
+}

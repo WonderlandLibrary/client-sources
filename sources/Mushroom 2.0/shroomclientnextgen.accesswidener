@@ -1,0 +1,8 @@
+accessWidener v2 named
+accessible field net/minecraft/network/packet/c2s/play/PlayerInteractEntityC2SPacket ATTACK Lnet/minecraft/network/packet/c2s/play/PlayerInteractEntityC2SPacket$InteractTypeHandler;
+accessible method net/minecraft/network/packet/c2s/play/PlayerInteractEntityC2SPacket <init> (IZLnet/minecraft/network/packet/c2s/play/PlayerInteractEntityC2SPacket$InteractTypeHandler;)V
+accessible class net/minecraft/client/gui/screen/TitleScreen$DeprecationNotice
+accessible method net/minecraft/client/gui/screen/TitleScreen$DeprecationNotice render (Lnet/minecraft/client/gui/DrawContext;I)V
+accessible method net/minecraft/client/gui/screen/TitleScreen$DeprecationNotice <init> (Lnet/minecraft/client/font/TextRenderer;Lnet/minecraft/client/font/MultilineText;II)V
+accessible method net/minecraft/client/Mouse onMouseButton (JIII)V
+accessible method net/minecraft/client/render/GameRenderer loadPostProcessor (Lnet/minecraft/util/Identifier;)V

@@ -1,0 +1,26 @@
+{
+    "schemaVersion": 1,
+    "id": "shroomclientnextgen",
+    "version": "${version}",
+    "name": "ShroomClientNextGen",
+    "description": "",
+    "authors": ["112batman", "Scale", "Swig"],
+    "contact": {
+        "repo": "https://github.com/ShroomClient/ShroomClientNextGen"
+    },
+    "license": "All-Rights-Reserved",
+    "icon": "assets/shroomclientnextgen/icon.png",
+    "environment": "client",
+    "entrypoints": {
+        "main": ["com.shroomclient.shroomclientnextgen.ShroomClient"]
+    },
+    "mixins": ["shroomclientnextgen.mixins.json"],
+    "depends": {
+        "fabricloader": ">=${loader_version}",
+        "fabric": "*",
+        "minecraft": "${minecraft_version}",
+        "sodium": ">=${sodium_mod_version}",
+        "viafabricplus": ">=${viafabricplus_mod_version}"
+    },
+    "accessWidener": "shroomclientnextgen.accesswidener"
+}

@@ -270,6 +270,7 @@
 - Morbid
 - Muphy
 - Mush 1.4.0 Nigga Edition
+- Mushroom 2.0
 - Mye
 - Mye Clicker
 - Mystra 1.0.1
