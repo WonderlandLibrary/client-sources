@@ -390,6 +390,7 @@
 - Straightware Developer
 - Strife
 - Strife 210822 Developer
+- Strife 220424
 - Sudo b0.5
 - Suku 0.1
 - Summer 5.0
