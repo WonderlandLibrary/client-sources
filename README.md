@@ -341,6 +341,7 @@
 - Resilience 1.6.1
 - Resolute 211026
 - Resolver Clicker
+- Return
 - Rich Free 0002
 - Rich Premium 0.1
 - Ripterms
