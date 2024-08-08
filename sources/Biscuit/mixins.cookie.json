@@ -1,0 +1,18 @@
+{
+  "required": true,
+  "compatibilityLevel": "JAVA_8",
+  "package": "in.momin5.cookieclient.api.mixin.mixins",
+  "refmap": "mixins.cookie.refmap.json",
+  "mixins": [
+    "accessor.AccessorEntityPlayerSP",
+    "MixinEntity",
+    "MixinEntityPlayer",
+    "MixinEntityPlayerSP",
+    "MixinGuiScreen",
+    "MixinItemRenderer",
+    "MixinMinecraft",
+    "MixinMovementInputFromOptions",
+    "MixinNetworkManager",
+    "MixinPlayerControllerMP"
+  ]
+}

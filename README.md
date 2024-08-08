@@ -43,6 +43,7 @@
 - Badlion 2.0.0-v-beta
 - balanosmelerca
 - BHop Clicker
+- Biscuit
 - Blizzard b1
 - Bloom v1.23
 - Bloomware
