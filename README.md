@@ -456,7 +456,9 @@
 - Wurst Plus 1
 - Wurst Plus 2
 - WWE (old Intertia)
+- Xatz (Intent base)
 - Xatz 0.9b1
+- Xatz Client (Jigsaw base)
 - Xdolf 1.2.2
 - Xenza B9
 - XIV
