@@ -108,6 +108,7 @@
 - Echo 1.0
 - Eclipse 0.1
 - Edictum 1.0
+- EditMe
 - Eject v3
 - Electron
 - Elysium b1
@@ -146,6 +147,7 @@
 - ForgeHax 1.16
 - frm Clicker
 - FusionX 2.0
+- Future
 - GameSense v2.1.0
 - GameSense v2.3.0
 - Gasper
@@ -224,6 +226,7 @@
 - Lite Clicker
 - Lithium
 - Lithium 0.1
+- LizHax
 - Lizzard
 - Lobo Clicker
 - LoseBypass b0.2
@@ -242,6 +245,7 @@
 - Mark's ClientBase
 - Massacre 210819
 - Master
+- McDonald
 - Mega 1.2.0
 - Mel vB-0.1
 - Melon
@@ -277,6 +281,7 @@
 - MythicX 1.1
 - MythX 220822
 - N0LE'S Clicker
+- Napoline
 - Near
 - Nekoware v1 private
 - Nemphis 0.3
@@ -438,6 +443,7 @@
 - Vestige 3.0
 - VeteranHack 3.7
 - Vika
+- VikNet
 - Violence b1.26
 - Virgin b0.9.5
 - Virtue 5.5
