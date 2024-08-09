@@ -1,0 +1,40 @@
+package src.Wiksi.utils;
+
+public class TimerUtil {
+    public static long lastMS = System.currentTimeMillis();
+
+
+    public static void reset() {
+        lastMS = System.currentTimeMillis();
+    }
+
+    public boolean hasTimeElapsed(long time, boolean reset) {
+        if (System.currentTimeMillis() - lastMS > time) {
+            if (reset) reset();
+            return true;
+        }
+
+        return false;
+    }
+
+    public long getLastMS() {
+        return this.lastMS;
+    }
+
+    public void setLastMC() {
+        lastMS = System.currentTimeMillis();
+    }
+
+    public static boolean hasTimeElapsed(long time) {
+        return System.currentTimeMillis() - lastMS > time;
+    }
+
+    public long getTime() {
+        return System.currentTimeMillis() - lastMS;
+    }
+
+    public void setTime(long time) {
+        lastMS = time;
+    }
+
+}

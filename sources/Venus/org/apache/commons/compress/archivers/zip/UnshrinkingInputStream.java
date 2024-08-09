@@ -1,0 +1,85 @@
+/*
+ * Decompiled with CFR 0.153-SNAPSHOT (d6f6758-dirty).
+ */
+package org.apache.commons.compress.archivers.zip;
+
+import java.io.IOException;
+import java.io.InputStream;
+import org.apache.commons.compress.compressors.z._internal_.InternalLZWInputStream;
+
+class UnshrinkingInputStream
+extends InternalLZWInputStream {
+    private static final int MAX_CODE_SIZE = 13;
+    private static final int MAX_TABLE_SIZE = 8192;
+    private final boolean[] isUsed;
+
+    public UnshrinkingInputStream(InputStream inputStream) throws IOException {
+        super(inputStream);
+        this.setClearCode(this.codeSize);
+        this.initializeTables(13);
+        this.isUsed = new boolean[this.prefixes.length];
+        for (int i = 0; i < 256; ++i) {
+            this.isUsed[i] = true;
+        }
+        this.tableSize = this.clearCode + 1;
+    }
+
+    protected int addEntry(int n, byte by) throws IOException {
+        while (this.tableSize < 8192 && this.isUsed[this.tableSize]) {
+            ++this.tableSize;
+        }
+        int n2 = this.addEntry(n, by, 8192);
+        if (n2 >= 0) {
+            this.isUsed[n2] = true;
+        }
+        return n2;
+    }
+
+    private void partialClear() {
+        int n;
+        boolean[] blArray = new boolean[8192];
+        for (n = 0; n < this.isUsed.length; ++n) {
+            if (!this.isUsed[n] || this.prefixes[n] == -1) continue;
+            blArray[this.prefixes[n]] = true;
+        }
+        for (n = this.clearCode + 1; n < blArray.length; ++n) {
+            if (blArray[n]) continue;
+            this.isUsed[n] = false;
+            this.prefixes[n] = -1;
+        }
+    }
+
+    /*
+     * Enabled force condition propagation
+     * Lifted jumps to return sites
+     */
+    protected int decompressNextSymbol() throws IOException {
+        int n = this.readNextCode();
+        if (n < 0) {
+            return 1;
+        }
+        if (n == this.clearCode) {
+            int n2 = this.readNextCode();
+            if (n2 < 0) {
+                throw new IOException("Unexpected EOF;");
+            }
+            if (n2 == 1) {
+                if (this.codeSize >= 13) throw new IOException("Attempt to increase code size beyond maximum");
+                ++this.codeSize;
+                return 1;
+            } else {
+                if (n2 != 2) throw new IOException("Invalid clear code subcode " + n2);
+                this.partialClear();
+                this.tableSize = this.clearCode + 1;
+            }
+            return 1;
+        }
+        boolean bl = false;
+        int n3 = n;
+        if (this.isUsed[n]) return this.expandCodeToOutputStack(n3, bl);
+        n3 = this.addRepeatOfPreviousCode();
+        bl = true;
+        return this.expandCodeToOutputStack(n3, bl);
+    }
+}
+

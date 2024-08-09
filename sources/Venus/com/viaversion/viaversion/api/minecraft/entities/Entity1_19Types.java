@@ -1,0 +1,216 @@
+/*
+ * Decompiled with CFR 0.153-SNAPSHOT (d6f6758-dirty).
+ */
+package com.viaversion.viaversion.api.minecraft.entities;
+
+import com.google.common.base.Preconditions;
+import com.viaversion.viaversion.api.minecraft.entities.EntityType;
+import com.viaversion.viaversion.api.protocol.Protocol;
+import com.viaversion.viaversion.util.EntityTypeUtil;
+import java.util.Locale;
+import org.checkerframework.checker.nullness.qual.Nullable;
+
+public enum Entity1_19Types implements EntityType
+{
+    ENTITY(null, null),
+    AREA_EFFECT_CLOUD(ENTITY),
+    END_CRYSTAL(ENTITY),
+    EVOKER_FANGS(ENTITY),
+    EXPERIENCE_ORB(ENTITY),
+    EYE_OF_ENDER(ENTITY),
+    FALLING_BLOCK(ENTITY),
+    FIREWORK_ROCKET(ENTITY),
+    ITEM(ENTITY),
+    LLAMA_SPIT(ENTITY),
+    TNT(ENTITY),
+    SHULKER_BULLET(ENTITY),
+    FISHING_BOBBER(ENTITY),
+    LIVINGENTITY(ENTITY, null),
+    ARMOR_STAND(LIVINGENTITY),
+    MARKER(ENTITY),
+    PLAYER(LIVINGENTITY),
+    ABSTRACT_INSENTIENT(LIVINGENTITY, null),
+    ENDER_DRAGON(ABSTRACT_INSENTIENT),
+    BEE(ABSTRACT_INSENTIENT),
+    ABSTRACT_CREATURE(ABSTRACT_INSENTIENT, null),
+    ABSTRACT_AGEABLE(ABSTRACT_CREATURE, null),
+    VILLAGER(ABSTRACT_AGEABLE),
+    WANDERING_TRADER(ABSTRACT_AGEABLE),
+    ABSTRACT_ANIMAL(ABSTRACT_AGEABLE, null),
+    AXOLOTL(ABSTRACT_ANIMAL),
+    DOLPHIN(ABSTRACT_INSENTIENT),
+    CHICKEN(ABSTRACT_ANIMAL),
+    COW(ABSTRACT_ANIMAL),
+    MOOSHROOM(COW),
+    PANDA(ABSTRACT_INSENTIENT),
+    PIG(ABSTRACT_ANIMAL),
+    POLAR_BEAR(ABSTRACT_ANIMAL),
+    RABBIT(ABSTRACT_ANIMAL),
+    SHEEP(ABSTRACT_ANIMAL),
+    TURTLE(ABSTRACT_ANIMAL),
+    FOX(ABSTRACT_ANIMAL),
+    FROG(ABSTRACT_ANIMAL),
+    GOAT(ABSTRACT_ANIMAL),
+    ABSTRACT_TAMEABLE_ANIMAL(ABSTRACT_ANIMAL, null),
+    CAT(ABSTRACT_TAMEABLE_ANIMAL),
+    OCELOT(ABSTRACT_TAMEABLE_ANIMAL),
+    WOLF(ABSTRACT_TAMEABLE_ANIMAL),
+    ABSTRACT_PARROT(ABSTRACT_TAMEABLE_ANIMAL, null),
+    PARROT(ABSTRACT_PARROT),
+    ABSTRACT_HORSE(ABSTRACT_ANIMAL, null),
+    CHESTED_HORSE(ABSTRACT_HORSE, null),
+    DONKEY(CHESTED_HORSE),
+    MULE(CHESTED_HORSE),
+    LLAMA(CHESTED_HORSE),
+    TRADER_LLAMA(CHESTED_HORSE),
+    HORSE(ABSTRACT_HORSE),
+    SKELETON_HORSE(ABSTRACT_HORSE),
+    ZOMBIE_HORSE(ABSTRACT_HORSE),
+    ABSTRACT_GOLEM(ABSTRACT_CREATURE, null),
+    SNOW_GOLEM(ABSTRACT_GOLEM),
+    IRON_GOLEM(ABSTRACT_GOLEM),
+    SHULKER(ABSTRACT_GOLEM),
+    ABSTRACT_FISHES(ABSTRACT_CREATURE, null),
+    COD(ABSTRACT_FISHES),
+    PUFFERFISH(ABSTRACT_FISHES),
+    SALMON(ABSTRACT_FISHES),
+    TROPICAL_FISH(ABSTRACT_FISHES),
+    ABSTRACT_MONSTER(ABSTRACT_CREATURE, null),
+    BLAZE(ABSTRACT_MONSTER),
+    CREEPER(ABSTRACT_MONSTER),
+    ENDERMITE(ABSTRACT_MONSTER),
+    ENDERMAN(ABSTRACT_MONSTER),
+    GIANT(ABSTRACT_MONSTER),
+    SILVERFISH(ABSTRACT_MONSTER),
+    VEX(ABSTRACT_MONSTER),
+    WITCH(ABSTRACT_MONSTER),
+    WITHER(ABSTRACT_MONSTER),
+    RAVAGER(ABSTRACT_MONSTER),
+    ABSTRACT_PIGLIN(ABSTRACT_MONSTER, null),
+    PIGLIN(ABSTRACT_PIGLIN),
+    PIGLIN_BRUTE(ABSTRACT_PIGLIN),
+    HOGLIN(ABSTRACT_ANIMAL),
+    STRIDER(ABSTRACT_ANIMAL),
+    TADPOLE(ABSTRACT_FISHES),
+    ZOGLIN(ABSTRACT_MONSTER),
+    WARDEN(ABSTRACT_MONSTER),
+    ABSTRACT_ILLAGER_BASE(ABSTRACT_MONSTER, null),
+    ABSTRACT_EVO_ILLU_ILLAGER(ABSTRACT_ILLAGER_BASE, null),
+    EVOKER(ABSTRACT_EVO_ILLU_ILLAGER),
+    ILLUSIONER(ABSTRACT_EVO_ILLU_ILLAGER),
+    VINDICATOR(ABSTRACT_ILLAGER_BASE),
+    PILLAGER(ABSTRACT_ILLAGER_BASE),
+    ABSTRACT_SKELETON(ABSTRACT_MONSTER, null),
+    SKELETON(ABSTRACT_SKELETON),
+    STRAY(ABSTRACT_SKELETON),
+    WITHER_SKELETON(ABSTRACT_SKELETON),
+    GUARDIAN(ABSTRACT_MONSTER),
+    ELDER_GUARDIAN(GUARDIAN),
+    SPIDER(ABSTRACT_MONSTER),
+    CAVE_SPIDER(SPIDER),
+    ZOMBIE(ABSTRACT_MONSTER),
+    DROWNED(ZOMBIE),
+    HUSK(ZOMBIE),
+    ZOMBIFIED_PIGLIN(ZOMBIE),
+    ZOMBIE_VILLAGER(ZOMBIE),
+    ABSTRACT_FLYING(ABSTRACT_INSENTIENT, null),
+    GHAST(ABSTRACT_FLYING),
+    PHANTOM(ABSTRACT_FLYING),
+    ABSTRACT_AMBIENT(ABSTRACT_INSENTIENT, null),
+    BAT(ABSTRACT_AMBIENT),
+    ALLAY(ABSTRACT_CREATURE),
+    ABSTRACT_WATERMOB(ABSTRACT_INSENTIENT, null),
+    SQUID(ABSTRACT_WATERMOB),
+    GLOW_SQUID(SQUID),
+    SLIME(ABSTRACT_INSENTIENT),
+    MAGMA_CUBE(SLIME),
+    ABSTRACT_HANGING(ENTITY, null),
+    LEASH_KNOT(ABSTRACT_HANGING),
+    ITEM_FRAME(ABSTRACT_HANGING),
+    GLOW_ITEM_FRAME(ITEM_FRAME),
+    PAINTING(ABSTRACT_HANGING),
+    ABSTRACT_LIGHTNING(ENTITY, null),
+    LIGHTNING_BOLT(ABSTRACT_LIGHTNING),
+    ABSTRACT_ARROW(ENTITY, null),
+    ARROW(ABSTRACT_ARROW),
+    SPECTRAL_ARROW(ABSTRACT_ARROW),
+    TRIDENT(ABSTRACT_ARROW),
+    ABSTRACT_FIREBALL(ENTITY, null),
+    DRAGON_FIREBALL(ABSTRACT_FIREBALL),
+    FIREBALL(ABSTRACT_FIREBALL),
+    SMALL_FIREBALL(ABSTRACT_FIREBALL),
+    WITHER_SKULL(ABSTRACT_FIREBALL),
+    PROJECTILE_ABSTRACT(ENTITY, null),
+    SNOWBALL(PROJECTILE_ABSTRACT),
+    ENDER_PEARL(PROJECTILE_ABSTRACT),
+    EGG(PROJECTILE_ABSTRACT),
+    POTION(PROJECTILE_ABSTRACT),
+    EXPERIENCE_BOTTLE(PROJECTILE_ABSTRACT),
+    MINECART_ABSTRACT(ENTITY, null),
+    CHESTED_MINECART_ABSTRACT(MINECART_ABSTRACT, null),
+    CHEST_MINECART(CHESTED_MINECART_ABSTRACT),
+    HOPPER_MINECART(CHESTED_MINECART_ABSTRACT),
+    MINECART(MINECART_ABSTRACT),
+    FURNACE_MINECART(MINECART_ABSTRACT),
+    COMMAND_BLOCK_MINECART(MINECART_ABSTRACT),
+    TNT_MINECART(MINECART_ABSTRACT),
+    SPAWNER_MINECART(MINECART_ABSTRACT),
+    BOAT(ENTITY),
+    CHEST_BOAT(BOAT);
+
+    private static final EntityType[] TYPES;
+    private final EntityType parent;
+    private final String identifier;
+    private int id = -1;
+
+    private Entity1_19Types(EntityType entityType) {
+        this.parent = entityType;
+        this.identifier = "minecraft:" + this.name().toLowerCase(Locale.ROOT);
+    }
+
+    private Entity1_19Types(EntityType entityType, String string2) {
+        this.parent = entityType;
+        this.identifier = string2;
+    }
+
+    @Override
+    public int getId() {
+        if (this.id == -1) {
+            throw new IllegalStateException("Ids have not been initialized yet (type " + this.name() + ")");
+        }
+        return this.id;
+    }
+
+    @Override
+    public String identifier() {
+        Preconditions.checkArgument(this.identifier != null, "Called identifier method on abstract type");
+        return this.identifier;
+    }
+
+    @Override
+    public @Nullable EntityType getParent() {
+        return this.parent;
+    }
+
+    @Override
+    public boolean isAbstractType() {
+        return this.identifier == null;
+    }
+
+    public static EntityType getTypeFromId(int n) {
+        return EntityTypeUtil.getTypeFromId(TYPES, n, ENTITY);
+    }
+
+    public static void initialize(Protocol<?, ?, ?, ?> protocol) {
+        EntityTypeUtil.initialize((EntityType[])Entity1_19Types.values(), (EntityType[])TYPES, protocol, Entity1_19Types::lambda$initialize$0);
+    }
+
+    private static void lambda$initialize$0(Entity1_19Types entity1_19Types, int n) {
+        entity1_19Types.id = n;
+    }
+
+    static {
+        TYPES = EntityTypeUtil.createSizedArray(Entity1_19Types.values());
+    }
+}
+

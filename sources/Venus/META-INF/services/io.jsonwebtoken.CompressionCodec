@@ -1,0 +1,2 @@
+io.jsonwebtoken.impl.compression.DeflateCompressionAlgorithm
+io.jsonwebtoken.impl.compression.GzipCompressionAlgorithm

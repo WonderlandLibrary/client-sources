@@ -1,0 +1,28 @@
+/*
+ * Decompiled with CFR 0.153-SNAPSHOT (d6f6758-dirty).
+ */
+package org.lwjgl.glfw;
+
+import org.lwjgl.system.CallbackI;
+import org.lwjgl.system.NativeType;
+import org.lwjgl.system.dyncall.DynCallback;
+
+@FunctionalInterface
+@NativeType(value="GLFWjoystickfun")
+public interface GLFWJoystickCallbackI
+extends CallbackI.V {
+    public static final String SIGNATURE = "(ii)v";
+
+    @Override
+    default public String getSignature() {
+        return SIGNATURE;
+    }
+
+    @Override
+    default public void callback(long l) {
+        this.invoke(DynCallback.dcbArgInt(l), DynCallback.dcbArgInt(l));
+    }
+
+    public void invoke(int var1, int var2);
+}
+

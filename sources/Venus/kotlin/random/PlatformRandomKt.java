@@ -1,0 +1,50 @@
+/*
+ * Decompiled with CFR 0.153-SNAPSHOT (d6f6758-dirty).
+ */
+package kotlin.random;
+
+import kotlin.Metadata;
+import kotlin.SinceKotlin;
+import kotlin.internal.InlineOnly;
+import kotlin.internal.PlatformImplementationsKt;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.random.AbstractPlatformRandom;
+import kotlin.random.KotlinRandom;
+import kotlin.random.PlatformRandom;
+import kotlin.random.Random;
+import org.jetbrains.annotations.NotNull;
+
+@Metadata(mv={1, 9, 0}, k=2, xi=48, d1={"\u0000\u001e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0006\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u001a\t\u0010\u0000\u001a\u00020\u0001H\u0081\b\u001a\u0018\u0010\u0002\u001a\u00020\u00032\u0006\u0010\u0004\u001a\u00020\u00052\u0006\u0010\u0006\u001a\u00020\u0005H\u0000\u001a\f\u0010\u0007\u001a\u00020\b*\u00020\u0001H\u0007\u001a\f\u0010\t\u001a\u00020\u0001*\u00020\bH\u0007\u00a8\u0006\n"}, d2={"defaultPlatformRandom", "Lkotlin/random/Random;", "doubleFromParts", "", "hi26", "", "low27", "asJavaRandom", "Ljava/util/Random;", "asKotlinRandom", "kotlin-stdlib"})
+public final class PlatformRandomKt {
+    @SinceKotlin(version="1.3")
+    @NotNull
+    public static final java.util.Random asJavaRandom(@NotNull Random random2) {
+        Intrinsics.checkNotNullParameter(random2, "<this>");
+        Object object = random2 instanceof AbstractPlatformRandom ? (AbstractPlatformRandom)random2 : null;
+        if (object == null || (object = ((AbstractPlatformRandom)object).getImpl()) == null) {
+            object = new KotlinRandom(random2);
+        }
+        return object;
+    }
+
+    @SinceKotlin(version="1.3")
+    @NotNull
+    public static final Random asKotlinRandom(@NotNull java.util.Random random2) {
+        Intrinsics.checkNotNullParameter(random2, "<this>");
+        Object object = random2 instanceof KotlinRandom ? (KotlinRandom)random2 : null;
+        if (object == null || (object = ((KotlinRandom)object).getImpl()) == null) {
+            object = new PlatformRandom(random2);
+        }
+        return object;
+    }
+
+    @InlineOnly
+    private static final Random defaultPlatformRandom() {
+        return PlatformImplementationsKt.IMPLEMENTATIONS.defaultPlatformRandom();
+    }
+
+    public static final double doubleFromParts(int n, int n2) {
+        return (double)(((long)n << 27) + (long)n2) / 9.007199254740992E15;
+    }
+}
+

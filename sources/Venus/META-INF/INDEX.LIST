@@ -1,0 +1,27 @@
+JarIndex-Version: 1.0
+
+lwjgl.jar
+META-INF
+META-INF/versions
+META-INF/versions/10
+META-INF/versions/10/org
+META-INF/versions/10/org/lwjgl
+META-INF/versions/10/org/lwjgl/system
+META-INF/versions/9
+META-INF/versions/9/org
+META-INF/versions/9/org/lwjgl
+META-INF/versions/9/org/lwjgl/system
+org
+org/lwjgl
+org/lwjgl/system
+org/lwjgl/system/dyncall
+org/lwjgl/system/jni
+org/lwjgl/system/libc
+org/lwjgl/system/linux
+org/lwjgl/system/macosx
+org/lwjgl/system/windows
+liblwjgl.dylib.sha1
+liblwjgl.so.sha1
+lwjgl.dll.sha1
+lwjgl32.dll.sha1
+

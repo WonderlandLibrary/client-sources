@@ -1,0 +1,11 @@
+/*
+ * Decompiled with CFR 0.153-SNAPSHOT (d6f6758-dirty).
+ */
+package io.netty.buffer;
+
+import io.netty.buffer.ByteBufAllocatorMetric;
+
+public interface ByteBufAllocatorMetricProvider {
+    public ByteBufAllocatorMetric metric();
+}
+

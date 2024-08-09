@@ -1,0 +1,14 @@
+/*
+ * Decompiled with CFR 0.153-SNAPSHOT (d6f6758-dirty).
+ */
+package com.mojang.datafixers.util;
+
+public enum Unit {
+    INSTANCE;
+
+
+    public String toString() {
+        return "Unit";
+    }
+}
+

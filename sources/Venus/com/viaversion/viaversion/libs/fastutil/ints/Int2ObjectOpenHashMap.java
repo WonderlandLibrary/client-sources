@@ -1,0 +1,1665 @@
+/*
+ * Decompiled with CFR 0.153-SNAPSHOT (d6f6758-dirty).
+ */
+package com.viaversion.viaversion.libs.fastutil.ints;
+
+import com.viaversion.viaversion.libs.fastutil.Hash;
+import com.viaversion.viaversion.libs.fastutil.HashCommon;
+import com.viaversion.viaversion.libs.fastutil.Pair;
+import com.viaversion.viaversion.libs.fastutil.ints.AbstractInt2ObjectMap;
+import com.viaversion.viaversion.libs.fastutil.ints.AbstractIntSet;
+import com.viaversion.viaversion.libs.fastutil.ints.Int2ObjectFunction;
+import com.viaversion.viaversion.libs.fastutil.ints.Int2ObjectMap;
+import com.viaversion.viaversion.libs.fastutil.ints.IntArrayList;
+import com.viaversion.viaversion.libs.fastutil.ints.IntIterator;
+import com.viaversion.viaversion.libs.fastutil.ints.IntObjectPair;
+import com.viaversion.viaversion.libs.fastutil.ints.IntSet;
+import com.viaversion.viaversion.libs.fastutil.ints.IntSpliterator;
+import com.viaversion.viaversion.libs.fastutil.objects.AbstractObjectCollection;
+import com.viaversion.viaversion.libs.fastutil.objects.AbstractObjectSet;
+import com.viaversion.viaversion.libs.fastutil.objects.ObjectCollection;
+import com.viaversion.viaversion.libs.fastutil.objects.ObjectIterator;
+import com.viaversion.viaversion.libs.fastutil.objects.ObjectSet;
+import com.viaversion.viaversion.libs.fastutil.objects.ObjectSpliterator;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.NoSuchElementException;
+import java.util.Objects;
+import java.util.Set;
+import java.util.Spliterator;
+import java.util.function.BiFunction;
+import java.util.function.Consumer;
+import java.util.function.IntConsumer;
+import java.util.function.IntFunction;
+
+/*
+ * Duplicate member names - consider using --renamedupmembers true
+ */
+public class Int2ObjectOpenHashMap<V>
+extends AbstractInt2ObjectMap<V>
+implements Serializable,
+Cloneable,
+Hash {
+    private static final long serialVersionUID = 0L;
+    private static final boolean ASSERTS = false;
+    protected transient int[] key;
+    protected transient V[] value;
+    protected transient int mask;
+    protected transient boolean containsNullKey;
+    protected transient int n;
+    protected transient int maxFill;
+    protected final transient int minN;
+    protected int size;
+    protected final float f;
+    protected transient Int2ObjectMap.FastEntrySet<V> entries;
+    protected transient IntSet keys;
+    protected transient ObjectCollection<V> values;
+
+    public Int2ObjectOpenHashMap(int n, float f) {
+        if (f <= 0.0f || f >= 1.0f) {
+            throw new IllegalArgumentException("Load factor must be greater than 0 and smaller than 1");
+        }
+        if (n < 0) {
+            throw new IllegalArgumentException("The expected number of elements must be nonnegative");
+        }
+        this.f = f;
+        this.minN = this.n = HashCommon.arraySize(n, f);
+        this.mask = this.n - 1;
+        this.maxFill = HashCommon.maxFill(this.n, f);
+        this.key = new int[this.n + 1];
+        this.value = new Object[this.n + 1];
+    }
+
+    public Int2ObjectOpenHashMap(int n) {
+        this(n, 0.75f);
+    }
+
+    public Int2ObjectOpenHashMap() {
+        this(16, 0.75f);
+    }
+
+    public Int2ObjectOpenHashMap(Map<? extends Integer, ? extends V> map, float f) {
+        this(map.size(), f);
+        this.putAll(map);
+    }
+
+    public Int2ObjectOpenHashMap(Map<? extends Integer, ? extends V> map) {
+        this(map, 0.75f);
+    }
+
+    public Int2ObjectOpenHashMap(Int2ObjectMap<V> int2ObjectMap, float f) {
+        this(int2ObjectMap.size(), f);
+        this.putAll(int2ObjectMap);
+    }
+
+    public Int2ObjectOpenHashMap(Int2ObjectMap<V> int2ObjectMap) {
+        this(int2ObjectMap, 0.75f);
+    }
+
+    public Int2ObjectOpenHashMap(int[] nArray, V[] VArray, float f) {
+        this(nArray.length, f);
+        if (nArray.length != VArray.length) {
+            throw new IllegalArgumentException("The key array and the value array have different lengths (" + nArray.length + " and " + VArray.length + ")");
+        }
+        for (int i = 0; i < nArray.length; ++i) {
+            this.put(nArray[i], VArray[i]);
+        }
+    }
+
+    public Int2ObjectOpenHashMap(int[] nArray, V[] VArray) {
+        this(nArray, VArray, 0.75f);
+    }
+
+    private int realSize() {
+        return this.containsNullKey ? this.size - 1 : this.size;
+    }
+
+    public void ensureCapacity(int n) {
+        int n2 = HashCommon.arraySize(n, this.f);
+        if (n2 > this.n) {
+            this.rehash(n2);
+        }
+    }
+
+    private void tryCapacity(long l) {
+        int n = (int)Math.min(0x40000000L, Math.max(2L, HashCommon.nextPowerOfTwo((long)Math.ceil((float)l / this.f))));
+        if (n > this.n) {
+            this.rehash(n);
+        }
+    }
+
+    private V removeEntry(int n) {
+        V v = this.value[n];
+        this.value[n] = null;
+        --this.size;
+        this.shiftKeys(n);
+        if (this.n > this.minN && this.size < this.maxFill / 4 && this.n > 16) {
+            this.rehash(this.n / 2);
+        }
+        return v;
+    }
+
+    private V removeNullEntry() {
+        this.containsNullKey = false;
+        V v = this.value[this.n];
+        this.value[this.n] = null;
+        --this.size;
+        if (this.n > this.minN && this.size < this.maxFill / 4 && this.n > 16) {
+            this.rehash(this.n / 2);
+        }
+        return v;
+    }
+
+    @Override
+    public void putAll(Map<? extends Integer, ? extends V> map) {
+        if ((double)this.f <= 0.5) {
+            this.ensureCapacity(map.size());
+        } else {
+            this.tryCapacity(this.size() + map.size());
+        }
+        super.putAll(map);
+    }
+
+    private int find(int n) {
+        if (n == 0) {
+            return this.containsNullKey ? this.n : -(this.n + 1);
+        }
+        int[] nArray = this.key;
+        int n2 = HashCommon.mix(n) & this.mask;
+        int n3 = nArray[n2];
+        if (n3 == 0) {
+            return -(n2 + 1);
+        }
+        if (n == n3) {
+            return n2;
+        }
+        do {
+            if ((n3 = nArray[n2 = n2 + 1 & this.mask]) != 0) continue;
+            return -(n2 + 1);
+        } while (n != n3);
+        return n2;
+    }
+
+    private void insert(int n, int n2, V v) {
+        if (n == this.n) {
+            this.containsNullKey = true;
+        }
+        this.key[n] = n2;
+        this.value[n] = v;
+        if (this.size++ >= this.maxFill) {
+            this.rehash(HashCommon.arraySize(this.size + 1, this.f));
+        }
+    }
+
+    @Override
+    public V put(int n, V v) {
+        int n2 = this.find(n);
+        if (n2 < 0) {
+            this.insert(-n2 - 1, n, v);
+            return (V)this.defRetValue;
+        }
+        V v2 = this.value[n2];
+        this.value[n2] = v;
+        return v2;
+    }
+
+    protected final void shiftKeys(int n) {
+        int[] nArray = this.key;
+        while (true) {
+            int n2;
+            int n3 = n;
+            n = n3 + 1 & this.mask;
+            while (true) {
+                if ((n2 = nArray[n]) == 0) {
+                    nArray[n3] = 0;
+                    this.value[n3] = null;
+                    return;
+                }
+                int n4 = HashCommon.mix(n2) & this.mask;
+                if (n3 <= n ? n3 >= n4 || n4 > n : n3 >= n4 && n4 > n) break;
+                n = n + 1 & this.mask;
+            }
+            nArray[n3] = n2;
+            this.value[n3] = this.value[n];
+        }
+    }
+
+    @Override
+    public V remove(int n) {
+        if (n == 0) {
+            if (this.containsNullKey) {
+                return this.removeNullEntry();
+            }
+            return (V)this.defRetValue;
+        }
+        int[] nArray = this.key;
+        int n2 = HashCommon.mix(n) & this.mask;
+        int n3 = nArray[n2];
+        if (n3 == 0) {
+            return (V)this.defRetValue;
+        }
+        if (n == n3) {
+            return this.removeEntry(n2);
+        }
+        do {
+            if ((n3 = nArray[n2 = n2 + 1 & this.mask]) != 0) continue;
+            return (V)this.defRetValue;
+        } while (n != n3);
+        return this.removeEntry(n2);
+    }
+
+    @Override
+    public V get(int n) {
+        if (n == 0) {
+            return (V)(this.containsNullKey ? this.value[this.n] : this.defRetValue);
+        }
+        int[] nArray = this.key;
+        int n2 = HashCommon.mix(n) & this.mask;
+        int n3 = nArray[n2];
+        if (n3 == 0) {
+            return (V)this.defRetValue;
+        }
+        if (n == n3) {
+            return this.value[n2];
+        }
+        do {
+            if ((n3 = nArray[n2 = n2 + 1 & this.mask]) != 0) continue;
+            return (V)this.defRetValue;
+        } while (n != n3);
+        return this.value[n2];
+    }
+
+    @Override
+    public boolean containsKey(int n) {
+        if (n == 0) {
+            return this.containsNullKey;
+        }
+        int[] nArray = this.key;
+        int n2 = HashCommon.mix(n) & this.mask;
+        int n3 = nArray[n2];
+        if (n3 == 0) {
+            return true;
+        }
+        if (n == n3) {
+            return false;
+        }
+        do {
+            if ((n3 = nArray[n2 = n2 + 1 & this.mask]) != 0) continue;
+            return true;
+        } while (n != n3);
+        return false;
+    }
+
+    @Override
+    public boolean containsValue(Object object) {
+        V[] VArray = this.value;
+        int[] nArray = this.key;
+        if (this.containsNullKey && Objects.equals(VArray[this.n], object)) {
+            return false;
+        }
+        int n = this.n;
+        while (n-- != 0) {
+            if (nArray[n] == 0 || !Objects.equals(VArray[n], object)) continue;
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public V getOrDefault(int n, V v) {
+        if (n == 0) {
+            return this.containsNullKey ? this.value[this.n] : v;
+        }
+        int[] nArray = this.key;
+        int n2 = HashCommon.mix(n) & this.mask;
+        int n3 = nArray[n2];
+        if (n3 == 0) {
+            return v;
+        }
+        if (n == n3) {
+            return this.value[n2];
+        }
+        do {
+            if ((n3 = nArray[n2 = n2 + 1 & this.mask]) != 0) continue;
+            return v;
+        } while (n != n3);
+        return this.value[n2];
+    }
+
+    @Override
+    public V putIfAbsent(int n, V v) {
+        int n2 = this.find(n);
+        if (n2 >= 0) {
+            return this.value[n2];
+        }
+        this.insert(-n2 - 1, n, v);
+        return (V)this.defRetValue;
+    }
+
+    @Override
+    public boolean remove(int n, Object object) {
+        if (n == 0) {
+            if (this.containsNullKey && Objects.equals(object, this.value[this.n])) {
+                this.removeNullEntry();
+                return false;
+            }
+            return true;
+        }
+        int[] nArray = this.key;
+        int n2 = HashCommon.mix(n) & this.mask;
+        int n3 = nArray[n2];
+        if (n3 == 0) {
+            return true;
+        }
+        if (n == n3 && Objects.equals(object, this.value[n2])) {
+            this.removeEntry(n2);
+            return false;
+        }
+        do {
+            if ((n3 = nArray[n2 = n2 + 1 & this.mask]) != 0) continue;
+            return true;
+        } while (n != n3 || !Objects.equals(object, this.value[n2]));
+        this.removeEntry(n2);
+        return false;
+    }
+
+    @Override
+    public boolean replace(int n, V v, V v2) {
+        int n2 = this.find(n);
+        if (n2 < 0 || !Objects.equals(v, this.value[n2])) {
+            return true;
+        }
+        this.value[n2] = v2;
+        return false;
+    }
+
+    @Override
+    public V replace(int n, V v) {
+        int n2 = this.find(n);
+        if (n2 < 0) {
+            return (V)this.defRetValue;
+        }
+        V v2 = this.value[n2];
+        this.value[n2] = v;
+        return v2;
+    }
+
+    @Override
+    public V computeIfAbsent(int n, IntFunction<? extends V> intFunction) {
+        Objects.requireNonNull(intFunction);
+        int n2 = this.find(n);
+        if (n2 >= 0) {
+            return this.value[n2];
+        }
+        V v = intFunction.apply(n);
+        this.insert(-n2 - 1, n, v);
+        return v;
+    }
+
+    @Override
+    public V computeIfAbsent(int n, Int2ObjectFunction<? extends V> int2ObjectFunction) {
+        Objects.requireNonNull(int2ObjectFunction);
+        int n2 = this.find(n);
+        if (n2 >= 0) {
+            return this.value[n2];
+        }
+        if (!int2ObjectFunction.containsKey(n)) {
+            return (V)this.defRetValue;
+        }
+        V v = int2ObjectFunction.get(n);
+        this.insert(-n2 - 1, n, v);
+        return v;
+    }
+
+    @Override
+    public V computeIfPresent(int n, BiFunction<? super Integer, ? super V, ? extends V> biFunction) {
+        Objects.requireNonNull(biFunction);
+        int n2 = this.find(n);
+        if (n2 < 0) {
+            return (V)this.defRetValue;
+        }
+        if (this.value[n2] == null) {
+            return (V)this.defRetValue;
+        }
+        V v = biFunction.apply(n, this.value[n2]);
+        if (v == null) {
+            if (n == 0) {
+                this.removeNullEntry();
+            } else {
+                this.removeEntry(n2);
+            }
+            return (V)this.defRetValue;
+        }
+        this.value[n2] = v;
+        return this.value[n2];
+    }
+
+    @Override
+    public V compute(int n, BiFunction<? super Integer, ? super V, ? extends V> biFunction) {
+        Objects.requireNonNull(biFunction);
+        int n2 = this.find(n);
+        V v = biFunction.apply(n, n2 >= 0 ? (Object)this.value[n2] : null);
+        if (v == null) {
+            if (n2 >= 0) {
+                if (n == 0) {
+                    this.removeNullEntry();
+                } else {
+                    this.removeEntry(n2);
+                }
+            }
+            return (V)this.defRetValue;
+        }
+        V v2 = v;
+        if (n2 < 0) {
+            this.insert(-n2 - 1, n, v2);
+            return v2;
+        }
+        this.value[n2] = v2;
+        return this.value[n2];
+    }
+
+    @Override
+    public V merge(int n, V v, BiFunction<? super V, ? super V, ? extends V> biFunction) {
+        Objects.requireNonNull(biFunction);
+        Objects.requireNonNull(v);
+        int n2 = this.find(n);
+        if (n2 < 0 || this.value[n2] == null) {
+            if (n2 < 0) {
+                this.insert(-n2 - 1, n, v);
+            } else {
+                this.value[n2] = v;
+            }
+            return v;
+        }
+        V v2 = biFunction.apply(this.value[n2], v);
+        if (v2 == null) {
+            if (n == 0) {
+                this.removeNullEntry();
+            } else {
+                this.removeEntry(n2);
+            }
+            return (V)this.defRetValue;
+        }
+        this.value[n2] = v2;
+        return this.value[n2];
+    }
+
+    @Override
+    public void clear() {
+        if (this.size == 0) {
+            return;
+        }
+        this.size = 0;
+        this.containsNullKey = false;
+        Arrays.fill(this.key, 0);
+        Arrays.fill(this.value, null);
+    }
+
+    @Override
+    public int size() {
+        return this.size;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return this.size == 0;
+    }
+
+    public Int2ObjectMap.FastEntrySet<V> int2ObjectEntrySet() {
+        if (this.entries == null) {
+            this.entries = new MapEntrySet(this, null);
+        }
+        return this.entries;
+    }
+
+    @Override
+    public IntSet keySet() {
+        if (this.keys == null) {
+            this.keys = new KeySet(this, null);
+        }
+        return this.keys;
+    }
+
+    @Override
+    public ObjectCollection<V> values() {
+        if (this.values == null) {
+            this.values = new AbstractObjectCollection<V>(this){
+                final Int2ObjectOpenHashMap this$0;
+                {
+                    this.this$0 = int2ObjectOpenHashMap;
+                }
+
+                @Override
+                public ObjectIterator<V> iterator() {
+                    return new ValueIterator(this.this$0);
+                }
+
+                @Override
+                public ObjectSpliterator<V> spliterator() {
+                    return new ValueSpliterator(this.this$0);
+                }
+
+                @Override
+                public void forEach(Consumer<? super V> consumer) {
+                    if (this.this$0.containsNullKey) {
+                        consumer.accept(this.this$0.value[this.this$0.n]);
+                    }
+                    int n = this.this$0.n;
+                    while (n-- != 0) {
+                        if (this.this$0.key[n] == 0) continue;
+                        consumer.accept(this.this$0.value[n]);
+                    }
+                }
+
+                @Override
+                public int size() {
+                    return this.this$0.size;
+                }
+
+                @Override
+                public boolean contains(Object object) {
+                    return this.this$0.containsValue(object);
+                }
+
+                @Override
+                public void clear() {
+                    this.this$0.clear();
+                }
+
+                @Override
+                public Spliterator spliterator() {
+                    return this.spliterator();
+                }
+
+                @Override
+                public Iterator iterator() {
+                    return this.iterator();
+                }
+            };
+        }
+        return this.values;
+    }
+
+    public boolean trim() {
+        return this.trim(this.size);
+    }
+
+    public boolean trim(int n) {
+        int n2 = HashCommon.nextPowerOfTwo((int)Math.ceil((float)n / this.f));
+        if (n2 >= this.n || this.size > HashCommon.maxFill(n2, this.f)) {
+            return false;
+        }
+        try {
+            this.rehash(n2);
+        } catch (OutOfMemoryError outOfMemoryError) {
+            return true;
+        }
+        return false;
+    }
+
+    protected void rehash(int n) {
+        int[] nArray = this.key;
+        V[] VArray = this.value;
+        int n2 = n - 1;
+        int[] nArray2 = new int[n + 1];
+        Object[] objectArray = new Object[n + 1];
+        int n3 = this.n;
+        int n4 = this.realSize();
+        while (n4-- != 0) {
+            while (nArray[--n3] == 0) {
+            }
+            int n5 = HashCommon.mix(nArray[n3]) & n2;
+            if (nArray2[n5] != 0) {
+                while (nArray2[n5 = n5 + 1 & n2] != 0) {
+                }
+            }
+            nArray2[n5] = nArray[n3];
+            objectArray[n5] = VArray[n3];
+        }
+        objectArray[n] = VArray[this.n];
+        this.n = n;
+        this.mask = n2;
+        this.maxFill = HashCommon.maxFill(this.n, this.f);
+        this.key = nArray2;
+        this.value = objectArray;
+    }
+
+    public Int2ObjectOpenHashMap<V> clone() {
+        Int2ObjectOpenHashMap int2ObjectOpenHashMap;
+        try {
+            int2ObjectOpenHashMap = (Int2ObjectOpenHashMap)super.clone();
+        } catch (CloneNotSupportedException cloneNotSupportedException) {
+            throw new InternalError();
+        }
+        int2ObjectOpenHashMap.keys = null;
+        int2ObjectOpenHashMap.values = null;
+        int2ObjectOpenHashMap.entries = null;
+        int2ObjectOpenHashMap.containsNullKey = this.containsNullKey;
+        int2ObjectOpenHashMap.key = (int[])this.key.clone();
+        int2ObjectOpenHashMap.value = (Object[])this.value.clone();
+        return int2ObjectOpenHashMap;
+    }
+
+    @Override
+    public int hashCode() {
+        int n = 0;
+        int n2 = this.realSize();
+        int n3 = 0;
+        int n4 = 0;
+        while (n2-- != 0) {
+            while (this.key[n3] == 0) {
+                ++n3;
+            }
+            n4 = this.key[n3];
+            if (this != this.value[n3]) {
+                n4 ^= this.value[n3] == null ? 0 : this.value[n3].hashCode();
+            }
+            n += n4;
+            ++n3;
+        }
+        if (this.containsNullKey) {
+            n += this.value[this.n] == null ? 0 : this.value[this.n].hashCode();
+        }
+        return n;
+    }
+
+    private void writeObject(ObjectOutputStream objectOutputStream) throws IOException {
+        int[] nArray = this.key;
+        V[] VArray = this.value;
+        EntryIterator entryIterator = new EntryIterator(this, null);
+        objectOutputStream.defaultWriteObject();
+        int n = this.size;
+        while (n-- != 0) {
+            int n2 = entryIterator.nextEntry();
+            objectOutputStream.writeInt(nArray[n2]);
+            objectOutputStream.writeObject(VArray[n2]);
+        }
+    }
+
+    private void readObject(ObjectInputStream objectInputStream) throws IOException, ClassNotFoundException {
+        objectInputStream.defaultReadObject();
+        this.n = HashCommon.arraySize(this.size, this.f);
+        this.maxFill = HashCommon.maxFill(this.n, this.f);
+        this.mask = this.n - 1;
+        this.key = new int[this.n + 1];
+        int[] nArray = this.key;
+        this.value = new Object[this.n + 1];
+        Object[] objectArray = this.value;
+        int n = this.size;
+        while (n-- != 0) {
+            int n2;
+            int n3 = objectInputStream.readInt();
+            Object object = objectInputStream.readObject();
+            if (n3 == 0) {
+                n2 = this.n;
+                this.containsNullKey = true;
+            } else {
+                n2 = HashCommon.mix(n3) & this.mask;
+                while (nArray[n2] != 0) {
+                    n2 = n2 + 1 & this.mask;
+                }
+            }
+            nArray[n2] = n3;
+            objectArray[n2] = object;
+        }
+    }
+
+    private void checkTable() {
+    }
+
+    @Override
+    public ObjectSet int2ObjectEntrySet() {
+        return this.int2ObjectEntrySet();
+    }
+
+    @Override
+    public Collection values() {
+        return this.values();
+    }
+
+    @Override
+    public Set keySet() {
+        return this.keySet();
+    }
+
+    public Object clone() throws CloneNotSupportedException {
+        return this.clone();
+    }
+
+    static int access$100(Int2ObjectOpenHashMap int2ObjectOpenHashMap) {
+        return int2ObjectOpenHashMap.realSize();
+    }
+
+    static Object access$400(Int2ObjectOpenHashMap int2ObjectOpenHashMap) {
+        return int2ObjectOpenHashMap.removeNullEntry();
+    }
+
+    static Object access$500(Int2ObjectOpenHashMap int2ObjectOpenHashMap, int n) {
+        return int2ObjectOpenHashMap.removeEntry(n);
+    }
+
+    private final class MapEntrySet
+    extends AbstractObjectSet<Int2ObjectMap.Entry<V>>
+    implements Int2ObjectMap.FastEntrySet<V> {
+        final Int2ObjectOpenHashMap this$0;
+
+        private MapEntrySet(Int2ObjectOpenHashMap int2ObjectOpenHashMap) {
+            this.this$0 = int2ObjectOpenHashMap;
+        }
+
+        @Override
+        public ObjectIterator<Int2ObjectMap.Entry<V>> iterator() {
+            return new EntryIterator(this.this$0, null);
+        }
+
+        @Override
+        public ObjectIterator<Int2ObjectMap.Entry<V>> fastIterator() {
+            return new FastEntryIterator(this.this$0, null);
+        }
+
+        @Override
+        public ObjectSpliterator<Int2ObjectMap.Entry<V>> spliterator() {
+            return new EntrySpliterator(this.this$0);
+        }
+
+        @Override
+        public boolean contains(Object object) {
+            if (!(object instanceof Map.Entry)) {
+                return true;
+            }
+            Map.Entry entry = (Map.Entry)object;
+            if (entry.getKey() == null || !(entry.getKey() instanceof Integer)) {
+                return true;
+            }
+            int n = (Integer)entry.getKey();
+            Object v = entry.getValue();
+            if (n == 0) {
+                return this.this$0.containsNullKey && Objects.equals(this.this$0.value[this.this$0.n], v);
+            }
+            int[] nArray = this.this$0.key;
+            int n2 = HashCommon.mix(n) & this.this$0.mask;
+            int n3 = nArray[n2];
+            if (n3 == 0) {
+                return true;
+            }
+            if (n == n3) {
+                return Objects.equals(this.this$0.value[n2], v);
+            }
+            do {
+                if ((n3 = nArray[n2 = n2 + 1 & this.this$0.mask]) != 0) continue;
+                return true;
+            } while (n != n3);
+            return Objects.equals(this.this$0.value[n2], v);
+        }
+
+        @Override
+        public boolean remove(Object object) {
+            if (!(object instanceof Map.Entry)) {
+                return true;
+            }
+            Map.Entry entry = (Map.Entry)object;
+            if (entry.getKey() == null || !(entry.getKey() instanceof Integer)) {
+                return true;
+            }
+            int n = (Integer)entry.getKey();
+            Object v = entry.getValue();
+            if (n == 0) {
+                if (this.this$0.containsNullKey && Objects.equals(this.this$0.value[this.this$0.n], v)) {
+                    Int2ObjectOpenHashMap.access$400(this.this$0);
+                    return false;
+                }
+                return true;
+            }
+            int[] nArray = this.this$0.key;
+            int n2 = HashCommon.mix(n) & this.this$0.mask;
+            int n3 = nArray[n2];
+            if (n3 == 0) {
+                return true;
+            }
+            if (n3 == n) {
+                if (Objects.equals(this.this$0.value[n2], v)) {
+                    Int2ObjectOpenHashMap.access$500(this.this$0, n2);
+                    return false;
+                }
+                return true;
+            }
+            do {
+                if ((n3 = nArray[n2 = n2 + 1 & this.this$0.mask]) != 0) continue;
+                return true;
+            } while (n3 != n || !Objects.equals(this.this$0.value[n2], v));
+            Int2ObjectOpenHashMap.access$500(this.this$0, n2);
+            return false;
+        }
+
+        @Override
+        public int size() {
+            return this.this$0.size;
+        }
+
+        @Override
+        public void clear() {
+            this.this$0.clear();
+        }
+
+        @Override
+        public void forEach(Consumer<? super Int2ObjectMap.Entry<V>> consumer) {
+            if (this.this$0.containsNullKey) {
+                consumer.accept(new MapEntry(this.this$0, this.this$0.n));
+            }
+            int n = this.this$0.n;
+            while (n-- != 0) {
+                if (this.this$0.key[n] == 0) continue;
+                consumer.accept(new MapEntry(this.this$0, n));
+            }
+        }
+
+        @Override
+        public void fastForEach(Consumer<? super Int2ObjectMap.Entry<V>> consumer) {
+            MapEntry mapEntry = new MapEntry(this.this$0);
+            if (this.this$0.containsNullKey) {
+                mapEntry.index = this.this$0.n;
+                consumer.accept(mapEntry);
+            }
+            int n = this.this$0.n;
+            while (n-- != 0) {
+                if (this.this$0.key[n] == 0) continue;
+                mapEntry.index = n;
+                consumer.accept(mapEntry);
+            }
+        }
+
+        @Override
+        public Spliterator spliterator() {
+            return this.spliterator();
+        }
+
+        @Override
+        public Iterator iterator() {
+            return this.iterator();
+        }
+
+        MapEntrySet(Int2ObjectOpenHashMap int2ObjectOpenHashMap, 1 var2_2) {
+            this(int2ObjectOpenHashMap);
+        }
+    }
+
+    /*
+     * Duplicate member names - consider using --renamedupmembers true
+     */
+    private final class KeySet
+    extends AbstractIntSet {
+        final Int2ObjectOpenHashMap this$0;
+
+        private KeySet(Int2ObjectOpenHashMap int2ObjectOpenHashMap) {
+            this.this$0 = int2ObjectOpenHashMap;
+        }
+
+        @Override
+        public IntIterator iterator() {
+            return new KeyIterator(this.this$0);
+        }
+
+        @Override
+        public IntSpliterator spliterator() {
+            return new KeySpliterator(this.this$0);
+        }
+
+        @Override
+        public void forEach(IntConsumer intConsumer) {
+            if (this.this$0.containsNullKey) {
+                intConsumer.accept(this.this$0.key[this.this$0.n]);
+            }
+            int n = this.this$0.n;
+            while (n-- != 0) {
+                int n2 = this.this$0.key[n];
+                if (n2 == 0) continue;
+                intConsumer.accept(n2);
+            }
+        }
+
+        @Override
+        public int size() {
+            return this.this$0.size;
+        }
+
+        @Override
+        public boolean contains(int n) {
+            return this.this$0.containsKey(n);
+        }
+
+        @Override
+        public boolean remove(int n) {
+            int n2 = this.this$0.size;
+            this.this$0.remove(n);
+            return this.this$0.size != n2;
+        }
+
+        @Override
+        public void clear() {
+            this.this$0.clear();
+        }
+
+        @Override
+        public Spliterator spliterator() {
+            return this.spliterator();
+        }
+
+        @Override
+        public Iterator iterator() {
+            return this.iterator();
+        }
+
+        KeySet(Int2ObjectOpenHashMap int2ObjectOpenHashMap, 1 var2_2) {
+            this(int2ObjectOpenHashMap);
+        }
+    }
+
+    /*
+     * Duplicate member names - consider using --renamedupmembers true
+     */
+    private final class EntryIterator
+    extends MapIterator<Consumer<? super Int2ObjectMap.Entry<V>>>
+    implements ObjectIterator<Int2ObjectMap.Entry<V>> {
+        private MapEntry entry;
+        final Int2ObjectOpenHashMap this$0;
+
+        private EntryIterator(Int2ObjectOpenHashMap int2ObjectOpenHashMap) {
+            this.this$0 = int2ObjectOpenHashMap;
+            super(int2ObjectOpenHashMap, null);
+        }
+
+        @Override
+        public MapEntry next() {
+            this.entry = new MapEntry(this.this$0, this.nextEntry());
+            return this.entry;
+        }
+
+        @Override
+        final void acceptOnIndex(Consumer<? super Int2ObjectMap.Entry<V>> consumer, int n) {
+            this.entry = new MapEntry(this.this$0, n);
+            consumer.accept(this.entry);
+        }
+
+        @Override
+        public void remove() {
+            super.remove();
+            this.entry.index = -1;
+        }
+
+        @Override
+        void acceptOnIndex(Object object, int n) {
+            this.acceptOnIndex((Consumer)object, n);
+        }
+
+        @Override
+        public void forEachRemaining(Consumer consumer) {
+            super.forEachRemaining(consumer);
+        }
+
+        @Override
+        public Object next() {
+            return this.next();
+        }
+
+        EntryIterator(Int2ObjectOpenHashMap int2ObjectOpenHashMap, 1 var2_2) {
+            this(int2ObjectOpenHashMap);
+        }
+    }
+
+    /*
+     * Duplicate member names - consider using --renamedupmembers true
+     */
+    private final class ValueSpliterator
+    extends MapSpliterator<Consumer<? super V>, ValueSpliterator>
+    implements ObjectSpliterator<V> {
+        private static final int POST_SPLIT_CHARACTERISTICS = 0;
+        final Int2ObjectOpenHashMap this$0;
+
+        ValueSpliterator(Int2ObjectOpenHashMap int2ObjectOpenHashMap) {
+            this.this$0 = int2ObjectOpenHashMap;
+            super(int2ObjectOpenHashMap);
+        }
+
+        ValueSpliterator(Int2ObjectOpenHashMap int2ObjectOpenHashMap, int n, int n2, boolean bl, boolean bl2) {
+            this.this$0 = int2ObjectOpenHashMap;
+            super(int2ObjectOpenHashMap, n, n2, bl, bl2);
+        }
+
+        @Override
+        public int characteristics() {
+            return this.hasSplit ? 0 : 64;
+        }
+
+        @Override
+        final void acceptOnIndex(Consumer<? super V> consumer, int n) {
+            consumer.accept(this.this$0.value[n]);
+        }
+
+        @Override
+        final ValueSpliterator makeForSplit(int n, int n2, boolean bl) {
+            return new ValueSpliterator(this.this$0, n, n2, bl, true);
+        }
+
+        @Override
+        MapSpliterator makeForSplit(int n, int n2, boolean bl) {
+            return this.makeForSplit(n, n2, bl);
+        }
+
+        @Override
+        void acceptOnIndex(Object object, int n) {
+            this.acceptOnIndex((Consumer)object, n);
+        }
+
+        @Override
+        public ObjectSpliterator trySplit() {
+            return (ObjectSpliterator)super.trySplit();
+        }
+
+        @Override
+        public Spliterator trySplit() {
+            return (Spliterator)super.trySplit();
+        }
+
+        @Override
+        public void forEachRemaining(Consumer consumer) {
+            super.forEachRemaining(consumer);
+        }
+
+        @Override
+        public boolean tryAdvance(Consumer consumer) {
+            return super.tryAdvance(consumer);
+        }
+    }
+
+    private final class ValueIterator
+    extends MapIterator<Consumer<? super V>>
+    implements ObjectIterator<V> {
+        final Int2ObjectOpenHashMap this$0;
+
+        public ValueIterator(Int2ObjectOpenHashMap int2ObjectOpenHashMap) {
+            this.this$0 = int2ObjectOpenHashMap;
+            super(int2ObjectOpenHashMap, null);
+        }
+
+        @Override
+        final void acceptOnIndex(Consumer<? super V> consumer, int n) {
+            consumer.accept(this.this$0.value[n]);
+        }
+
+        @Override
+        public V next() {
+            return this.this$0.value[this.nextEntry()];
+        }
+
+        @Override
+        void acceptOnIndex(Object object, int n) {
+            this.acceptOnIndex((Consumer)object, n);
+        }
+
+        @Override
+        public void forEachRemaining(Consumer consumer) {
+            super.forEachRemaining(consumer);
+        }
+    }
+
+    /*
+     * Duplicate member names - consider using --renamedupmembers true
+     */
+    private final class KeySpliterator
+    extends MapSpliterator<IntConsumer, KeySpliterator>
+    implements IntSpliterator {
+        private static final int POST_SPLIT_CHARACTERISTICS = 257;
+        final Int2ObjectOpenHashMap this$0;
+
+        KeySpliterator(Int2ObjectOpenHashMap int2ObjectOpenHashMap) {
+            this.this$0 = int2ObjectOpenHashMap;
+            super(int2ObjectOpenHashMap);
+        }
+
+        KeySpliterator(Int2ObjectOpenHashMap int2ObjectOpenHashMap, int n, int n2, boolean bl, boolean bl2) {
+            this.this$0 = int2ObjectOpenHashMap;
+            super(int2ObjectOpenHashMap, n, n2, bl, bl2);
+        }
+
+        @Override
+        public int characteristics() {
+            return this.hasSplit ? 257 : 321;
+        }
+
+        @Override
+        final void acceptOnIndex(IntConsumer intConsumer, int n) {
+            intConsumer.accept(this.this$0.key[n]);
+        }
+
+        @Override
+        final KeySpliterator makeForSplit(int n, int n2, boolean bl) {
+            return new KeySpliterator(this.this$0, n, n2, bl, true);
+        }
+
+        @Override
+        MapSpliterator makeForSplit(int n, int n2, boolean bl) {
+            return this.makeForSplit(n, n2, bl);
+        }
+
+        @Override
+        void acceptOnIndex(Object object, int n) {
+            this.acceptOnIndex((IntConsumer)object, n);
+        }
+
+        @Override
+        public IntSpliterator trySplit() {
+            return (IntSpliterator)super.trySplit();
+        }
+
+        @Override
+        public void forEachRemaining(IntConsumer intConsumer) {
+            super.forEachRemaining(intConsumer);
+        }
+
+        @Override
+        public boolean tryAdvance(IntConsumer intConsumer) {
+            return super.tryAdvance(intConsumer);
+        }
+
+        @Override
+        public Spliterator.OfInt trySplit() {
+            return (Spliterator.OfInt)super.trySplit();
+        }
+
+        @Override
+        public Spliterator.OfPrimitive trySplit() {
+            return (Spliterator.OfPrimitive)super.trySplit();
+        }
+
+        @Override
+        public Spliterator trySplit() {
+            return (Spliterator)super.trySplit();
+        }
+    }
+
+    private final class KeyIterator
+    extends MapIterator<IntConsumer>
+    implements IntIterator {
+        final Int2ObjectOpenHashMap this$0;
+
+        public KeyIterator(Int2ObjectOpenHashMap int2ObjectOpenHashMap) {
+            this.this$0 = int2ObjectOpenHashMap;
+            super(int2ObjectOpenHashMap, null);
+        }
+
+        @Override
+        final void acceptOnIndex(IntConsumer intConsumer, int n) {
+            intConsumer.accept(this.this$0.key[n]);
+        }
+
+        @Override
+        public int nextInt() {
+            return this.this$0.key[this.nextEntry()];
+        }
+
+        @Override
+        void acceptOnIndex(Object object, int n) {
+            this.acceptOnIndex((IntConsumer)object, n);
+        }
+
+        @Override
+        public void forEachRemaining(IntConsumer intConsumer) {
+            super.forEachRemaining(intConsumer);
+        }
+    }
+
+    /*
+     * Duplicate member names - consider using --renamedupmembers true
+     */
+    private final class EntrySpliterator
+    extends MapSpliterator<Consumer<? super Int2ObjectMap.Entry<V>>, EntrySpliterator>
+    implements ObjectSpliterator<Int2ObjectMap.Entry<V>> {
+        private static final int POST_SPLIT_CHARACTERISTICS = 1;
+        final Int2ObjectOpenHashMap this$0;
+
+        EntrySpliterator(Int2ObjectOpenHashMap int2ObjectOpenHashMap) {
+            this.this$0 = int2ObjectOpenHashMap;
+            super(int2ObjectOpenHashMap);
+        }
+
+        EntrySpliterator(Int2ObjectOpenHashMap int2ObjectOpenHashMap, int n, int n2, boolean bl, boolean bl2) {
+            this.this$0 = int2ObjectOpenHashMap;
+            super(int2ObjectOpenHashMap, n, n2, bl, bl2);
+        }
+
+        @Override
+        public int characteristics() {
+            return this.hasSplit ? 1 : 65;
+        }
+
+        @Override
+        final void acceptOnIndex(Consumer<? super Int2ObjectMap.Entry<V>> consumer, int n) {
+            consumer.accept(new MapEntry(this.this$0, n));
+        }
+
+        @Override
+        final EntrySpliterator makeForSplit(int n, int n2, boolean bl) {
+            return new EntrySpliterator(this.this$0, n, n2, bl, true);
+        }
+
+        @Override
+        MapSpliterator makeForSplit(int n, int n2, boolean bl) {
+            return this.makeForSplit(n, n2, bl);
+        }
+
+        @Override
+        void acceptOnIndex(Object object, int n) {
+            this.acceptOnIndex((Consumer)object, n);
+        }
+
+        @Override
+        public ObjectSpliterator trySplit() {
+            return (ObjectSpliterator)super.trySplit();
+        }
+
+        @Override
+        public Spliterator trySplit() {
+            return (Spliterator)super.trySplit();
+        }
+
+        @Override
+        public void forEachRemaining(Consumer consumer) {
+            super.forEachRemaining(consumer);
+        }
+
+        @Override
+        public boolean tryAdvance(Consumer consumer) {
+            return super.tryAdvance(consumer);
+        }
+    }
+
+    private abstract class MapSpliterator<ConsumerType, SplitType extends MapSpliterator<ConsumerType, SplitType>> {
+        int pos;
+        int max;
+        int c;
+        boolean mustReturnNull;
+        boolean hasSplit;
+        final Int2ObjectOpenHashMap this$0;
+
+        MapSpliterator(Int2ObjectOpenHashMap int2ObjectOpenHashMap) {
+            this.this$0 = int2ObjectOpenHashMap;
+            this.pos = 0;
+            this.max = this.this$0.n;
+            this.c = 0;
+            this.mustReturnNull = this.this$0.containsNullKey;
+            this.hasSplit = false;
+        }
+
+        MapSpliterator(Int2ObjectOpenHashMap int2ObjectOpenHashMap, int n, int n2, boolean bl, boolean bl2) {
+            this.this$0 = int2ObjectOpenHashMap;
+            this.pos = 0;
+            this.max = this.this$0.n;
+            this.c = 0;
+            this.mustReturnNull = this.this$0.containsNullKey;
+            this.hasSplit = false;
+            this.pos = n;
+            this.max = n2;
+            this.mustReturnNull = bl;
+            this.hasSplit = bl2;
+        }
+
+        abstract void acceptOnIndex(ConsumerType var1, int var2);
+
+        abstract SplitType makeForSplit(int var1, int var2, boolean var3);
+
+        public boolean tryAdvance(ConsumerType ConsumerType) {
+            if (this.mustReturnNull) {
+                this.mustReturnNull = false;
+                ++this.c;
+                this.acceptOnIndex(ConsumerType, this.this$0.n);
+                return false;
+            }
+            int[] nArray = this.this$0.key;
+            while (this.pos < this.max) {
+                if (nArray[this.pos] != 0) {
+                    ++this.c;
+                    this.acceptOnIndex(ConsumerType, this.pos++);
+                    return false;
+                }
+                ++this.pos;
+            }
+            return true;
+        }
+
+        public void forEachRemaining(ConsumerType ConsumerType) {
+            if (this.mustReturnNull) {
+                this.mustReturnNull = false;
+                ++this.c;
+                this.acceptOnIndex(ConsumerType, this.this$0.n);
+            }
+            int[] nArray = this.this$0.key;
+            while (this.pos < this.max) {
+                if (nArray[this.pos] != 0) {
+                    this.acceptOnIndex(ConsumerType, this.pos);
+                    ++this.c;
+                }
+                ++this.pos;
+            }
+        }
+
+        public long estimateSize() {
+            if (!this.hasSplit) {
+                return this.this$0.size - this.c;
+            }
+            return Math.min((long)(this.this$0.size - this.c), (long)((double)Int2ObjectOpenHashMap.access$100(this.this$0) / (double)this.this$0.n * (double)(this.max - this.pos)) + (long)(this.mustReturnNull ? 1 : 0));
+        }
+
+        public SplitType trySplit() {
+            if (this.pos >= this.max - 1) {
+                return null;
+            }
+            int n = this.max - this.pos >> 1;
+            if (n <= 1) {
+                return null;
+            }
+            int n2 = this.pos + n;
+            int n3 = this.pos;
+            int n4 = n2;
+            SplitType SplitType = this.makeForSplit(n3, n4, this.mustReturnNull);
+            this.pos = n2;
+            this.mustReturnNull = false;
+            this.hasSplit = true;
+            return SplitType;
+        }
+
+        public long skip(long l) {
+            if (l < 0L) {
+                throw new IllegalArgumentException("Argument must be nonnegative: " + l);
+            }
+            if (l == 0L) {
+                return 0L;
+            }
+            long l2 = 0L;
+            if (this.mustReturnNull) {
+                this.mustReturnNull = false;
+                ++l2;
+                --l;
+            }
+            int[] nArray = this.this$0.key;
+            while (this.pos < this.max && l > 0L) {
+                if (nArray[this.pos++] == 0) continue;
+                ++l2;
+                --l;
+            }
+            return l2;
+        }
+    }
+
+    /*
+     * Duplicate member names - consider using --renamedupmembers true
+     */
+    private final class FastEntryIterator
+    extends MapIterator<Consumer<? super Int2ObjectMap.Entry<V>>>
+    implements ObjectIterator<Int2ObjectMap.Entry<V>> {
+        private final MapEntry entry;
+        final Int2ObjectOpenHashMap this$0;
+
+        private FastEntryIterator(Int2ObjectOpenHashMap int2ObjectOpenHashMap) {
+            this.this$0 = int2ObjectOpenHashMap;
+            super(int2ObjectOpenHashMap, null);
+            this.entry = new MapEntry(this.this$0);
+        }
+
+        @Override
+        public MapEntry next() {
+            this.entry.index = this.nextEntry();
+            return this.entry;
+        }
+
+        @Override
+        final void acceptOnIndex(Consumer<? super Int2ObjectMap.Entry<V>> consumer, int n) {
+            this.entry.index = n;
+            consumer.accept(this.entry);
+        }
+
+        @Override
+        void acceptOnIndex(Object object, int n) {
+            this.acceptOnIndex((Consumer)object, n);
+        }
+
+        @Override
+        public void forEachRemaining(Consumer consumer) {
+            super.forEachRemaining(consumer);
+        }
+
+        @Override
+        public Object next() {
+            return this.next();
+        }
+
+        FastEntryIterator(Int2ObjectOpenHashMap int2ObjectOpenHashMap, 1 var2_2) {
+            this(int2ObjectOpenHashMap);
+        }
+    }
+
+    private abstract class MapIterator<ConsumerType> {
+        int pos;
+        int last;
+        int c;
+        boolean mustReturnNullKey;
+        IntArrayList wrapped;
+        final Int2ObjectOpenHashMap this$0;
+
+        private MapIterator(Int2ObjectOpenHashMap int2ObjectOpenHashMap) {
+            this.this$0 = int2ObjectOpenHashMap;
+            this.pos = this.this$0.n;
+            this.last = -1;
+            this.c = this.this$0.size;
+            this.mustReturnNullKey = this.this$0.containsNullKey;
+        }
+
+        abstract void acceptOnIndex(ConsumerType var1, int var2);
+
+        public boolean hasNext() {
+            return this.c != 0;
+        }
+
+        public int nextEntry() {
+            if (!this.hasNext()) {
+                throw new NoSuchElementException();
+            }
+            --this.c;
+            if (this.mustReturnNullKey) {
+                this.mustReturnNullKey = false;
+                this.last = this.this$0.n;
+                return this.last;
+            }
+            int[] nArray = this.this$0.key;
+            do {
+                if (--this.pos >= 0) continue;
+                this.last = Integer.MIN_VALUE;
+                int n = this.wrapped.getInt(-this.pos - 1);
+                int n2 = HashCommon.mix(n) & this.this$0.mask;
+                while (n != nArray[n2]) {
+                    n2 = n2 + 1 & this.this$0.mask;
+                }
+                return n2;
+            } while (nArray[this.pos] == 0);
+            this.last = this.pos;
+            return this.last;
+        }
+
+        public void forEachRemaining(ConsumerType ConsumerType) {
+            if (this.mustReturnNullKey) {
+                this.mustReturnNullKey = false;
+                this.last = this.this$0.n;
+                this.acceptOnIndex(ConsumerType, this.last);
+                --this.c;
+            }
+            int[] nArray = this.this$0.key;
+            while (this.c != 0) {
+                if (--this.pos < 0) {
+                    this.last = Integer.MIN_VALUE;
+                    int n = this.wrapped.getInt(-this.pos - 1);
+                    int n2 = HashCommon.mix(n) & this.this$0.mask;
+                    while (n != nArray[n2]) {
+                        n2 = n2 + 1 & this.this$0.mask;
+                    }
+                    this.acceptOnIndex(ConsumerType, n2);
+                    --this.c;
+                    continue;
+                }
+                if (nArray[this.pos] == 0) continue;
+                this.last = this.pos;
+                this.acceptOnIndex(ConsumerType, this.last);
+                --this.c;
+            }
+        }
+
+        private void shiftKeys(int n) {
+            int[] nArray = this.this$0.key;
+            while (true) {
+                int n2;
+                int n3 = n;
+                n = n3 + 1 & this.this$0.mask;
+                while (true) {
+                    if ((n2 = nArray[n]) == 0) {
+                        nArray[n3] = 0;
+                        this.this$0.value[n3] = null;
+                        return;
+                    }
+                    int n4 = HashCommon.mix(n2) & this.this$0.mask;
+                    if (n3 <= n ? n3 >= n4 || n4 > n : n3 >= n4 && n4 > n) break;
+                    n = n + 1 & this.this$0.mask;
+                }
+                if (n < n3) {
+                    if (this.wrapped == null) {
+                        this.wrapped = new IntArrayList(2);
+                    }
+                    this.wrapped.add(nArray[n]);
+                }
+                nArray[n3] = n2;
+                this.this$0.value[n3] = this.this$0.value[n];
+            }
+        }
+
+        public void remove() {
+            if (this.last == -1) {
+                throw new IllegalStateException();
+            }
+            if (this.last == this.this$0.n) {
+                this.this$0.containsNullKey = false;
+                this.this$0.value[this.this$0.n] = null;
+            } else if (this.pos >= 0) {
+                this.shiftKeys(this.last);
+            } else {
+                this.this$0.remove(this.wrapped.getInt(-this.pos - 1));
+                this.last = -1;
+                return;
+            }
+            --this.this$0.size;
+            this.last = -1;
+        }
+
+        public int skip(int n) {
+            int n2 = n;
+            while (n2-- != 0 && this.hasNext()) {
+                this.nextEntry();
+            }
+            return n - n2 - 1;
+        }
+
+        MapIterator(Int2ObjectOpenHashMap int2ObjectOpenHashMap, 1 var2_2) {
+            this(int2ObjectOpenHashMap);
+        }
+    }
+
+    /*
+     * Duplicate member names - consider using --renamedupmembers true
+     */
+    final class MapEntry
+    implements Int2ObjectMap.Entry<V>,
+    Map.Entry<Integer, V>,
+    IntObjectPair<V> {
+        int index;
+        final Int2ObjectOpenHashMap this$0;
+
+        MapEntry(Int2ObjectOpenHashMap int2ObjectOpenHashMap, int n) {
+            this.this$0 = int2ObjectOpenHashMap;
+            this.index = n;
+        }
+
+        MapEntry(Int2ObjectOpenHashMap int2ObjectOpenHashMap) {
+            this.this$0 = int2ObjectOpenHashMap;
+        }
+
+        @Override
+        public int getIntKey() {
+            return this.this$0.key[this.index];
+        }
+
+        @Override
+        public int leftInt() {
+            return this.this$0.key[this.index];
+        }
+
+        @Override
+        public V getValue() {
+            return this.this$0.value[this.index];
+        }
+
+        @Override
+        public V right() {
+            return this.this$0.value[this.index];
+        }
+
+        @Override
+        public V setValue(V v) {
+            Object v2 = this.this$0.value[this.index];
+            this.this$0.value[this.index] = v;
+            return v2;
+        }
+
+        public IntObjectPair<V> right(V v) {
+            this.this$0.value[this.index] = v;
+            return this;
+        }
+
+        @Override
+        @Deprecated
+        public Integer getKey() {
+            return this.this$0.key[this.index];
+        }
+
+        @Override
+        public boolean equals(Object object) {
+            if (!(object instanceof Map.Entry)) {
+                return true;
+            }
+            Map.Entry entry = (Map.Entry)object;
+            return this.this$0.key[this.index] == (Integer)entry.getKey() && Objects.equals(this.this$0.value[this.index], entry.getValue());
+        }
+
+        @Override
+        public int hashCode() {
+            return this.this$0.key[this.index] ^ (this.this$0.value[this.index] == null ? 0 : this.this$0.value[this.index].hashCode());
+        }
+
+        public String toString() {
+            return this.this$0.key[this.index] + "=>" + this.this$0.value[this.index];
+        }
+
+        @Override
+        @Deprecated
+        public Object getKey() {
+            return this.getKey();
+        }
+
+        @Override
+        public Pair right(Object object) {
+            return this.right(object);
+        }
+    }
+}
+

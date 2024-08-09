@@ -1,0 +1,791 @@
+/*
+ * Decompiled with CFR 0.153-SNAPSHOT (d6f6758-dirty).
+ */
+package it.unimi.dsi.fastutil.objects;
+
+import it.unimi.dsi.fastutil.objects.AbstractReferenceList;
+import it.unimi.dsi.fastutil.objects.ObjectBidirectionalIterator;
+import it.unimi.dsi.fastutil.objects.ObjectIterator;
+import it.unimi.dsi.fastutil.objects.ObjectIterators;
+import it.unimi.dsi.fastutil.objects.ObjectListIterator;
+import it.unimi.dsi.fastutil.objects.ReferenceCollections;
+import it.unimi.dsi.fastutil.objects.ReferenceList;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.Random;
+import java.util.RandomAccess;
+
+public final class ReferenceLists {
+    public static final EmptyList EMPTY_LIST = new EmptyList();
+
+    private ReferenceLists() {
+    }
+
+    public static <K> ReferenceList<K> shuffle(ReferenceList<K> referenceList, Random random2) {
+        int n = referenceList.size();
+        while (n-- != 0) {
+            int n2 = random2.nextInt(n + 1);
+            Object e = referenceList.get(n);
+            referenceList.set(n, referenceList.get(n2));
+            referenceList.set(n2, e);
+        }
+        return referenceList;
+    }
+
+    public static <K> ReferenceList<K> emptyList() {
+        return EMPTY_LIST;
+    }
+
+    public static <K> ReferenceList<K> singleton(K k) {
+        return new Singleton<K>(k);
+    }
+
+    public static <K> ReferenceList<K> synchronize(ReferenceList<K> referenceList) {
+        return referenceList instanceof RandomAccess ? new SynchronizedRandomAccessList<K>(referenceList) : new SynchronizedList<K>(referenceList);
+    }
+
+    public static <K> ReferenceList<K> synchronize(ReferenceList<K> referenceList, Object object) {
+        return referenceList instanceof RandomAccess ? new SynchronizedRandomAccessList<K>(referenceList, object) : new SynchronizedList<K>(referenceList, object);
+    }
+
+    public static <K> ReferenceList<K> unmodifiable(ReferenceList<K> referenceList) {
+        return referenceList instanceof RandomAccess ? new UnmodifiableRandomAccessList<K>(referenceList) : new UnmodifiableList<K>(referenceList);
+    }
+
+    public static class UnmodifiableRandomAccessList<K>
+    extends UnmodifiableList<K>
+    implements RandomAccess,
+    Serializable {
+        private static final long serialVersionUID = 0L;
+
+        protected UnmodifiableRandomAccessList(ReferenceList<K> referenceList) {
+            super(referenceList);
+        }
+
+        @Override
+        public ReferenceList<K> subList(int n, int n2) {
+            return new UnmodifiableRandomAccessList<K>(this.list.subList(n, n2));
+        }
+
+        @Override
+        public List subList(int n, int n2) {
+            return this.subList(n, n2);
+        }
+    }
+
+    /*
+     * Duplicate member names - consider using --renamedupmembers true
+     */
+    public static class UnmodifiableList<K>
+    extends ReferenceCollections.UnmodifiableCollection<K>
+    implements ReferenceList<K>,
+    Serializable {
+        private static final long serialVersionUID = -7046029254386353129L;
+        protected final ReferenceList<K> list;
+
+        protected UnmodifiableList(ReferenceList<K> referenceList) {
+            super(referenceList);
+            this.list = referenceList;
+        }
+
+        @Override
+        public K get(int n) {
+            return (K)this.list.get(n);
+        }
+
+        @Override
+        public K set(int n, K k) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public void add(int n, K k) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public K remove(int n) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public int indexOf(Object object) {
+            return this.list.indexOf(object);
+        }
+
+        @Override
+        public int lastIndexOf(Object object) {
+            return this.list.lastIndexOf(object);
+        }
+
+        @Override
+        public boolean addAll(int n, Collection<? extends K> collection) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public void getElements(int n, Object[] objectArray, int n2, int n3) {
+            this.list.getElements(n, objectArray, n2, n3);
+        }
+
+        @Override
+        public void removeElements(int n, int n2) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public void addElements(int n, K[] KArray, int n2, int n3) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public void addElements(int n, K[] KArray) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public void size(int n) {
+            this.list.size(n);
+        }
+
+        @Override
+        public ObjectListIterator<K> listIterator() {
+            return ObjectIterators.unmodifiable(this.list.listIterator());
+        }
+
+        @Override
+        public ObjectListIterator<K> iterator() {
+            return this.listIterator();
+        }
+
+        @Override
+        public ObjectListIterator<K> listIterator(int n) {
+            return ObjectIterators.unmodifiable(this.list.listIterator(n));
+        }
+
+        @Override
+        public ReferenceList<K> subList(int n, int n2) {
+            return new UnmodifiableList<K>(this.list.subList(n, n2));
+        }
+
+        @Override
+        public boolean equals(Object object) {
+            if (object == this) {
+                return false;
+            }
+            return this.collection.equals(object);
+        }
+
+        @Override
+        public int hashCode() {
+            return this.collection.hashCode();
+        }
+
+        @Override
+        public ObjectIterator iterator() {
+            return this.iterator();
+        }
+
+        @Override
+        public Iterator iterator() {
+            return this.iterator();
+        }
+
+        @Override
+        public List subList(int n, int n2) {
+            return this.subList(n, n2);
+        }
+
+        @Override
+        public ListIterator listIterator(int n) {
+            return this.listIterator(n);
+        }
+
+        @Override
+        public ListIterator listIterator() {
+            return this.listIterator();
+        }
+    }
+
+    public static class SynchronizedRandomAccessList<K>
+    extends SynchronizedList<K>
+    implements RandomAccess,
+    Serializable {
+        private static final long serialVersionUID = 0L;
+
+        protected SynchronizedRandomAccessList(ReferenceList<K> referenceList, Object object) {
+            super(referenceList, object);
+        }
+
+        protected SynchronizedRandomAccessList(ReferenceList<K> referenceList) {
+            super(referenceList);
+        }
+
+        /*
+         * WARNING - Removed try catching itself - possible behaviour change.
+         */
+        @Override
+        public ReferenceList<K> subList(int n, int n2) {
+            Object object = this.sync;
+            synchronized (object) {
+                return new SynchronizedRandomAccessList<K>(this.list.subList(n, n2), this.sync);
+            }
+        }
+
+        @Override
+        public List subList(int n, int n2) {
+            return this.subList(n, n2);
+        }
+    }
+
+    /*
+     * Duplicate member names - consider using --renamedupmembers true
+     */
+    public static class SynchronizedList<K>
+    extends ReferenceCollections.SynchronizedCollection<K>
+    implements ReferenceList<K>,
+    Serializable {
+        private static final long serialVersionUID = -7046029254386353129L;
+        protected final ReferenceList<K> list;
+
+        protected SynchronizedList(ReferenceList<K> referenceList, Object object) {
+            super(referenceList, object);
+            this.list = referenceList;
+        }
+
+        protected SynchronizedList(ReferenceList<K> referenceList) {
+            super(referenceList);
+            this.list = referenceList;
+        }
+
+        /*
+         * WARNING - Removed try catching itself - possible behaviour change.
+         */
+        @Override
+        public K get(int n) {
+            Object object = this.sync;
+            synchronized (object) {
+                return (K)this.list.get(n);
+            }
+        }
+
+        /*
+         * WARNING - Removed try catching itself - possible behaviour change.
+         */
+        @Override
+        public K set(int n, K k) {
+            Object object = this.sync;
+            synchronized (object) {
+                return this.list.set(n, k);
+            }
+        }
+
+        /*
+         * WARNING - Removed try catching itself - possible behaviour change.
+         */
+        @Override
+        public void add(int n, K k) {
+            Object object = this.sync;
+            synchronized (object) {
+                this.list.add(n, k);
+            }
+        }
+
+        /*
+         * WARNING - Removed try catching itself - possible behaviour change.
+         */
+        @Override
+        public K remove(int n) {
+            Object object = this.sync;
+            synchronized (object) {
+                return (K)this.list.remove(n);
+            }
+        }
+
+        /*
+         * WARNING - Removed try catching itself - possible behaviour change.
+         */
+        @Override
+        public int indexOf(Object object) {
+            Object object2 = this.sync;
+            synchronized (object2) {
+                return this.list.indexOf(object);
+            }
+        }
+
+        /*
+         * WARNING - Removed try catching itself - possible behaviour change.
+         */
+        @Override
+        public int lastIndexOf(Object object) {
+            Object object2 = this.sync;
+            synchronized (object2) {
+                return this.list.lastIndexOf(object);
+            }
+        }
+
+        /*
+         * WARNING - Removed try catching itself - possible behaviour change.
+         */
+        @Override
+        public boolean addAll(int n, Collection<? extends K> collection) {
+            Object object = this.sync;
+            synchronized (object) {
+                return this.list.addAll(n, collection);
+            }
+        }
+
+        /*
+         * WARNING - Removed try catching itself - possible behaviour change.
+         */
+        @Override
+        public void getElements(int n, Object[] objectArray, int n2, int n3) {
+            Object object = this.sync;
+            synchronized (object) {
+                this.list.getElements(n, objectArray, n2, n3);
+            }
+        }
+
+        /*
+         * WARNING - Removed try catching itself - possible behaviour change.
+         */
+        @Override
+        public void removeElements(int n, int n2) {
+            Object object = this.sync;
+            synchronized (object) {
+                this.list.removeElements(n, n2);
+            }
+        }
+
+        /*
+         * WARNING - Removed try catching itself - possible behaviour change.
+         */
+        @Override
+        public void addElements(int n, K[] KArray, int n2, int n3) {
+            Object object = this.sync;
+            synchronized (object) {
+                this.list.addElements(n, KArray, n2, n3);
+            }
+        }
+
+        /*
+         * WARNING - Removed try catching itself - possible behaviour change.
+         */
+        @Override
+        public void addElements(int n, K[] KArray) {
+            Object object = this.sync;
+            synchronized (object) {
+                this.list.addElements(n, KArray);
+            }
+        }
+
+        /*
+         * WARNING - Removed try catching itself - possible behaviour change.
+         */
+        @Override
+        public void size(int n) {
+            Object object = this.sync;
+            synchronized (object) {
+                this.list.size(n);
+            }
+        }
+
+        @Override
+        public ObjectListIterator<K> listIterator() {
+            return this.list.listIterator();
+        }
+
+        @Override
+        public ObjectListIterator<K> iterator() {
+            return this.listIterator();
+        }
+
+        @Override
+        public ObjectListIterator<K> listIterator(int n) {
+            return this.list.listIterator(n);
+        }
+
+        /*
+         * WARNING - Removed try catching itself - possible behaviour change.
+         */
+        @Override
+        public ReferenceList<K> subList(int n, int n2) {
+            Object object = this.sync;
+            synchronized (object) {
+                return new SynchronizedList<K>(this.list.subList(n, n2), this.sync);
+            }
+        }
+
+        /*
+         * WARNING - Removed try catching itself - possible behaviour change.
+         */
+        @Override
+        public boolean equals(Object object) {
+            if (object == this) {
+                return false;
+            }
+            Object object2 = this.sync;
+            synchronized (object2) {
+                return this.collection.equals(object);
+            }
+        }
+
+        /*
+         * WARNING - Removed try catching itself - possible behaviour change.
+         */
+        @Override
+        public int hashCode() {
+            Object object = this.sync;
+            synchronized (object) {
+                return this.collection.hashCode();
+            }
+        }
+
+        /*
+         * WARNING - Removed try catching itself - possible behaviour change.
+         */
+        private void writeObject(ObjectOutputStream objectOutputStream) throws IOException {
+            Object object = this.sync;
+            synchronized (object) {
+                objectOutputStream.defaultWriteObject();
+            }
+        }
+
+        @Override
+        public ObjectIterator iterator() {
+            return this.iterator();
+        }
+
+        @Override
+        public Iterator iterator() {
+            return this.iterator();
+        }
+
+        @Override
+        public List subList(int n, int n2) {
+            return this.subList(n, n2);
+        }
+
+        @Override
+        public ListIterator listIterator(int n) {
+            return this.listIterator(n);
+        }
+
+        @Override
+        public ListIterator listIterator() {
+            return this.listIterator();
+        }
+    }
+
+    /*
+     * Duplicate member names - consider using --renamedupmembers true
+     */
+    public static class Singleton<K>
+    extends AbstractReferenceList<K>
+    implements RandomAccess,
+    Serializable,
+    Cloneable {
+        private static final long serialVersionUID = -7046029254386353129L;
+        private final K element;
+
+        protected Singleton(K k) {
+            this.element = k;
+        }
+
+        @Override
+        public K get(int n) {
+            if (n == 0) {
+                return this.element;
+            }
+            throw new IndexOutOfBoundsException();
+        }
+
+        @Override
+        public boolean remove(Object object) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public K remove(int n) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public boolean contains(Object object) {
+            return object == this.element;
+        }
+
+        @Override
+        public Object[] toArray() {
+            Object[] objectArray = new Object[]{this.element};
+            return objectArray;
+        }
+
+        @Override
+        public ObjectListIterator<K> listIterator() {
+            return ObjectIterators.singleton(this.element);
+        }
+
+        @Override
+        public ObjectListIterator<K> iterator() {
+            return this.listIterator();
+        }
+
+        @Override
+        public ObjectListIterator<K> listIterator(int n) {
+            if (n > 1 || n < 0) {
+                throw new IndexOutOfBoundsException();
+            }
+            ListIterator listIterator2 = this.listIterator();
+            if (n == 1) {
+                listIterator2.next();
+            }
+            return listIterator2;
+        }
+
+        @Override
+        public ReferenceList<K> subList(int n, int n2) {
+            this.ensureIndex(n);
+            this.ensureIndex(n2);
+            if (n > n2) {
+                throw new IndexOutOfBoundsException("Start index (" + n + ") is greater than end index (" + n2 + ")");
+            }
+            if (n != 0 || n2 != 1) {
+                return EMPTY_LIST;
+            }
+            return this;
+        }
+
+        @Override
+        public boolean addAll(int n, Collection<? extends K> collection) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public boolean addAll(Collection<? extends K> collection) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public boolean removeAll(Collection<?> collection) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public boolean retainAll(Collection<?> collection) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public int size() {
+            return 0;
+        }
+
+        @Override
+        public void size(int n) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public void clear() {
+            throw new UnsupportedOperationException();
+        }
+
+        public Object clone() {
+            return this;
+        }
+
+        @Override
+        public List subList(int n, int n2) {
+            return this.subList(n, n2);
+        }
+
+        @Override
+        public ListIterator listIterator(int n) {
+            return this.listIterator(n);
+        }
+
+        @Override
+        public ListIterator listIterator() {
+            return this.listIterator();
+        }
+
+        @Override
+        public Iterator iterator() {
+            return this.iterator();
+        }
+
+        @Override
+        public ObjectIterator iterator() {
+            return this.iterator();
+        }
+    }
+
+    /*
+     * Duplicate member names - consider using --renamedupmembers true
+     */
+    public static class EmptyList<K>
+    extends ReferenceCollections.EmptyCollection<K>
+    implements ReferenceList<K>,
+    RandomAccess,
+    Serializable,
+    Cloneable {
+        private static final long serialVersionUID = -7046029254386353129L;
+
+        protected EmptyList() {
+        }
+
+        @Override
+        public K get(int n) {
+            throw new IndexOutOfBoundsException();
+        }
+
+        @Override
+        public boolean remove(Object object) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public K remove(int n) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public void add(int n, K k) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public K set(int n, K k) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public int indexOf(Object object) {
+            return 1;
+        }
+
+        @Override
+        public int lastIndexOf(Object object) {
+            return 1;
+        }
+
+        @Override
+        public boolean addAll(int n, Collection<? extends K> collection) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public ObjectListIterator<K> listIterator() {
+            return ObjectIterators.EMPTY_ITERATOR;
+        }
+
+        @Override
+        public ObjectListIterator<K> iterator() {
+            return ObjectIterators.EMPTY_ITERATOR;
+        }
+
+        @Override
+        public ObjectListIterator<K> listIterator(int n) {
+            if (n == 0) {
+                return ObjectIterators.EMPTY_ITERATOR;
+            }
+            throw new IndexOutOfBoundsException(String.valueOf(n));
+        }
+
+        @Override
+        public ReferenceList<K> subList(int n, int n2) {
+            if (n == 0 && n2 == 0) {
+                return this;
+            }
+            throw new IndexOutOfBoundsException();
+        }
+
+        @Override
+        public void getElements(int n, Object[] objectArray, int n2, int n3) {
+            if (n == 0 && n3 == 0 && n2 >= 0 && n2 <= objectArray.length) {
+                return;
+            }
+            throw new IndexOutOfBoundsException();
+        }
+
+        @Override
+        public void removeElements(int n, int n2) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public void addElements(int n, K[] KArray, int n2, int n3) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public void addElements(int n, K[] KArray) {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public void size(int n) {
+            throw new UnsupportedOperationException();
+        }
+
+        public Object clone() {
+            return EMPTY_LIST;
+        }
+
+        @Override
+        public int hashCode() {
+            return 0;
+        }
+
+        @Override
+        public boolean equals(Object object) {
+            return object instanceof List && ((List)object).isEmpty();
+        }
+
+        @Override
+        public String toString() {
+            return "[]";
+        }
+
+        private Object readResolve() {
+            return EMPTY_LIST;
+        }
+
+        @Override
+        public ObjectBidirectionalIterator iterator() {
+            return this.iterator();
+        }
+
+        @Override
+        public ObjectIterator iterator() {
+            return this.iterator();
+        }
+
+        @Override
+        public Iterator iterator() {
+            return this.iterator();
+        }
+
+        @Override
+        public List subList(int n, int n2) {
+            return this.subList(n, n2);
+        }
+
+        @Override
+        public ListIterator listIterator(int n) {
+            return this.listIterator(n);
+        }
+
+        @Override
+        public ListIterator listIterator() {
+            return this.listIterator();
+        }
+    }
+}
+

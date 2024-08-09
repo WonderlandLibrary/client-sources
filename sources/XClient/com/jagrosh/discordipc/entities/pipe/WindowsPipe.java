@@ -1,0 +1,93 @@
+/*
+ * Copyright 2017 John Grosh (john.a.grosh@gmail.com).
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.jagrosh.discordipc.entities.pipe;
+
+import com.jagrosh.discordipc.IPCClient;
+import com.jagrosh.discordipc.entities.Callback;
+import com.jagrosh.discordipc.entities.Packet;
+import com.jagrosh.discordipc.entities.User;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.util.HashMap;
+
+public class WindowsPipe extends Pipe
+{
+
+    private RandomAccessFile file;
+
+    WindowsPipe(IPCClient ipcClient, HashMap<String, Callback> callbacks, String location)
+    {
+        super(ipcClient, callbacks);
+        try {
+            this.file = new RandomAccessFile(location, "rw");
+        } catch (FileNotFoundException e) {
+
+        }
+    }
+
+    @Override
+    public void write(byte[] b) throws IOException {
+
+        file.write(b);
+    }
+
+    @Override
+    public Packet read() throws IOException, JSONException {
+        while(file.length() == 0 && status == PipeStatus.CONNECTED)
+        {
+            try {
+                Thread.sleep(50);
+            } catch(InterruptedException ignored) {}
+        }
+
+
+
+        if(status==PipeStatus.DISCONNECTED)
+            throw new IOException("Disconnected!");
+
+        if(status==PipeStatus.CLOSED)
+            return new Packet(Packet.OpCode.CLOSE, null);
+
+        Packet.OpCode op = Packet.OpCode.values()[Integer.reverseBytes(file.readInt())];
+        int len = Integer.reverseBytes(file.readInt());
+        byte[] d = new byte[len];
+
+        file.readFully(d);
+        Packet p = new Packet(op, new JSONObject(new String(d)));
+        if(listener != null)
+            listener.onPacketReceived(ipcClient, p);
+        if (p.getJson().getString("evt").equals("READY")) {
+            JSONObject data = p.getJson().getJSONObject("data");
+            JSONObject user = data.getJSONObject("user");
+            //ClientUtil.me = new User(user.getString("username"), "0", user.getLong("id"), user.getString("avatar"));
+        }
+
+        return p;
+    }
+
+    @Override
+    public void close() throws IOException {
+        send(Packet.OpCode.CLOSE, new JSONObject(), null);
+        status = PipeStatus.CLOSED;
+        file.close();
+    }
+
+}

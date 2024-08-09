@@ -84,6 +84,7 @@
 - Cupid 0.1
 - CZF B13
 - Darkin
+- Darkmoon
 - DarkStorm GUI API
 - Dawn 0.0.1
 - Debug 1.2.6
@@ -112,6 +113,7 @@
 - EditMe
 - Eject v3
 - Electron
+- Ellant
 - Elysium b1
 - Empty Clicker
 - Envy 0.3
@@ -124,6 +126,7 @@
 - Ettelen
 - Euphoria B7
 - Evolution
+- Excellent
 - Execution 2.0 Recode
 - Exhibition 081618
 - Exhibition 5.0
@@ -131,6 +134,7 @@
 - Exodus 5.4
 - Expection
 - Expensive 2.0
+- Expensive Ancient
 - Fan v3
 - Fan v4
 - Fanta Clicker
@@ -138,6 +142,7 @@
 - FastPot
 - Faurax
 - Faygo b20
+- FecuritySQ
 - Felix 030121
 - Fira 1.9.3
 - Fluid
@@ -147,6 +152,7 @@
 - Focus 023457 Christmas Special Edition
 - ForgeHax 1.16
 - frm Clicker
+- Furious
 - FusionX 2.0
 - Future
 - GameSense v2.1.0
@@ -340,6 +346,7 @@
 - Remix v1.0
 - Resilience 1.6.1
 - Resolute 211026
+- Resolute Recode
 - Resolver Clicker
 - Return
 - Rich Free 0002
@@ -362,6 +369,7 @@
 - Sensation 2.0.1
 - Senura 2.0
 - Seppuku
+- Shiyeno Recode
 - Shoreline 1.0 b2
 - Shoreline 1.0 b6
 - Shoreline latest public
@@ -436,6 +444,7 @@
 - Vape Assets
 - Vector 1.0
 - VegaLine
+- Venus
 - Venus Recode 0.2.0
 - Vepe Clicker v1.0
 - Vergo B1.02
@@ -458,6 +467,7 @@
 - WeepCraft 0.2
 - West Clicker
 - WikiHacks 0.1
+- Wiksi
 - Winter 7.2
 - WintWare
 - WSX
@@ -467,6 +477,7 @@
 - Xatz (Intent base)
 - Xatz 0.9b1
 - Xatz Client (Jigsaw base)
+- XClient
 - Xdolf 1.2.2
 - Xenza B9
 - XIV

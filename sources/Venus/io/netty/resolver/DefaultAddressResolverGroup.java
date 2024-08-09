@@ -1,0 +1,24 @@
+/*
+ * Decompiled with CFR 0.153-SNAPSHOT (d6f6758-dirty).
+ */
+package io.netty.resolver;
+
+import io.netty.resolver.AddressResolver;
+import io.netty.resolver.AddressResolverGroup;
+import io.netty.resolver.DefaultNameResolver;
+import io.netty.util.concurrent.EventExecutor;
+import java.net.InetSocketAddress;
+
+public final class DefaultAddressResolverGroup
+extends AddressResolverGroup<InetSocketAddress> {
+    public static final DefaultAddressResolverGroup INSTANCE = new DefaultAddressResolverGroup();
+
+    private DefaultAddressResolverGroup() {
+    }
+
+    @Override
+    protected AddressResolver<InetSocketAddress> newResolver(EventExecutor eventExecutor) throws Exception {
+        return new DefaultNameResolver(eventExecutor).asAddressResolver();
+    }
+}
+
