@@ -1,0 +1,335 @@
+package xyz.mathax.mathaxclient.utils.world;
+
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.enchantment.Enchantments;
+import net.minecraft.entity.effect.StatusEffectUtil;
+import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.item.ItemStack;
+import net.minecraft.registry.tag.FluidTags;
+import xyz.mathax.mathaxclient.MatHax;
+import xyz.mathax.mathaxclient.eventbus.EventHandler;
+import xyz.mathax.mathaxclient.eventbus.EventPriority;
+import xyz.mathax.mathaxclient.events.world.TickEvent;
+import xyz.mathax.mathaxclient.init.PreInit;
+import xyz.mathax.mathaxclient.mixininterface.IVec3d;
+import xyz.mathax.mathaxclient.utils.player.FindItemResult;
+import xyz.mathax.mathaxclient.utils.player.InvUtils;
+import xyz.mathax.mathaxclient.utils.player.Rotations;
+import net.minecraft.block.*;
+import net.minecraft.block.enums.BlockHalf;
+import net.minecraft.block.enums.SlabType;
+import net.minecraft.network.packet.c2s.play.HandSwingC2SPacket;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.hit.BlockHitResult;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.shape.VoxelShapes;
+import net.minecraft.world.World;
+
+import static xyz.mathax.mathaxclient.MatHax.mc;
+
+public class BlockUtils {
+    private static final Vec3d hitPos = new Vec3d(0, 0, 0);
+
+    public static boolean breaking;
+    private static boolean breakingThisTick;
+
+    @PreInit
+    public static void init() {
+        MatHax.EVENT_BUS.subscribe(BlockUtils.class);
+    }
+
+    // Placing
+
+    public static boolean place(BlockPos blockPos, FindItemResult findItemResult, int rotationPriority) {
+        return place(blockPos, findItemResult, rotationPriority, true);
+    }
+
+    public static boolean place(BlockPos blockPos, FindItemResult findItemResult, boolean rotate, int rotationPriority) {
+        return place(blockPos, findItemResult, rotate, rotationPriority, true);
+    }
+
+    public static boolean place(BlockPos blockPos, FindItemResult findItemResult, boolean rotate, int rotationPriority, boolean checkEntities) {
+        return place(blockPos, findItemResult, rotate, rotationPriority, true, checkEntities);
+    }
+
+    public static boolean place(BlockPos blockPos, FindItemResult findItemResult, int rotationPriority, boolean checkEntities) {
+        return place(blockPos, findItemResult, true, rotationPriority, true, checkEntities);
+    }
+
+    public static boolean place(BlockPos blockPos, FindItemResult findItemResult, boolean rotate, int rotationPriority, boolean swingHand, boolean checkEntities) {
+        return place(blockPos, findItemResult, rotate, rotationPriority, swingHand, checkEntities, true);
+    }
+
+    public static boolean place(BlockPos blockPos, FindItemResult findItemResult, boolean rotate, int rotationPriority, boolean swingHand, boolean checkEntities, boolean swapBack) {
+        if (findItemResult.isOffhand()) {
+            return place(blockPos, Hand.OFF_HAND, mc.player.getInventory().selectedSlot, rotate, rotationPriority, swingHand, checkEntities, swapBack);
+        } else if (findItemResult.isHotbar()) {
+            return place(blockPos, Hand.MAIN_HAND, findItemResult.slot(), rotate, rotationPriority, swingHand, checkEntities, swapBack);
+        }
+
+        return false;
+    }
+
+    public static boolean place(BlockPos blockPos, Hand hand, int slot, boolean rotate, int rotationPriority, boolean swingHand, boolean checkEntities, boolean swapBack) {
+        if (slot < 0 || slot > 8) {
+            return false;
+        }
+
+        if (!canPlace(blockPos, checkEntities)) {
+            return false;
+        }
+
+        ((IVec3d) hitPos).set(blockPos.getX() + 0.5, blockPos.getY() + 0.5, blockPos.getZ() + 0.5);
+
+        BlockPos neighbour;
+        Direction side = getPlaceSide(blockPos);
+
+        if (side == null) {
+            side = Direction.UP;
+            neighbour = blockPos;
+        } else {
+            neighbour = blockPos.offset(side.getOpposite());
+            hitPos.add(side.getOffsetX() * 0.5, side.getOffsetY() * 0.5, side.getOffsetZ() * 0.5);
+        }
+
+        Direction s = side;
+
+        if (rotate) {
+            Rotations.rotate(Rotations.getYaw(hitPos), Rotations.getPitch(hitPos), rotationPriority, () -> {
+                InvUtils.swap(slot, swapBack);
+
+                place(new BlockHitResult(hitPos, s, neighbour, false), hand, swingHand);
+
+                if (swapBack) {
+                    InvUtils.swapBack();
+                }
+            });
+        } else {
+            InvUtils.swap(slot, swapBack);
+
+            place(new BlockHitResult(hitPos, s, neighbour, false), hand, swingHand);
+
+            if (swapBack) {
+                InvUtils.swapBack();
+            }
+        }
+
+
+        return true;
+    }
+
+    private static void place(BlockHitResult blockHitResult, Hand hand, boolean swing) {
+        boolean wasSneaking = mc.player.input.sneaking;
+        mc.player.input.sneaking = false;
+
+        ActionResult result = mc.interactionManager.interactBlock(mc.player, hand, blockHitResult);
+
+        if (result.shouldSwingHand()) {
+            if (swing) {
+                mc.player.swingHand(hand);
+            } else {
+                mc.getNetworkHandler().sendPacket(new HandSwingC2SPacket(hand));
+            }
+        }
+
+        mc.player.input.sneaking = wasSneaking;
+    }
+
+    public static boolean canPlace(BlockPos blockPos, boolean checkEntities) {
+        if (blockPos == null) {
+            return false;
+        }
+
+        // Check y level
+        if (!World.isValid(blockPos)) {
+            return false;
+        }
+
+        // Check if current block is replaceable
+        if (!mc.world.getBlockState(blockPos).getMaterial().isReplaceable()) {
+            return false;
+        }
+
+        // Check if intersects entities
+        return !checkEntities || mc.world.canPlace(Blocks.OBSIDIAN.getDefaultState(), blockPos, ShapeContext.absent());
+    }
+
+    public static boolean canPlace(BlockPos blockPos) {
+        return canPlace(blockPos, true);
+    }
+
+    public static Direction getPlaceSide(BlockPos blockPos) {
+        for (Direction side : Direction.values()) {
+            BlockPos neighbor = blockPos.offset(side);
+            Direction side2 = side.getOpposite();
+
+            BlockState state = mc.world.getBlockState(neighbor);
+
+            // Check if neighbour isn't empty
+            if (state.isAir() || isClickable(state.getBlock())) {
+                continue;
+            }
+
+            // Check if neighbour is a fluid
+            if (!state.getFluidState().isEmpty()) {
+                continue;
+            }
+
+            return side2;
+        }
+
+        return null;
+    }
+
+    // Breaking
+
+    @EventHandler(priority = EventPriority.HIGHEST + 100)
+    private static void onTickPre(TickEvent.Pre event) {
+        breakingThisTick = false;
+    }
+
+    @EventHandler(priority = EventPriority.LOWEST - 100)
+    private static void onTickPost(TickEvent.Post event) {
+        if (!breakingThisTick && breaking) {
+            breaking = false;
+
+            if (mc.interactionManager != null) {
+                mc.interactionManager.cancelBlockBreaking();
+            }
+        }
+    }
+
+    /** Needs to be used in {@link TickEvent.Pre} */
+    public static boolean breakBlock(BlockPos blockPos, boolean swing) {
+        if (!canBreak(blockPos, mc.world.getBlockState(blockPos))) {
+            return false;
+        }
+
+        BlockPos pos = blockPos instanceof BlockPos.Mutable ? new BlockPos(blockPos) : blockPos;
+        if (mc.interactionManager.isBreakingBlock()) {
+            mc.interactionManager.updateBlockBreakingProgress(pos, Direction.UP);
+        } else {
+            mc.interactionManager.attackBlock(pos, Direction.UP);
+        }
+
+        if (swing) {
+            mc.player.swingHand(Hand.MAIN_HAND);
+        } else {
+            mc.getNetworkHandler().sendPacket(new HandSwingC2SPacket(Hand.MAIN_HAND));
+        }
+
+        breaking = true;
+        breakingThisTick = true;
+
+        return true;
+    }
+
+    public static boolean canBreak(BlockPos blockPos, BlockState state) {
+        if (!mc.player.isCreative() && state.getHardness(mc.world, blockPos) < 0) {
+            return false;
+        }
+
+        return state.getOutlineShape(mc.world, blockPos) != VoxelShapes.empty();
+    }
+
+    public static boolean canBreak(BlockPos blockPos) {
+        return canBreak(blockPos, mc.world.getBlockState(blockPos));
+    }
+
+    public static boolean canInstaBreak(BlockPos blockPos, float breakSpeed) {
+        return mc.player.isCreative() || calcBlockBreakingDelta2(blockPos, breakSpeed) >= 1;
+    }
+
+    public static boolean canInstaBreak(BlockPos blockPos) {
+        return canInstaBreak(blockPos, mc.player.getBlockBreakingSpeed(mc.world.getBlockState(blockPos)));
+    }
+
+    public static float calcBlockBreakingDelta2(BlockPos blockPos, float breakSpeed) {
+        BlockState state = mc.world.getBlockState(blockPos);
+        float f = state.getHardness(mc.world, blockPos);
+        if (f == -1.0F) {
+            return 0.0F;
+        } else {
+            int i = mc.player.canHarvest(state) ? 30 : 100;
+            return breakSpeed / f / (float) i;
+        }
+    }
+
+    // Other
+
+    public static boolean isClickable(Block block) {
+        return block instanceof CraftingTableBlock || block instanceof AnvilBlock || block instanceof ButtonBlock || block instanceof AbstractPressurePlateBlock || block instanceof BlockWithEntity || block instanceof BedBlock || block instanceof FenceGateBlock || block instanceof DoorBlock || block instanceof NoteBlock || block instanceof TrapdoorBlock;
+    }
+
+    public static boolean topSurface(BlockState blockState) {
+        if (blockState.getBlock() instanceof SlabBlock && blockState.get(SlabBlock.TYPE) == SlabType.TOP) {
+            return true;
+        } else {
+            return blockState.getBlock() instanceof StairsBlock && blockState.get(StairsBlock.HALF) == BlockHalf.TOP;
+        }
+    }
+
+    private static final ThreadLocal<BlockPos.Mutable> EXPOSED_POS = ThreadLocal.withInitial(BlockPos.Mutable::new);
+
+    public static boolean isExposed(BlockPos blockPos) {
+        for (Direction direction : Direction.values()) {
+            if (!mc.world.getBlockState(EXPOSED_POS.get().set(blockPos, direction)).isOpaque()) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public static BlockPos roundBlockPos(Vec3d vec) {
+        return new BlockPos(vec.x, Math.round(vec.y), vec.z);
+    }
+
+    public static double getBreakDelta(int slot, BlockState state) {
+        float hardness = state.getHardness(null, null);
+        if (hardness == -1) {
+            return 0;
+        } else {
+            return getBlockBreakingSpeed(slot, state) / hardness / (!state.isToolRequired() || mc.player.getInventory().main.get(slot).isSuitableFor(state) ? 30 : 100);
+        }
+    }
+
+    private static double getBlockBreakingSpeed(int slot, BlockState block) {
+        double speed = mc.player.getInventory().main.get(slot).getMiningSpeedMultiplier(block);
+        if (speed > 1) {
+            ItemStack tool = mc.player.getInventory().getStack(slot);
+            int efficiency = EnchantmentHelper.getLevel(Enchantments.EFFICIENCY, tool);
+            if (efficiency > 0 && !tool.isEmpty()) {
+                speed += efficiency * efficiency + 1;
+            }
+        }
+
+        if (StatusEffectUtil.hasHaste(mc.player)) {
+            speed *= 1 + (StatusEffectUtil.getHasteAmplifier(mc.player) + 1) * 0.2F;
+        }
+
+        if (mc.player.hasStatusEffect(StatusEffects.MINING_FATIGUE)) {
+            float effectAmplifier = switch (mc.player.getStatusEffect(StatusEffects.MINING_FATIGUE).getAmplifier()) {
+                case 0 -> 0.3F;
+                case 1 -> 0.09F;
+                case 2 -> 0.0027F;
+                default -> 8.1E-4F;
+            };
+
+            speed *= effectAmplifier;
+        }
+
+        if (mc.player.isSubmergedIn(FluidTags.WATER) && !EnchantmentHelper.hasAquaAffinity(mc.player)) {
+            speed /= 5.0F;
+        }
+
+        if (!mc.player.isOnGround()) {
+            speed /= 5.0F;
+        }
+
+        return speed;
+    }
+}

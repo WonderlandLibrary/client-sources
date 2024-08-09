@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "name": "Envy Client",
+  "id": "envy",
+  "version": "1.2.0",
+  "description": "Envy Client is an advanced Minecraft utility client for Fabric",
+  "authors": [
+    "Volcan",
+    "HardlineMouse16",
+    "PotatoMan",
+    "ChiefWarCry",
+    "Lagoon",
+    "PizzaV",
+    "Meesterbouwer123",
+    "Inn3rStellar",
+    "Biden/Fentmaxer69151"
+  ],
+  "icon": "assets/mathax/textures/icons/envy.png",
+  "license": "GPL-3.0",
+  "contact": {
+    "homepage": "https://mathaxclient.xyz",
+    "discord": "https://mathaxclient.xyz/Discord",
+    "issues": "https://mathaxclient.xyz/Discord"
+  },
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "mathax.client.MatHax"
+    ]
+  },
+  "mixins": [
+    "mathax.mixins.json",
+    "mathax-baritone.mixins.json",
+    "mathax-canvas.mixins.json",
+    "mathax-indigo.mixins.json",
+    "mathax-sodium.mixins.json"
+  ],
+  "accessWidener": "mathax.accesswidener",
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.website": "https://mathaxclient.xyz",
+        "modmenu.discord": "https://mathaxclient.xyz/Discord",
+        "modmenu.issues": "https://mathaxclient.xyz/Discord"
+      }
+    }
+  },
+  "depends": {
+    "java": ">=17",
+    "minecraft": ">=@mc_version@",
+    "fabricloader": ">=0.14.11"
+  },
+  "breaks": {
+    "optifabric": "*",
+    "feather": "*",
+    "origins": "*"
+  }
+}

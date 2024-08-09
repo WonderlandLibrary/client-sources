@@ -1,0 +1,16 @@
+*.DS_Store
+.gradle/
+.settings/
+.project/
+.classpath/
+build/
+out/
+run/
+bin/
+logs/
+.circleci/
+*.iws
+*.ipr
+*.iml
+.idea/*
+!.idea/copyright/*

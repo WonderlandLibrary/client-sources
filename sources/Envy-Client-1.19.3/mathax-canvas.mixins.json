@@ -1,0 +1,11 @@
+{
+  "required": false,
+  "package": "mathax.client.mixin.canvas",
+  "compatibilityLevel": "JAVA_17",
+  "plugin": "mathax.client.MixinPlugin",
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

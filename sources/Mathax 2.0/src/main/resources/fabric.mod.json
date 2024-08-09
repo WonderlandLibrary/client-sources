@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "name": "MatHax",
+  "id": "mathax",
+  "version": "${version}",
+  "description": "Advanced utility mod for Fabric.",
+  "icon": "assets/mathax/icons/1080.png",
+  "license": "GPL-3.0",
+  "authors": [
+    "Matejko06",
+    "NobreHD"
+  ],
+  "contact": {
+    "homepage": "https://mathaxclient.xyz",
+    "discord": "https://mathaxclient.xyz/Discord",
+    "issues": "https://github.com/MatHax/Client/issues"
+  },
+  "custom": {
+    "mathax:color": "230,75,100",
+    "modmenu": {
+      "links": {
+        "modmenu.discord": "https://mathaxclient.xyz/Discord"
+      }
+    }
+  },
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "xyz.mathax.mathaxclient.MatHax"
+    ]
+  },
+  "mixins": [
+    "mathax.mixins.json",
+    "mathax-baritone.mixins.json",
+    "mathax-indigo.mixins.json",
+    "mathax-sodium.mixins.json",
+    "mathax-canvas.mixins.json"
+  ],
+  "accessWidener": "mathax.accesswidener",
+  "depends": {
+    "java": ">=17",
+    "minecraft": ">=${minecraft_version}",
+    "fabricloader": ">=0.14.11"
+  },
+  "breaks": {
+    "optifabric": "*",
+    "feather": "*",
+    "origins": "*",
+    "wurst": "*"
+  }
+}

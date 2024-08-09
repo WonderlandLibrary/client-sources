@@ -1,0 +1,4 @@
+if (mode.get() == Mode.CursorLock) {
+
+      }
+mc.player.networkHandler.sendPacket(new PlayerMoveC2SPacket.LookAndOnGround(mc.player.getYaw(), pitchFloatPacket, mc.player.isOnGround()));

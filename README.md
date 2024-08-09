@@ -117,6 +117,7 @@
 - Elysium b1
 - Empty Clicker
 - Envy 0.3
+- Envy-Client-1.19.3
 - Erudite
 - ETB 0.1
 - ETB 0.6
@@ -151,6 +152,7 @@
 - Flux B5
 - Focus 023457 Christmas Special Edition
 - ForgeHax 1.16
+- Francium
 - frm Clicker
 - Furious
 - FusionX 2.0
@@ -252,6 +254,7 @@
 - Mark's ClientBase
 - Massacre 210819
 - Master
+- Mathax 2.0
 - McDonald
 - Mega 1.2.0
 - Mel vB-0.1
@@ -303,6 +306,7 @@
 - November Recode 2.0
 - Novoline b112321
 - Null
+- NullPointerWare
 - NUMB b1.0
 - NUMB b2.0
 - Octo
@@ -468,6 +472,7 @@
 - West Clicker
 - WikiHacks 0.1
 - Wiksi
+- Wild 0.9
 - Winter 7.2
 - WintWare
 - WSX
