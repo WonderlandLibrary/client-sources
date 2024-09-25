@@ -1,0 +1,5 @@
+This is a custom Prestige build i made for MCHCC by ReGiulio,
+I found the client's modules categories so messed up
+that I reordered it and added a few eastereggs,
+this is basically prestige with a more organized clickgui,
+don't expect anything crazy.

@@ -1,0 +1,33 @@
+accessWidener    v1    named
+
+# ChunkBuilder
+# - For ChunkRebuildTaskMixin to overwrite the chunk building method
+accessible    class    net/minecraft/client/render/chunk/ChunkBuilder$BuiltChunk$RebuildTask
+accessible    class    net/minecraft/client/render/chunk/ChunkBuilder$BuiltChunk$RebuildTask$RenderData
+accessible    field    net/minecraft/client/render/chunk/ChunkBuilder$ChunkData    nonEmptyLayers    Ljava/util/Set;
+accessible    field    net/minecraft/client/render/chunk/ChunkBuilder$ChunkData    occlusionGraph    Lnet/minecraft/client/render/chunk/ChunkOcclusionData;
+accessible    method    net/minecraft/client/render/chunk/ChunkBuilder$BuiltChunk$RebuildTask$RenderData    <init>    ()V
+
+# RenderLayer
+# - Making various classes accessible for ColorVertexConsumerProvider
+accessible    class    net/minecraft/client/render/RenderLayer$MultiPhase
+accessible    method    net/minecraft/client/render/RenderLayer$MultiPhase    getPhases    ()Lnet/minecraft/client/render/RenderLayer$MultiPhaseParameters;
+
+accessible    class    net/minecraft/client/render/RenderLayer$MultiPhaseParameters
+accessible    field    net/minecraft/client/render/RenderLayer$MultiPhaseParameters    texture    Lnet/minecraft/client/render/RenderPhase$TextureBase;
+
+accessible    class    net/minecraft/client/render/RenderPhase$TextureBase
+accessible    method    net/minecraft/client/render/RenderPhase$TextureBase    getId    ()Ljava/util/Optional;
+
+accessible    class    net/minecraft/client/render/RenderLayer$OutlineMode
+accessible    field    net/minecraft/client/render/RenderLayer$MultiPhaseParameters    outlineMode    Lnet/minecraft/client/render/RenderLayer$OutlineMode;
+
+# TextRenderer
+# - Making the font storage accessible so WindowPassTextFieldWidget can override the text renderer
+accessible    field    net/minecraft/client/font/TextRenderer    fontStorageAccessor    Ljava/util/function/Function;
+
+# PlayerInteractEntityC2SPacket
+# - Making various classes accessible for Criticals
+accessible   class   net/minecraft/network/packet/c2s/play/PlayerInteractEntityC2SPacket$InteractType
+accessible   class   net/minecraft/network/packet/c2s/play/PlayerInteractEntityC2SPacket$InteractAtHandler
+accessible   class   net/minecraft/network/packet/c2s/play/PlayerInteractEntityC2SPacket$InteractTypeHandler

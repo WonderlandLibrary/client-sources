@@ -25,6 +25,7 @@
 - Astro 2.2.1
 - Astroline BETA 0.1
 - Async 1.0.0
+- AsyncWare
 - Atani 0.0.3
 - Atero 7
 - AtField 1.3
@@ -172,6 +173,7 @@
 - Gucci 2.0
 - Hanabi 1.5.1
 - Hanabi 3.1
+- Hawk beta 1.3.1
 - Hawk V1.5
 - Helium 11121
 - Helium B41420
@@ -205,6 +207,7 @@
 - Kevin Reborn
 - Kilo v1.2
 - Kirka 2.4
+- KiwiClient
 - Koid
 - Koks v1
 - Koks v3
@@ -301,6 +304,7 @@
 - Nightmare b1
 - Nivia B3
 - Nodus 2.0 b11
+- None
 - North
 - November 0.2 Developer 251022
 - November Recode 2.0
@@ -325,6 +329,7 @@
 - Postman 3.001
 - PowerClient 0.2
 - Prestige
+- Prestige RG
 - Prion X
 - Protocol v28
 - Pulsive 5.0
@@ -387,6 +392,7 @@
 - SkeetTest Clicker
 - Skid Clicker
 - Skilled v2
+- Skizzle
 - Skullhack
 - SkyLine B28
 - Slack 081024

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "prestige",
+  "name": "",
+  "version": "0.1",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "dev.zprestige.prestige.client.Prestige"
+    ]
+  },
+  "mixins": [
+    "prestige.mixins.json"
+  ],
+  "accessWidener": "prestige.accesswidener",
+  "depends": {
+    "fabricloader": ">=0.14.14",
+    "fabric-api": "*",
+    "minecraft": "~1.20",
+    "java": ">=17"
+  }
+}
