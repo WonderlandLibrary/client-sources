@@ -1,0 +1,53 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.stephen.nexus.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "accesors.AbstractBlockAccessor",
+    "accesors.AccessorPlayerMoveC2SPacket",
+    "accesors.BipedEntityModelAccessor",
+    "accesors.CommonPongC2SPacketAccessor",
+    "accesors.DynamicAccessor",
+    "accesors.EntityVelocityUpdateS2CPacketAccessor",
+    "accesors.GameOptionsAccessor",
+    "accesors.KeyBindingAccessor",
+    "accesors.PlayerInteractBlockC2SPacketAccessor",
+    "accesors.PlayerMoveC2SPacketAccessor",
+    "accesors.PlayerPositionLookS2CPacketAccessor",
+    "accesors.WorldRendererAccessor",
+    "accesors.WorldTimeUpdateS2CPacketAccesor",
+    "entity.MixinEntity",
+    "entity.MixinLivingEntity",
+    "entity.MixinPlayerEntity",
+    "game.MixinAbstractBlock",
+    "game.MixinClientConnection",
+    "game.MixinFluidBlock",
+    "game.MixinItem",
+    "game.MixinWorld"
+  ],
+  "client": [
+    "accesors.IMinecraftClient",
+    "accesors.NativeImageAccessor",
+    "entity.MixinClientPlayerEntity",
+    "entity.MixinClientPlayerInteractionManager",
+    "entity.MixinPlayerEntityRenderer",
+    "game.MixinClientPlayNetworkHandler",
+    "game.MixinMinecraftClient",
+    "keyboard.MixinInput",
+    "keyboard.MixinKeyboard",
+    "keyboard.MixinKeyboardInput",
+    "render.MixinBipedEntityModel",
+    "render.MixinEntityRenderer",
+    "render.MixinGameRenderer",
+    "render.MixinHeldItemRenderer",
+    "render.MixinInGameHud",
+    "render.MixinLivingEntityRenderer",
+    "render.MixinRenderTickCounter",
+    "render.MixinScreen",
+    "render.MixinWorldRenderer"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

@@ -16,6 +16,7 @@
 - Aqua 13
 - Aqua Beta
 - Aquatic 1.0
+- Argon
 - Armax clicker
 - Artemis 1.0
 - Asteria
@@ -147,6 +148,7 @@
 - FecuritySQ
 - Felix 030121
 - Fira 1.9.3
+- Flap
 - Fluid
 - Flush 0.9
 - Flux B39.11
@@ -168,9 +170,11 @@
 - Glassware Clicker
 - Glow 1.0.4
 - Gothaj 3.01b Alpha
+- Gothaj 3.3.0-1
 - Grape Clicker
 - Graphite 042823
 - Gucci 2.0
+- Gugustus
 - Hanabi 1.5.1
 - Hanabi 3.1
 - Hawk beta 1.3.1
@@ -273,6 +277,7 @@
 - Minced
 - Minced Free 1.0
 - Mint B1
+- Minus NextGen
 - Monix 3.1
 - Monkey
 - Monkey Clicker v2
@@ -300,6 +305,7 @@
 - Nemphis 0.3
 - NeverHook 1.4
 - Nexus
+- Nexus 1.0.0
 - Nexus Base
 - Nightmare b1
 - Nivia B3
@@ -329,6 +335,7 @@
 - Postman 3.001
 - PowerClient 0.2
 - Prestige
+- Prestige 0.1
 - Prestige RG
 - Prion X
 - Protocol v28
@@ -389,6 +396,7 @@
 - Sigma 3.9
 - Sigma 4.11
 - Sigma Nextgen
+- Silent 2.2.1
 - SkeetTest Clicker
 - Skid Clicker
 - Skilled v2
@@ -413,6 +421,7 @@
 - Squad 0.5.2
 - SRT 1.1.0
 - SRT Developer
+- Star 2.3
 - Stella 0.1
 - Straightware Developer
 - Strife

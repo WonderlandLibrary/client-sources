@@ -1,0 +1,569 @@
+MOD:FPS:false
+POS:FPS:0.93125:0.15
+MOD:CPS:false
+POS:CPS:0.93125:0.17777777777777778
+MOD:Toggle Sprint:false
+POS:Toggle Sprint:0.0:0.0
+MOD:Keystrokes:false
+POS:Keystrokes:0.93125:0.002777777777777778
+MOD:Perspective:false
+MOD:Animations:true
+MOD:Armor Status:false
+POS:Armor Status:0.0:0.0
+MOD:Memory:false
+POS:Memory:0.0:0.0
+MOD:Auto GG:false
+MOD:Potion Hud:false
+POS:Potion Hud:0.0:0.0
+MOD:Ping:false
+POS:Ping:0.0:0.0
+MOD:Item Physics:false
+MOD:Pack Display:false
+POS:Pack Display:0.0:0.0
+MOD:FullBright:true
+MOD:Clock:false
+POS:Clock:0.0:0.0
+MOD:Speedometer:false
+POS:Speedometer:0.0:0.0
+MOD:Reach Display:false
+POS:Reach Display:0.0:0.0
+MOD:Day Counter:false
+POS:Day Counter:0.0:0.0
+MOD:Server Address:false
+POS:Server Address:0.0:0.0
+MOD:TNT Timer:false
+MOD:Auto Tip:false
+MOD:Level Head:false
+MOD:Nick Hider:false
+MOD:Time Changer:false
+MOD:Zoom:true
+MOD:Combo Counter:false
+POS:Combo Counter:0.0:0.0
+MOD:Hit Color:false
+MOD:UHC Overlay:false
+MOD:FPS Boost:false
+MOD:Clear Glass:false
+MOD:Crosshair:false
+MOD:Cosmetics:false
+MOD:General:false
+MOD:Render:false
+MOD:Weather:false
+MOD:Tab:true
+MOD:Chat:true
+MOD:Inventory Blur:true
+MOD:Coordinates:true
+POS:Coordinates:0.003125:0.005555555555555556
+MOD:Chunk Borders:false
+MOD:Hitboxes:false
+MOD:Nametags:true
+MOD:Scoreboard:true
+MOD:Block Overlay:true
+MOD:Particles:false
+MOD:Damage Tint:false
+MOD:Titles:true
+MOD:Color Saturation:false
+MOD:Auto Text:false
+MOD:Boss Bar:true
+MOD:ToggleChat:false
+MOD:Pack Tweaks:false
+MOD:Player Counter:false
+POS:Player Counter:0.0:0.0
+MOD:BlockInfo:false
+POS:BlockInfo:0.0:0.0
+MOD:Motion Blur:false
+MOD:Quickplay:false
+SET:Scale:FPS:2.0
+SET:Background:FPS:true
+SET:Background Color:FPS:-16777216:false:127
+SET:Color:FPS:-1:false:255
+SET:Font Shadow:FPS:true
+SET:Brackets:FPS:false
+SET:Fancy Font:FPS:false
+SET:Text After Value:FPS:FPS
+SET:Scale:CPS:2.0
+SET:Background:CPS:true
+SET:Background Color:CPS:-16777216:false:127
+SET:Color:CPS:-1:false:255
+SET:Font Shadow:CPS:true
+SET:Brackets:CPS:false
+SET:Fancy Font:CPS:false
+SET:Text After Value:CPS:CPS
+SET:CPS Type:CPS:LMB
+SET:Remove CPS Text:CPS:false
+SET:Scale:Toggle Sprint:2.0
+SET:Background:Toggle Sprint:false
+SET:Background Color:Toggle Sprint:-16777216:false:127
+SET:Color:Toggle Sprint:-1:false:255
+SET:Font Shadow:Toggle Sprint:true
+SET:Brackets:Toggle Sprint:true
+SET:Fancy Font:Toggle Sprint:false
+SET:Sprint Mode:Toggle Sprint:Toggle
+SET:Sprinting Text:Toggle Sprint:Sprinting
+SET:Show HUD Text:Toggle Sprint:true
+SET:Scale:Keystrokes:2.20
+SET:Font Shadow:Keystrokes:true
+SET:Fancy Font:Keystrokes:false
+SET:Background:Keystrokes:true
+SET:CPS Mode:Keystrokes:None
+SET:Color:Keystrokes:-1:false:255
+SET:Background Color:Keystrokes:-16777216:false:127
+SET:Clicked Color:Keystrokes:-16777216:false:255
+SET:Clicked Background Color:Keystrokes:-1:false:127
+SET:Fade Delay:Keystrokes:100.0
+SET:Show LMB/RMB:Keystrokes:true
+SET:Show Space:Keystrokes:true
+SET:Replace Names With Arrow:Keystrokes:false
+SET:Keybind:Perspective:56
+SET:1.7 Item Positions:Animations:true
+SET:1.7 Bow Pullback:Animations:true
+SET:1.7 Block Animation:Animations:true
+SET:1.7 Rod Position:Animations:true
+SET:1.7 3rd Person Block Animation:Animations:true
+SET:1.7 Throwing:Animations:true
+SET:1.7 Enchant Glint:Animations:true
+SET:1.7 Skins:Animations:false
+SET:Smooth Sneaking:Animations:true
+SET:No Shaking:Animations:true
+SET:Consume Animation:Animations:true
+SET:Block-Hitting Animation:Animations:true
+SET:Red Armor:Animations:true
+SET:Punching During Usage:Animations:true
+SET:Item Switching Animation:Animations:true
+SET:Remove Health Bar Flashing:Animations:true
+SET:Scale:Armor Status:2.0
+SET:Orientation:Armor Status:Vertical
+SET:Font Shadow:Armor Status:true
+SET:Show Percentage:Armor Status:true
+SET:Percentage Color:Armor Status:-1:false:255
+SET:Fancy Font:Armor Status:false
+SET:Scale:Memory:2.0
+SET:Background:Memory:true
+SET:Background Color:Memory:-16777216:false:127
+SET:Color:Memory:-1:false:255
+SET:Font Shadow:Memory:true
+SET:Brackets:Memory:false
+SET:Fancy Font:Memory:false
+SET:Text After Value:Memory:Mem
+SET:Phrase:Auto GG:gg
+SET:Scale:Potion Hud:2.0
+SET:Font Shadow:Potion Hud:true
+SET:Fancy Font:Potion Hud:false
+SET:Show Potion Name:Potion Hud:true
+SET:Potion Name Color:Potion Hud:-1:false:255
+SET:Show Duration:Potion Hud:true
+SET:Duration Color:Potion Hud:-6513257:false:255
+SET:Potions In Inventory:Potion Hud:true
+SET:Scale:Ping:2.0
+SET:Background:Ping:true
+SET:Background Color:Ping:-16777216:false:127
+SET:Color:Ping:-1:false:255
+SET:Font Shadow:Ping:true
+SET:Brackets:Ping:false
+SET:Fancy Font:Ping:false
+SET:Text After Value:Ping:ms
+SET:Speed:Item Physics:1.0
+SET:Scale:Pack Display:2.0
+SET:Background:Pack Display:true
+SET:Background Color:Pack Display:-16777216:false:127
+SET:Color:Pack Display:-1:false:255
+SET:Font Shadow:Pack Display:true
+SET:Brackets:Pack Display:false
+SET:Fancy Font:Pack Display:false
+SET:Pack Icon:Pack Display:true
+SET:Pack Order:Pack Display:First Pack
+SET:Pack Title Replacement:Pack Display:White Text Only
+SET:Scale:Clock:2.0
+SET:Background:Clock:true
+SET:Background Color:Clock:-16777216:false:127
+SET:Color:Clock:-1:false:255
+SET:Font Shadow:Clock:true
+SET:Brackets:Clock:false
+SET:Fancy Font:Clock:false
+SET:24 Hour Format:Clock:false
+SET:Scale:Speedometer:2.0
+SET:Background:Speedometer:true
+SET:Background Color:Speedometer:-16777216:false:127
+SET:Color:Speedometer:-1:false:255
+SET:Font Shadow:Speedometer:true
+SET:Brackets:Speedometer:false
+SET:Fancy Font:Speedometer:false
+SET:Text After Value:Speedometer:m/s
+SET:Scale:Reach Display:2.0
+SET:Background:Reach Display:true
+SET:Background Color:Reach Display:-16777216:false:127
+SET:Color:Reach Display:-1:false:255
+SET:Font Shadow:Reach Display:true
+SET:Brackets:Reach Display:false
+SET:Fancy Font:Reach Display:false
+SET:Text After Value:Reach Display:blocks
+SET:Scale:Day Counter:2.0
+SET:Background:Day Counter:true
+SET:Background Color:Day Counter:-16777216:false:127
+SET:Color:Day Counter:-1:false:255
+SET:Font Shadow:Day Counter:true
+SET:Brackets:Day Counter:false
+SET:Fancy Font:Day Counter:false
+SET:Text After Value:Day Counter:Days
+SET:Scale:Server Address:2.0
+SET:Background:Server Address:true
+SET:Background Color:Server Address:-16777216:false:127
+SET:Color:Server Address:-1:false:255
+SET:Font Shadow:Server Address:true
+SET:Brackets:Server Address:false
+SET:Fancy Font:Server Address:false
+SET:Text After Value:Server Address:
+SET:Hide Your Name:Nick Hider:true
+SET:Hide Skins:Nick Hider:false
+SET:Use Own Skin For All:Nick Hider:false
+SET:Use Real Skin For Self:Nick Hider:true
+SET:Custom Name:Nick Hider:You
+SET:Time:Time Changer:0.0
+SET:Keybind:Zoom:46
+SET:Scroll:Zoom:false
+SET:Smooth Zoom:Zoom:true
+SET:Zoom Speed:Zoom:14.0
+SET:Factor:Zoom:4.0
+SET:Smooth Camera:Zoom:true
+SET:Scale:Combo Counter:2.0
+SET:Background:Combo Counter:true
+SET:Background Color:Combo Counter:-16777216:false:127
+SET:Color:Combo Counter:-1:false:255
+SET:Font Shadow:Combo Counter:true
+SET:Brackets:Combo Counter:false
+SET:Fancy Font:Combo Counter:false
+SET:Text After Value:Combo Counter:Combo
+SET:Alpha:Hit Color:0.8
+SET:Gold Ingot Scale:UHC Overlay:1.5
+SET:Gold Nugget Scale:UHC Overlay:1.5
+SET:Gold Ore Scale:UHC Overlay:1.5
+SET:Gold Apple Scale:UHC Overlay:1.5
+SET:Skull Scale:UHC Overlay:1.5
+SET:FPS Boost:FPS Boost:true
+SET:Advanced FPS Boost:FPS Boost:false
+SET:Low Graphics Mode:FPS Boost:false
+SET:Hud Optimization:FPS Boost:false
+SET:Optimized Entity Movement:FPS Boost:true
+SET:Lazy Chunk Loading:FPS Boost:Balance
+SET:Occlusion Culling:FPS Boost:Balance
+SET:Hide Tall Grass:FPS Boost:false
+SET:Hide Flowers:FPS Boost:false
+SET:Hide Fences:FPS Boost:false
+SET:Hide Fence Gates:FPS Boost:false
+SET:Hide Armor Stands:FPS Boost:false
+SET:Hide Skulls:FPS Boost:false
+SET:Hide Item Frames:FPS Boost:false
+SET:Hide Maps In Item Frames:FPS Boost:false
+SET:Hide Stuck Arrows:FPS Boost:false
+SET:Hide Ground Arrows:FPS Boost:false
+SET:Hide Lava Particles:FPS Boost:false
+SET:Hide Mob in Spawner:FPS Boost:false
+SET:Hide Spawner Particles:FPS Boost:false
+SET:Player Render Distance:FPS Boost:64.0
+SET:Passive Entity Render Distance:FPS Boost:64.0
+SET:Hostile Entity Render Distance:FPS Boost:64.0
+SET:Misc. Entity Render Distance:FPS Boost:64.0
+SET:Check glError:FPS Boost:false
+SET:Do memory debug:FPS Boost:true
+SET:Preset Crosshair:Crosshair:false
+SET:Preset ID:Crosshair:1
+SET:Type:Crosshair:Cross
+SET:Crosshair Color:Crosshair:-1:false:255
+SET:Player Color:Crosshair:-5231066:false:255
+SET:Hostile Color:Crosshair:-16777216:false:255
+SET:Passive Color:Crosshair:-16777216:false:255
+SET:Outline Color:Crosshair:-16777216:false:255
+SET:Dot Color:Crosshair:-16777216:false:255
+SET:Width:Crosshair:3.0
+SET:Height:Crosshair:3.0
+SET:Gap:Crosshair:2.0
+SET:Thickness:Crosshair:1.0
+SET:Scale:Crosshair:1.0
+SET:Highlight Hostile Mobs:Crosshair:false
+SET:Highlight Passive Mobs:Crosshair:false
+SET:Highlight Players:Crosshair:false
+SET:Crosshair Outline:Crosshair:false
+SET:Crosshair Dot:Crosshair:false
+SET:Vanilla Blendering:Crosshair:true
+SET:Capes:Cosmetics:true
+SET:Cape Type:Cosmetics:Dynamic Curved
+SET:Cape Shoulders:Cosmetics:true
+SET:Wings:Cosmetics:true
+SET:Wings Scale:Cosmetics:1.0
+SET:Bandanas:Cosmetics:true
+SET:Hats:Cosmetics:true
+SET:Shields:Cosmetics:true
+SET:Custom Skins:Cosmetics:true
+SET:Gui Debug:General:false
+SET:Hide mods in F3:General:true
+SET:Vanilla ESC Menu Layout:General:false
+SET:Menu Background Blur:General:true
+SET:Mod Menu Keybind:General:54
+SET:Silent Logo Location:General:Bottom Right Corner
+SET:Silent Button Sounds:General:false
+SET:Menu Animations:General:true
+SET:Menu Animations Speed:General:300.0
+SET:Crosshair in F5:Render:false
+SET:Centered Potion Inventory:Render:true
+SET:Disable Achievements:Render:false
+SET:Model Bobbing Only:Render:false
+SET:Borderless Fullscreen:Render:false
+SET:Weather:Weather:Clear
+SET:Play Thunder Sound:Weather:true
+SET:Background:Tab:true
+SET:Disable Header:Tab:false
+SET:Disable Footer:Tab:false
+SET:Show Ping Numbers:Tab:true
+SET:Show Nametag Icons:Tab:true
+SET:Font Shadow:Chat:true
+SET:Bar Animation:Chat:false
+SET:Smooth:Chat:false
+SET:Smooth Speed:Chat:4.0
+SET:Disable Background:Chat:true
+SET:Anti-Spam:Chat:false
+SET:Dark Background:Inventory Blur:false
+SET:Scale:Coordinates:2.0
+SET:Background:Coordinates:true
+SET:Background Color:Coordinates:-16777216:false:127
+SET:Color:Coordinates:-1:false:255
+SET:Font Shadow:Coordinates:true
+SET:Brackets:Coordinates:false
+SET:Fancy Font:Coordinates:false
+SET:Show Biome:Coordinates:true
+SET:Bounding Box:Hitboxes:true
+SET:Bounding Box Color:Hitboxes:-1:false:255
+SET:Eye Height:Hitboxes:false
+SET:Eye Height Color:Hitboxes:-5231066:false:255
+SET:Look Vector:Hitboxes:false
+SET:Look Vector Color:Hitboxes:-12827479:false:255
+SET:Line Width:Hitboxes:2.0
+SET:Projectile Hitbox:Hitboxes:true
+SET:Arrow Hitbox:Hitboxes:true
+SET:Players Hitbox:Hitboxes:true
+SET:Passive Hitbox:Hitboxes:true
+SET:Monsters Hitbox:Hitboxes:true
+SET:Fireballs Hitbox:Hitboxes:true
+SET:Snowballs Hitbox:Hitboxes:true
+SET:Wither Skulls Hitbox:Hitboxes:true
+SET:Item Drops Hitbox:Hitboxes:true
+SET:Fireworks Hitbox:Hitboxes:true
+SET:XP Orbs Hitbox:Hitboxes:true
+SET:Item Frames Hitbox:Hitboxes:true
+SET:Show in F5:Nametags:true
+SET:Show in F1:Nametags:false
+SET:Background:Nametags:true
+SET:Font Shadow:Nametags:false
+SET:Show Nametag Icons:Nametags:true
+SET:Show Nametag Messages:Nametags:true
+SET:Scale:Scoreboard:1.0
+SET:Background:Scoreboard:true
+SET:Font Shadow:Scoreboard:true
+SET:Numbers:Scoreboard:false
+SET:Outline:Block Overlay:true
+SET:Outline Color:Block Overlay:-1:false:255
+SET:Outline Width:Block Overlay:3.0
+SET:Fill:Block Overlay:true
+SET:Fill Color:Block Overlay:-1:false:127
+SET:Show Sharpness:Particles:true
+SET:Always Sharpness Particles:Particles:false
+SET:Sharpness Multiplier:Particles:1.0
+SET:Show Criticals:Particles:true
+SET:Criticals Multiplier:Particles:1.0
+SET:Only Players Particles:Particles:false
+SET:Cancel Impossible:Particles:false
+SET:New Particles For Impossibles:Particles:false
+SET:Health:Damage Tint:5.0
+SET:Scale:Titles:1.0
+SET:Amount:Color Saturation:1.0
+SET:Boss Bar:Boss Bar:true
+SET:Boss Text:Boss Bar:true
+SET:Hide Direct Messages:ToggleChat:false
+SET:Hide Shout Messages:ToggleChat:false
+SET:Hide In-Game Team Messages:ToggleChat:false
+SET:Hide In-Game Messages (Excludes Team Chat):ToggleChat:false
+SET:Hide Friend Join/Leave Message:ToggleChat:false
+SET:Hide Friend Requests:ToggleChat:false
+SET:Hide Guild Messages:ToggleChat:false
+SET:Hide Guild Join/Leave Messages:ToggleChat:false
+SET:Hide Party Messages:ToggleChat:false
+SET:Hide Party Invites:ToggleChat:false
+SET:Hide Lobby Join Messages:ToggleChat:false
+SET:Fire Height:Pack Tweaks:0.0
+SET:Fire Opacity:Pack Tweaks:0.8999999761581421
+SET:Hide Pumpkin Overlay:Pack Tweaks:false
+SET:Water Fog:Pack Tweaks:true
+SET:Scale:Player Counter:2.0
+SET:Background:Player Counter:true
+SET:Background Color:Player Counter:-16777216:false:127
+SET:Color:Player Counter:-1:false:255
+SET:Font Shadow:Player Counter:true
+SET:Brackets:Player Counter:false
+SET:Fancy Font:Player Counter:false
+SET:Text After Value:Player Counter:Players Online
+SET:Scale:BlockInfo:2.0
+SET:Block Coords:BlockInfo:true
+SET:Correct Tool:BlockInfo:true
+SET:Break Time:BlockInfo:true
+SET:Background:BlockInfo:true
+SET:Background Color:BlockInfo:-16777216:false:127
+SET:Color:BlockInfo:-1:false:255
+SET:Font Shadow:BlockInfo:true
+SET:Fancy Font:BlockInfo:false
+SET:Amount:Motion Blur:0.5
+SET:Open Menu:Quickplay:12
+SET:Quickplay Mode&Hypixel&/lobby main:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/lobby:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/stuck:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/lobby arcade:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play arcade_day_one:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play arcade_bounty_hunters:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play arcade_pvp_ctw:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play arcade_creeper_attack:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play arcade_dragon_wars:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play arcade_ender_spleef:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play arcade_farm_hunt:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play arcade_soccer:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play arcade_starwars:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play arcade_hide_and_seek_party_pooper:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play arcade_hide_and_seek_prop_hunt:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play arcade_hole_in_the_wall:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play arcade_simon_says:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play arcade_santa_says:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play arcade_mini_walls:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play arcade_party_games_1:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play arcade_pixel_painters:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play arcade_throw_out:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play arcade_zombies_dead_end:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play arcade_zombies_bad_blood:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play arcade_zombies_alien_arcadium:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/lobby bedwars:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play bedwars_eight_one:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play bedwars_eight_two:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play bedwars_four_three:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play bedwars_four_four:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play bedwars_two_four:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play bedwars_capture:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play bedwars_eight_two_rush:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play bedwars_four_four_rush:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play bedwars_eight_two_ultimate:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play bedwars_four_four_ultimate:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play bedwars_castle:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play bedwars_eight_two_voidless:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play bedwars_four_four_voidless:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play bedwars_eight two_armed:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play bedwars_four_four_armed:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play bedwars_eight two_lucky:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play bedwars_four_four_lucky:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/lobby blitz:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play blitz_solo_normal:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play blitz_teams_normal:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/lobby buildbattle:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play build_battle_solo_normal:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play build_battle_teams_normal:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play build_battle_solo_pro:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play build_battle_guess_the_build:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/lobby classic:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play vampirez:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play quake_solo:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play quake_teams:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play paintball:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play arena_1v1:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play arena_2v2:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play arena_4v4:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play walls:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play tkr:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/lobby cops:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play mcgo_normal:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play mcgo_deathmatch:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play mcgo_normal_party:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play mcgo_deathmatch_party:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/lobby duels:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play duels_blitz_duel:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play duels_bow_duel:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play duels_bowspleef_duel:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play duels_boxing_duel:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play duels_bridge_duel:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play duels_bridge_doubles:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play duels_bridge_2v2v2v2:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play duels_bridge_threes:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play duels_bridge_3v3v3v3:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play duels_bridge_four:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play duels_capture_threes:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play duels_classic_duel:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play duels_combo_duel:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play duels_mw_duel:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play duels_mw_doubles:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play duels_potion_duel:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play duels_op_duel:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play duels_op_doubles:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play duels_parkour_eight:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play duels_sw_duel:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play duels_sw_doubles:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play duels_sumo_duel:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play duels_uhc_duel:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play duels_uhc_doubles:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play arena_4v4:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play duels_uhc_meetup:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/lobby murder:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play murder_classic:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play murder_assassins:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play murder_infection:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play murder_double_up:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/lobby skywars:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play solo_normal:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play solo_insane:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play teams_normal:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play teams_insane:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play mega_normal:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play mega_doubles:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play solo_insane_tnt_madness:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play teams_insane_tnt_madness:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play solo_insane_rush:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play teams_insane_rush:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play solo_insane_slime:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play teams_insane_slime:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play solo_insane_lucky:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play teams_insane_lucky:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play solo_insane_hunters_vs_beasts:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play super_smash_solo_normal:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play super_smash_2v2_normal:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play super_smash_teams_normal:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play super_smash_friends_normal:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play super_smash_1v1_normal:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/lobby tnt:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play tnt_tntrun:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play tnt_pvprun:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play tnt_bowspleef:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play tnt_tntag:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play tnt_capture:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/lobby warlords:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play warlords_ctf_mini:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play warlords_domination:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play warlords_team_deathmatch:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/lobby woolwars:Quickplay:-1
+SET:Quickplay Mode&Hypixel&/play wool_wool_wars_two_four:Quickplay:-1
+SET:Quickplay Mode&RuHypixel&/lobby:Quickplay:-1
+SET:Quickplay Mode&RuHypixel&/play BLOCK_PARTY:Quickplay:-1
+SET:Quickplay Mode&RuHypixel&/play DROPPER:Quickplay:-1
+SET:Quickplay Mode&RuHypixel&/play MURDERMYSTERY_CLASSIC:Quickplay:-1
+SET:Quickplay Mode&RuHypixel&/play BEDWARS_SOLO:Quickplay:-1
+SET:Quickplay Mode&RuHypixel&/play BEDWARS_TEAM:Quickplay:-1
+SET:Quickplay Mode&RuHypixel&/play BEDWARS_3v3v3v3:Quickplay:-1
+SET:Quickplay Mode&RuHypixel&/play BEDWARS_4v4v4v4:Quickplay:-1
+SET:Quickplay Mode&RuHypixel&/play BEDWARS_DUELS:Quickplay:-1
+SET:Quickplay Mode&RuHypixel&/play DUEL_THE_BRIDGE:Quickplay:-1
+SET:Quickplay Mode&RuHypixel&/play DUEL_BOXING:Quickplay:-1
+SET:Quickplay Mode&RuHypixel&/play DUEL_CLASSIC:Quickplay:-1
+SET:Quickplay Mode&RuHypixel&/play DUEL_COMBO:Quickplay:-1
+SET:Quickplay Mode&RuHypixel&/play DUEL_NODEBUFF:Quickplay:-1
+SET:Quickplay Mode&RuHypixel&/play DUEL_OP:Quickplay:-1
+SET:Quickplay Mode&RuHypixel&/play DUEL_PEARL_FIGHT:Quickplay:-1
+SET:Quickplay Mode&RuHypixel&/play SKYWARS_DUELS:Quickplay:-1
+SET:Quickplay Mode&RuHypixel&/play DUEL_STICK_DUELS:Quickplay:-1
+SET:Quickplay Mode&RuHypixel&/play DUEL_SUMO:Quickplay:-1
+SET:Quickplay Mode&RuHypixel&/play DUEL_UHC:Quickplay:-1
+SET:Quickplay Mode&RuHypixel&/play SKYWARS_SOLO_INSANE:Quickplay:-1
+SET:Quickplay Mode&RuHypixel&/play SKYWARS_TEAM_INSANE:Quickplay:-1
+SET:Quickplay Mode&RuHypixel&/play SKYWARS_RANKED:Quickplay:-1
+SET:Quickplay Mode&RuHypixel&/play TNT_RUN:Quickplay:-1
+SET:Quickplay Mode&RuHypixel&/play TNT_TAG:Quickplay:-1
+ATC:/ce fushka:40

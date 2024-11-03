@@ -1,0 +1,146 @@
+[
+  {
+    "name": "Lobby",
+    "icon": "ruhypixel",
+    "modes": [
+      {
+        "name": "Go to Lobby",
+        "command": "/lobby"
+      }
+    ]
+  },
+  {
+    "name": "Arcade",
+    "icon": "arcade",
+    "modes": [
+      {
+        "name": "Block Party",
+        "command": "/play BLOCK_PARTY"
+      },
+      {
+        "name": "Dropper",
+        "command": "/play DROPPER"
+      },
+      {
+        "name": "Murder Mystery",
+        "command": "/play MURDERMYSTERY_CLASSIC"
+      }
+    ]
+  },
+  {
+    "name": "Bed Wars",
+    "icon": "bedwars",
+    "modes": [
+      {
+        "name": "Solo",
+        "command": "/play BEDWARS_SOLO"
+      },
+      {
+        "name": "Doubles",
+        "command": "/play BEDWARS_TEAM"
+      },
+      {
+        "name": "3v3v3v3",
+        "command": "/play BEDWARS_3v3v3v3"
+      },
+      {
+        "name": "4v4v4v4",
+        "command": "/play BEDWARS_4v4v4v4"
+      }
+    ]
+  },
+  {
+    "name": "Duels",
+    "icon": "duels",
+    "modes": [
+      {
+        "name": "Bed Wars",
+        "command": "/play BEDWARS_DUELS"
+      },
+      {
+        "name": "Bridge",
+        "command": "/play DUEL_THE_BRIDGE"
+      },
+      {
+        "name": "Boxing",
+        "command": "/play DUEL_BOXING"
+      },
+      {
+        "name": "Classic",
+        "command": "/play DUEL_CLASSIC"
+      },
+      {
+        "name": "Combo",
+        "command": "/play DUEL_COMBO"
+      },
+      {
+        "name": "Fireball Fight",
+        "command": "/play DUEL_FIREBALL_FIGHT"
+      },
+      {
+        "name": "Fireball Fight Extreme",
+        "command": "/play DUEL_FIREBALL_FIGHT_EXTREME"
+      },
+      {
+        "name": "NoDebuff",
+        "command": "/play DUEL_NODEBUFF"
+      },
+      {
+        "name": "OP",
+        "command": "/play DUEL_OP"
+      },
+      {
+        "name": "Pearl Fight",
+        "command": "/play DUEL_PEARL_FIGHT"
+      },
+      {
+        "name": "Sky Wars",
+        "command": "/play SKYWARS_DUELS"
+      },
+      {
+        "name": "Stick Fight",
+        "command": "/play DUEL_STICK_DUELS"
+      },
+      {
+        "name": "Sumo",
+        "command": "/play DUEL_SUMO"
+      },
+      {
+        "name": "UHC",
+        "command": "/play DUEL_UHC"
+      }
+    ]
+  },
+  {
+    "name": "SkyWars",
+    "icon": "skywars",
+    "modes": [
+      {
+        "name": "Solo",
+        "command": "/play SKYWARS_SOLO_INSANE"
+      },
+      {
+        "name": "Teams",
+        "command": "/play SKYWARS_TEAM_INSANE"
+      },
+      {
+        "name": "Ranked",
+        "command": "/play SKYWARS_RANKED"
+      }
+    ]
+  },
+  {
+    "name": "TNT Games",
+    "icon": "tnt",
+    "modes": [
+      {
+        "name": "TNT Run",
+        "command": "/play TNT_RUN"
+      },
+      {
+        "name": "TNT Tag",
+        "command": "/play TNT_TAG"
+      }
+    ]
+  }
+]

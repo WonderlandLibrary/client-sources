@@ -1,0 +1,11 @@
+{
+	"required": true,
+	"package": "com.minus.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [
+      "KeyboardMixin","ChatInputMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

@@ -1,0 +1,100 @@
+###VERTEX SHADER
+#version 150 compatibility
+
+out vec4 passColour;
+
+void main()
+{
+    gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;
+    gl_TexCoord[0] = gl_MultiTexCoord0;
+
+    passColour = gl_Color;
+}
+
+###FRAGMENT SHADER
+#version 150 compatibility
+
+in vec4 passColour;
+uniform sampler2D textureIn;
+uniform int bed_colour;
+uniform int bed_colour_s;
+uniform int bed_colour_v;
+uniform int bed_colour_enabled;
+
+uniform vec4 bed_feet_end;
+uniform vec4 bed_feet_side;
+uniform vec4 bed_feet_top;
+uniform vec4 bed_head_end;
+uniform vec4 bed_head_side;
+uniform vec4 bed_head_top;
+
+//Algorithm by sam hocevar
+vec3 rgb2hsv(vec3 c) {
+    vec4 K = vec4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
+    vec4 p = mix(vec4(c.bg, K.wz), vec4(c.gb, K.xy), step(c.b, c.g));
+    vec4 q = mix(vec4(p.xyw, c.r), vec4(c.r, p.yzx), step(p.x, c.r));
+
+    float d = q.x - min(q.w, q.y);
+    float e = 1.0e-10;
+    return vec3(abs(q.z + (q.w - q.y) / (6.0 * d + e)), d / (q.x + e), q.x);
+}
+
+//Algorithm by hughsk
+vec3 hsv2rgb(vec3 c) {
+  vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
+  vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);
+  return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
+}
+
+bool shouldDoColourChange(vec3 texCoord, vec3 fragColor) {
+    float total = fragColor.r + fragColor.g + fragColor.b;
+
+    if(texCoord.x > bed_feet_end.x && texCoord.x < bed_feet_end.y) {
+        if(texCoord.y > bed_feet_end.z && texCoord.y < bed_feet_end.w) {
+            return fragColor.r/total > 0.6;
+        }
+    }
+    if(texCoord.x > bed_feet_side.x && texCoord.x < bed_feet_side.y) {
+        if(texCoord.y > bed_feet_side.z && texCoord.y < bed_feet_side.w) {
+            return fragColor.r/total > 0.6;
+        }
+    }
+    if(texCoord.x > bed_feet_top.x && texCoord.x < bed_feet_top.y) {
+        if(texCoord.y > bed_feet_top.z && texCoord.y < bed_feet_top.w) {
+            return fragColor.r/total > 0.45;
+        }
+    }
+    if(texCoord.x > bed_head_end.x && texCoord.x < bed_head_end.y) {
+        if(texCoord.y > bed_head_end.z && texCoord.y < bed_head_end.w) {
+            return fragColor.r/total > 0.6;
+        }
+    }
+    if(texCoord.x > bed_head_side.x && texCoord.x < bed_head_side.y) {
+        if(texCoord.y > bed_head_side.z && texCoord.y < bed_head_side.w) {
+            return fragColor.r/total > 0.6;
+        }
+    }
+    if(texCoord.x > bed_head_top.x && texCoord.x < bed_head_top.y) {
+        if(texCoord.y > bed_head_top.z && texCoord.y < bed_head_top.w) {
+            return fragColor.r/total > 0.45;
+        }
+    }
+
+    return false;
+}
+
+void main()
+{
+    vec4 texture = texture2D(textureIn, gl_TexCoord[0].st);
+    gl_FragColor = texture * passColour;
+
+    if(bed_colour_enabled != 0) {
+        if(shouldDoColourChange(gl_TexCoord[0].xyz, gl_FragColor.rgb)) {
+            vec3 hsv = rgb2hsv(gl_FragColor.rgb);
+            hsv.x = bed_colour/360f;
+            hsv.y += bed_colour_s/100f;
+            hsv.z += bed_colour_v/100f;
+            gl_FragColor.rgb = hsv2rgb(hsv);
+        }
+    }
+}

@@ -1,0 +1,216 @@
+{
+  "name": "Alex",
+  "primaryMesh": "body",
+  "scale": 0.9375,
+  "scaleItems": 1,
+  "scaleGui": 0.9375,
+  "renderHeldItems": true,
+  "leftHands": {
+    "low_left_arm.end": {
+      "rx": -90,
+      "ry": 180,
+      "z": -0.1,
+      "y": 0.1
+    }
+  },
+  "rightHands": {
+    "low_right_arm.end": {
+      "rx": -90,
+      "ry": 180,
+      "z": -0.1,
+      "y": 0.1
+    }
+  },
+  "head": "head",
+  "meshes": {
+    "prop_popcorn": {
+      "visible": false,
+      "normals": true,
+      "smooth": true,
+      "texture": "silentclient/emotes/models/props/popcorn.png"
+    },
+    "prop_grave": {
+      "visible": false,
+      "normals": true,
+      "texture": "silentclient/emotes/models/props/grave.png"
+    },
+    "prop_grave_base": {
+      "visible": false,
+      "normals": true,
+      "texture": "minecraft:textures/blocks/dirt.png"
+    },
+    "prop_coffin": {
+      "visible": false,
+      "normals": true,
+      "texture": "silentclient/emotes/models/props/coffin.png"
+    },
+    "prop_broom": {
+      "visible": false,
+      "normals": true,
+      "smooth": true,
+      "texture": "silentclient/emotes/models/props/broom.png"
+    },
+    "prop_candy_bag": {
+      "visible": false,
+      "normals": true,
+      "texture": "silentclient/emotes/models/props/candy_bag.png"
+    },
+    "prop_football": {
+      "visible": false,
+      "normals": true,
+      "smooth": true,
+      "texture": "silentclient/emotes/models/props/football.png"
+    },
+    "prop_turkey": {
+      "visible": false,
+      "normals": true,
+      "texture": "silentclient/emotes/models/props/turkey.png"
+    },
+    "prop_hunt_gun": {
+      "visible": false,
+      "normals": true,
+      "texture": "silentclient/emotes/models/props/hunt_gun.png"
+    },
+    "prop_cloud": {
+      "visible": false,
+      "normals": true,
+      "smooth": true,
+      "texture": "silentclient/emotes/models/props/cloud.png"
+    },
+    "prop_present": {
+      "visible": false,
+      "normals": true,
+      "texture": "silentclient/emotes/models/props/present.png"
+    },
+    "prop_iceberg": {
+      "visible": false,
+      "normals": true,
+      "texture": "minecraft:textures/blocks/ice.png"
+    },
+    "prop_chimney": {
+      "visible": false,
+      "normals": true,
+      "texture": "silentclient/emotes/models/props/chimney.png"
+    },
+    "prop_snowman_head": {
+      "visible": false,
+      "normals": true,
+      "texture": "minecraft:textures/entity/snowman.png"
+    },
+    "prop_snowman_body": {
+      "visible": false,
+      "normals": true,
+      "texture": "minecraft:textures/entity/snowman.png"
+    },
+    "prop_snowman_butt": {
+      "visible": false,
+      "normals": true,
+      "texture": "minecraft:textures/entity/snowman.png"
+    },
+    "prop_skates": {
+      "visible": false,
+      "normals": true,
+      "texture": "silentclient/emotes/models/props/skates.png"
+    },
+    "prop_champagne_bottle": {
+      "visible": false,
+      "normals": true,
+      "texture": "silentclient/emotes/models/props/palette.png"
+    },
+    "prop_champagne_cork": {
+      "visible": false,
+      "normals": true,
+      "texture": "silentclient/emotes/models/props/palette.png"
+    },
+    "prop_champagne_flying_cork": {
+      "visible": false,
+      "normals": true,
+      "texture": "silentclient/emotes/models/props/palette.png"
+    },
+    "prop_rocket": {
+      "visible": false,
+      "normals": true,
+      "texture": "silentclient/emotes/models/props/palette.png"
+    },
+    "prop_rocket_base": {
+      "visible": false,
+      "normals": true,
+      "texture": "silentclient/emotes/models/props/palette.png"
+    },
+    "prop_heart": {
+      "visible": false,
+      "normals": true,
+      "texture": "silentclient/emotes/models/props/heart.png"
+    },
+    "prop_heart_1": {
+      "visible": false,
+      "normals": true,
+      "texture": "silentclient/emotes/models/props/heart.png"
+    },
+    "prop_heart_2": {
+      "visible": false,
+      "normals": true,
+      "texture": "silentclient/emotes/models/props/heart.png"
+    },
+    "prop_rose": {
+      "visible": false,
+      "normals": true,
+      "texture": "silentclient/emotes/models/props/rose.png"
+    },
+    "body": {
+      "normals": true,
+      "smooth": true,
+      "texture": "minecraft:textures/entity/alex.png"
+    },
+    "headwear": {
+      "normals": true,
+      "smooth": true,
+      "texture": "minecraft:textures/entity/alex.png"
+    },
+    "bodywear": {
+      "normals": true,
+      "smooth": true,
+      "texture": "minecraft:textures/entity/alex.png"
+    },
+    "left_armwear": {
+      "normals": true,
+      "smooth": true,
+      "texture": "minecraft:textures/entity/alex.png"
+    },
+    "left_legwear": {
+      "normals": true,
+      "smooth": true,
+      "texture": "minecraft:textures/entity/alex.png"
+    },
+    "right_armwear": {
+      "normals": true,
+      "smooth": true,
+      "texture": "minecraft:textures/entity/alex.png"
+    },
+    "right_legwear": {
+      "normals": true,
+      "smooth": true,
+      "texture": "minecraft:textures/entity/alex.png"
+    },
+    "armor_helmet": {
+      "visible": false,
+      "normals": true,
+      "smooth": true
+    },
+    "armor_chest": {
+      "visible": false,
+      "normals": true,
+      "smooth": true
+    },
+    "armor_leggings": {
+      "visible": false,
+      "normals": true,
+      "smooth": true
+    },
+    "armor_feet": {
+      "visible": false,
+      "normals": true,
+      "smooth": true
+    }
+  }
+}

@@ -1,0 +1,397 @@
+package com.viaversion.viaversion.connection;
+
+import com.google.common.cache.CacheBuilder;
+import com.viaversion.viaversion.api.Via;
+import com.viaversion.viaversion.api.connection.ProtocolInfo;
+import com.viaversion.viaversion.api.connection.StorableObject;
+import com.viaversion.viaversion.api.connection.UserConnection;
+import com.viaversion.viaversion.api.data.entity.EntityTracker;
+import com.viaversion.viaversion.api.protocol.Protocol;
+import com.viaversion.viaversion.api.protocol.packet.Direction;
+import com.viaversion.viaversion.api.protocol.packet.PacketTracker;
+import com.viaversion.viaversion.api.protocol.packet.PacketWrapper;
+import com.viaversion.viaversion.api.protocol.packet.State;
+import com.viaversion.viaversion.api.type.Type;
+import com.viaversion.viaversion.exception.CancelException;
+import com.viaversion.viaversion.protocol.packet.PacketWrapperImpl;
+import com.viaversion.viaversion.util.ChatColorUtil;
+import com.viaversion.viaversion.util.PipelineUtil;
+import io.netty.buffer.ByteBuf;
+import io.netty.channel.Channel;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelHandlerContext;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicLong;
+import java.util.function.Function;
+import org.checkerframework.checker.nullness.qual.Nullable;
+
+public class UserConnectionImpl implements UserConnection {
+   private static final AtomicLong IDS = new AtomicLong();
+   private final long id = IDS.incrementAndGet();
+   private final Map<Class<?>, StorableObject> storedObjects = new ConcurrentHashMap<>();
+   private final Map<Class<? extends Protocol>, EntityTracker> entityTrackers = new HashMap<>();
+   private final PacketTracker packetTracker = new PacketTracker(this);
+   private final Set<UUID> passthroughTokens = Collections.newSetFromMap(CacheBuilder.newBuilder().expireAfterWrite(10L, TimeUnit.SECONDS).build().asMap());
+   private final ProtocolInfo protocolInfo = new ProtocolInfoImpl(this);
+   private final Channel channel;
+   private final boolean clientSide;
+   private boolean active = true;
+   private boolean pendingDisconnect;
+   private boolean packetLimiterEnabled = true;
+
+   public UserConnectionImpl(@Nullable Channel channel, boolean clientSide) {
+      this.channel = channel;
+      this.clientSide = clientSide;
+   }
+
+   public UserConnectionImpl(@Nullable Channel channel) {
+      this(channel, false);
+   }
+
+   @Nullable
+   @Override
+   public <T extends StorableObject> T get(Class<T> objectClass) {
+      return (T)this.storedObjects.get(objectClass);
+   }
+
+   @Override
+   public boolean has(Class<? extends StorableObject> objectClass) {
+      return this.storedObjects.containsKey(objectClass);
+   }
+
+   @Nullable
+   @Override
+   public <T extends StorableObject> T remove(Class<T> objectClass) {
+      StorableObject object = this.storedObjects.remove(objectClass);
+      if (object != null) {
+         object.onRemove();
+      }
+
+      return (T)object;
+   }
+
+   @Override
+   public void put(StorableObject object) {
+      StorableObject previousObject = this.storedObjects.put(object.getClass(), object);
+      if (previousObject != null) {
+         previousObject.onRemove();
+      }
+   }
+
+   @Override
+   public Collection<EntityTracker> getEntityTrackers() {
+      return this.entityTrackers.values();
+   }
+
+   @Nullable
+   @Override
+   public <T extends EntityTracker> T getEntityTracker(Class<? extends Protocol> protocolClass) {
+      return (T)this.entityTrackers.get(protocolClass);
+   }
+
+   @Override
+   public void addEntityTracker(Class<? extends Protocol> protocolClass, EntityTracker tracker) {
+      if (!this.entityTrackers.containsKey(protocolClass)) {
+         this.entityTrackers.put(protocolClass, tracker);
+      }
+   }
+
+   @Override
+   public void clearStoredObjects(boolean isServerSwitch) {
+      if (isServerSwitch) {
+         this.storedObjects.values().removeIf(storableObject -> {
+            if (storableObject.clearOnServerSwitch()) {
+               storableObject.onRemove();
+               return true;
+            } else {
+               return false;
+            }
+         });
+
+         for (EntityTracker tracker : this.entityTrackers.values()) {
+            tracker.clearEntities();
+            tracker.trackClientEntity();
+         }
+      } else {
+         for (StorableObject object : this.storedObjects.values()) {
+            object.onRemove();
+         }
+
+         this.storedObjects.clear();
+         this.entityTrackers.clear();
+      }
+   }
+
+   @Override
+   public void sendRawPacket(ByteBuf packet) {
+      this.sendRawPacket(packet, true);
+   }
+
+   @Override
+   public void scheduleSendRawPacket(ByteBuf packet) {
+      this.sendRawPacket(packet, false);
+   }
+
+   private void sendRawPacket(ByteBuf packet, boolean currentThread) {
+      Runnable act;
+      if (this.clientSide) {
+         act = () -> this.getChannel().pipeline().context(Via.getManager().getInjector().getDecoderName()).fireChannelRead(packet);
+      } else {
+         act = () -> this.channel.pipeline().context(Via.getManager().getInjector().getEncoderName()).writeAndFlush(packet);
+      }
+
+      if (currentThread) {
+         act.run();
+      } else {
+         try {
+            this.channel.eventLoop().submit(act);
+         } catch (Throwable var5) {
+            packet.release();
+            var5.printStackTrace();
+         }
+      }
+   }
+
+   @Override
+   public ChannelFuture sendRawPacketFuture(ByteBuf packet) {
+      if (this.clientSide) {
+         this.getChannel().pipeline().context(Via.getManager().getInjector().getDecoderName()).fireChannelRead(packet);
+         return this.getChannel().newSucceededFuture();
+      } else {
+         return this.channel.pipeline().context(Via.getManager().getInjector().getEncoderName()).writeAndFlush(packet);
+      }
+   }
+
+   @Override
+   public PacketTracker getPacketTracker() {
+      return this.packetTracker;
+   }
+
+   @Override
+   public void disconnect(String reason) {
+      if (this.channel.isOpen() && !this.pendingDisconnect) {
+         this.pendingDisconnect = true;
+         Via.getPlatform().runSync(() -> {
+            if (!Via.getPlatform().disconnect(this, ChatColorUtil.translateAlternateColorCodes(reason))) {
+               this.channel.close();
+            }
+         });
+      }
+   }
+
+   @Override
+   public void sendRawPacketToServer(ByteBuf packet) {
+      if (this.clientSide) {
+         this.sendRawPacketToServerClientSide(packet, true);
+      } else {
+         this.sendRawPacketToServerServerSide(packet, true);
+      }
+   }
+
+   @Override
+   public void scheduleSendRawPacketToServer(ByteBuf packet) {
+      if (this.clientSide) {
+         this.sendRawPacketToServerClientSide(packet, false);
+      } else {
+         this.sendRawPacketToServerServerSide(packet, false);
+      }
+   }
+
+   private void sendRawPacketToServerServerSide(ByteBuf packet, boolean currentThread) {
+      ByteBuf buf = packet.alloc().buffer();
+
+      try {
+         ChannelHandlerContext context = PipelineUtil.getPreviousContext(Via.getManager().getInjector().getDecoderName(), this.channel.pipeline());
+         if (this.shouldTransformPacket()) {
+            try {
+               Type.VAR_INT.writePrimitive(buf, 1000);
+               Type.UUID.write(buf, this.generatePassthroughToken());
+            } catch (Exception var12) {
+               throw new RuntimeException(var12);
+            }
+         }
+
+         buf.writeBytes(packet);
+         Runnable act = () -> {
+            if (context != null) {
+               context.fireChannelRead(buf);
+            } else {
+               this.channel.pipeline().fireChannelRead(buf);
+            }
+         };
+         if (currentThread) {
+            act.run();
+         } else {
+            try {
+               this.channel.eventLoop().submit(act);
+            } catch (Throwable var11) {
+               buf.release();
+               throw var11;
+            }
+         }
+      } finally {
+         packet.release();
+      }
+   }
+
+   private void sendRawPacketToServerClientSide(ByteBuf packet, boolean currentThread) {
+      Runnable act = () -> this.getChannel().pipeline().context(Via.getManager().getInjector().getEncoderName()).writeAndFlush(packet);
+      if (currentThread) {
+         act.run();
+      } else {
+         try {
+            this.getChannel().eventLoop().submit(act);
+         } catch (Throwable var5) {
+            var5.printStackTrace();
+            packet.release();
+         }
+      }
+   }
+
+   @Override
+   public boolean checkServerboundPacket() {
+      return this.pendingDisconnect ? false : !this.packetLimiterEnabled || !this.packetTracker.incrementReceived() || !this.packetTracker.exceedsMaxPPS();
+   }
+
+   @Override
+   public boolean checkClientboundPacket() {
+      this.packetTracker.incrementSent();
+      return true;
+   }
+
+   @Override
+   public boolean shouldTransformPacket() {
+      return this.active;
+   }
+
+   @Override
+   public void transformClientbound(ByteBuf buf, Function<Throwable, Exception> cancelSupplier) throws Exception {
+      this.transform(buf, Direction.CLIENTBOUND, cancelSupplier);
+   }
+
+   @Override
+   public void transformServerbound(ByteBuf buf, Function<Throwable, Exception> cancelSupplier) throws Exception {
+      this.transform(buf, Direction.SERVERBOUND, cancelSupplier);
+   }
+
+   private void transform(ByteBuf buf, Direction direction, Function<Throwable, Exception> cancelSupplier) throws Exception {
+      if (buf.isReadable()) {
+         int id = Type.VAR_INT.readPrimitive(buf);
+         if (id == 1000) {
+            if (!this.passthroughTokens.remove(Type.UUID.read(buf))) {
+               throw new IllegalArgumentException("Invalid token");
+            }
+         } else {
+            PacketWrapper wrapper = new PacketWrapperImpl(id, buf, this);
+            State state = this.protocolInfo.getState(direction);
+
+            try {
+               this.protocolInfo.getPipeline().transform(direction, state, wrapper);
+            } catch (CancelException var12) {
+               throw cancelSupplier.apply(var12);
+            }
+
+            ByteBuf transformed = buf.alloc().buffer();
+
+            try {
+               wrapper.writeToBuffer(transformed);
+               buf.clear().writeBytes(transformed);
+            } finally {
+               transformed.release();
+            }
+         }
+      }
+   }
+
+   @Override
+   public long getId() {
+      return this.id;
+   }
+
+   @Nullable
+   @Override
+   public Channel getChannel() {
+      return this.channel;
+   }
+
+   @Override
+   public ProtocolInfo getProtocolInfo() {
+      return this.protocolInfo;
+   }
+
+   @Override
+   public Map<Class<?>, StorableObject> getStoredObjects() {
+      return this.storedObjects;
+   }
+
+   @Override
+   public boolean isActive() {
+      return this.active;
+   }
+
+   @Override
+   public void setActive(boolean active) {
+      this.active = active;
+   }
+
+   @Override
+   public boolean isPendingDisconnect() {
+      return this.pendingDisconnect;
+   }
+
+   @Override
+   public void setPendingDisconnect(boolean pendingDisconnect) {
+      this.pendingDisconnect = pendingDisconnect;
+   }
+
+   @Override
+   public boolean isClientSide() {
+      return this.clientSide;
+   }
+
+   @Override
+   public boolean shouldApplyBlockProtocol() {
+      return !this.clientSide;
+   }
+
+   @Override
+   public boolean isPacketLimiterEnabled() {
+      return this.packetLimiterEnabled;
+   }
+
+   @Override
+   public void setPacketLimiterEnabled(boolean packetLimiterEnabled) {
+      this.packetLimiterEnabled = packetLimiterEnabled;
+   }
+
+   @Override
+   public UUID generatePassthroughToken() {
+      UUID token = UUID.randomUUID();
+      this.passthroughTokens.add(token);
+      return token;
+   }
+
+   @Override
+   public boolean equals(Object o) {
+      if (this == o) {
+         return true;
+      } else if (o != null && this.getClass() == o.getClass()) {
+         UserConnectionImpl that = (UserConnectionImpl)o;
+         return this.id == that.id;
+      } else {
+         return false;
+      }
+   }
+
+   @Override
+   public int hashCode() {
+      return Long.hashCode(this.id);
+   }
+}
