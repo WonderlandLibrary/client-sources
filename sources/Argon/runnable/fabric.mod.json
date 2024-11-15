@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "argon",
+  "version": "1.2.11+1.20.4",
+  "name": "Argon",
+  "description": "generic cw client",
+  "authors": [
+    "some dev"
+  ],
+  "environment": "client",
+  "entrypoints": {
+    "main": [
+      "dev.lvstrng.argon.Initializer"
+    ]
+  },
+  "mixins": [
+    "argon.mixins.json"
+  ],
+  "depends": {
+    "minecraft": "~1.20"
+  }
+}

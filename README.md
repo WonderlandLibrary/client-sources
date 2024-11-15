@@ -132,6 +132,7 @@
 - Excellent
 - Execution 2.0 Recode
 - Exhibition 081618
+- Exhibition 081618 Forge
 - Exhibition 5.0
 - Exist 0.71
 - Exodus 5.4
