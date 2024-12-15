@@ -1,0 +1,15 @@
+@everyone **Rise 6.0.22 Beta Update Release Candidate 2**
+
+**Hypixel**
+- Watchdog AutoBlock
+- Breaker Improvements
+- Watchdog Velocity
+- Watchdog Inventory Move
+- Breaker is vastly improved
+
+**Fixes/Improvements**
+- Fixed Sound if you haven't done the soundfix, requires launcher replacement, make sure to copy the rise folder out of launcher/save, then paste it into the new one to keep your configs, scripts ect
+- Bug Fixes
+- Performance Improvements
+
+https://workupload.com/file/LkKxgerUY3t

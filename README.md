@@ -375,6 +375,7 @@
 - Rise 5.99
 - Rise 6.0
 - Rise 6.1.30
+- Rise 6.2.4
 - Rivals Clicker
 - RoseGold 1.1.0
 - Safeguard b3.3.4
